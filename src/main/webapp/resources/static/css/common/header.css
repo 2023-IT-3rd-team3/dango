@@ -1,0 +1,55 @@
+header {
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid rgb(221,221,221);
+    top: 0;
+    z-index: 100;
+}
+#logo {
+    font-family: "Nico Moji";
+    font-size: 24px;
+    color: rgb(255, 23, 68);
+}
+header > div {
+    width: 1080px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header > div > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav {
+    width: 500px;
+    margin-left: 120px;
+}
+nav > a {
+    margin-right: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all 0.2s ease 0s;
+}
+nav > a:hover {
+    color: rgb(255, 23, 68);
+}
+#login {
+    color: rgb(255, 23, 68);
+    border: 1px solid rgb(221,221,221);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease 0s;
+    width: 129px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login:hover {
+    color: #fff;
+    background-color: rgb(255, 23, 68);
+}
