@@ -2,15 +2,14 @@
 	display: table;
 	table-layout: fixed;
 	height: 100%;
-	margin: auto;
-	padding: 100px;
+	margin: 162px 10px -300px 10px;
+	padding: 20px 400px 0px 450px;
+	align-items: center;
 }
 
 #content {
 	display: table-cell;
 	width: 80%;
-	margin-right: 10px;
-	border-right: 1px solid #e5e5e5;
     vertical-align: top;
 }
 
@@ -37,7 +36,7 @@
 #conversation_view {
 	padding-top: 0;
 	border-top: 0;
-	margin: 118px 0 -14px;
+	margin: 5px 0 -14px;
 	line-height: 200%;
 }
 
@@ -154,4 +153,8 @@
     border-spacing: 15px;
     border: 1px solid;
     padding: 0;
+}
+
+.search_box {
+	
 }
