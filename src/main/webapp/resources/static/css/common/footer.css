@@ -1,0 +1,35 @@
+html, body {
+	height: 80%
+}
+
+#logo {
+    font-family: "Nico Moji";
+    font-size: 24px;
+    color: rgb(255, 23, 68);
+}
+
+.wrapper {
+	min-height: cal(100vh - 10rem);
+	position: relative;
+	padding-bottom: 60px;
+}
+
+
+footer {
+	position: relative;
+	height: 200px;
+	bottom: 0px;
+	background-color: #dcdcdc;
+	transform: translatY(-100%);
+	border-top: 1px solid black;
+}
+
+footer > p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+footer > p > span {
+	display: inline-block;
+	margin-left: 20px;
+}

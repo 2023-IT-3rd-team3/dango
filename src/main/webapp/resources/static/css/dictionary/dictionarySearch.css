@@ -1,0 +1,43 @@
+#container {
+	display: table;
+	table-layout: fixed;
+	height: 100%;
+	margin: auto;
+	padding: 100px;
+}
+
+#content {
+	display: table-cell;
+	width: 80%;
+	margin-right: 10px;
+	border-right: 1px solid #e5e5e5;
+    vertical-align: top;
+}
+
+#aside {
+	display: table-cell;
+	width: 15%;
+    padding: 0 0 30px 25px;
+    vertical-align: top;
+}
+
+.voca_view {
+	padding-top: 0;
+	border-top: 0;
+	margin: 118px 0 -14px;
+	border-top: 1px solid black;
+}
+
+.voca_viewBox {
+	display: table;
+    table-layout: fixed;
+    width: 90%;
+    margin: 15px 0 -14px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    border: 3px solid #FFE3EE;
+    border-radius: 8px;
+    padding: 0;
+    text-align: center;
+    line-height: 4;
+}
