@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
 <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
 <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
 <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
@@ -34,18 +35,21 @@
 
 <section id="container" class="wrapper">
 	<div id="content">
-		<div class="search_view">
-			<div class="search_viewBox">
-			<p class="sentence_JP">일본어 사전</p>
-				<form>
-				<input type="text" class="search input">
-				<button type="submit">검색</button>
+		<div>
+			<div>
+				<form class="search_box">
+				<fieldset id="search_area">
+				<input type="search" placeholder="일본어 검색" class="search_input">
+				<button type="submit" value="검색" class="search_button"><i class="fa fa-search"></i></button>
+				</fieldset>
 				</form>
 			</div>
 		</div>
 		
-		<div id="voca_view">
-			<h3>수준 : N1</h3>
+		<div class="voca_view">
+			<div id="voca_viewinfo">
+				<h3>수준 : N1</h3>
+			</div>
 			<div class="voca_viewBox">
 				<div class="mean">
 					<p class="sentence_JP">へこ-む [凹む]</p>

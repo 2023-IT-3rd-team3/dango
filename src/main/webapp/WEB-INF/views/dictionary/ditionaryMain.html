@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
 <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
 <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
 <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
@@ -33,17 +34,16 @@
 
 <div id="container" class="wrapper">
 	<div id="content">
-	<div class="serch_box">
-		<div class="search">
+		<div>
 			<div>
-			<h2>일본어 사전</h2>
-				<form>
-				<input type="text" class="search input">
-				<button type="submit">검색</button>
+				<form id="search_box">
+				<fieldset id="search_area">
+				<input type="search" placeholder="일본어 검색" class="search_input">
+				<button type="submit" value="검색" class="search_button"><i class="fa fa-search"></i></button>
+				</fieldset>
 				</form>
 			</div>
 		</div>
-	</div>
 		<div id="conversation_view">
 			<h3>오늘의 회화</h3>
 			<div class="conversation_viewBox">
@@ -53,7 +53,7 @@
 		</div>
 		
 		<div id="jlptword_view">
-		<h2>오늘의 단어</h2>
+		<h2>오늘의 단어 <a href="#">▶</a></h2>
 			<div class="jlptword_viewBox">
 				<div class="jlptword_viewBox1">
 					<h2>N1급</h2><br>
@@ -77,7 +77,7 @@
 	
 	<div id="community_view">
 		<div>
-			<h2>커뮤니티</h2><br>
+			<h2>커뮤니티 <a href="#">▶</a></h2><br>
 			<div class="conversation_viewBox">
 				<h3>게시번호 &nbsp; &nbsp; &nbsp; &nbsp; 작성자 &nbsp; &nbsp; &nbsp; &nbsp; 글 제목 </h3>
 			</div>
