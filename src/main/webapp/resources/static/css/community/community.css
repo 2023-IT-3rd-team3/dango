@@ -39,10 +39,15 @@
 .CoummnityClass{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 20px auto;
     padding: 20px;
     background-color: rgb(225, 245, 245);
     width: 95%;
+}
+.CoummnityClasshead{
+    display: flex;
+    flex-direction: row;
 }
 .CoummnityClassTitle{
     margin-left: 50px;
@@ -55,7 +60,6 @@
     font-size: 12px;
 }
 .CoummnityClassLink{
-    margin-left: 250px;
     font-size: 12px;
     font-weight: bold;
 }
