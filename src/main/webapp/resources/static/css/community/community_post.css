@@ -1,0 +1,71 @@
+.Postbox{
+    margin:auto;
+    margin-top:100px;
+    width:1200px;
+}
+.Postmain{
+    margin:10px;
+    margin-top:40px;
+    border:2px solid #e6e6e6;
+    height:auto; width: 100%;
+    border-radius: 5px;
+}
+.Post{
+    margin:30px;
+}
+.Posttype{
+    font-size:18px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium','Arial Narrow', Arial, sans-serif;
+    color: #727272;
+}
+.Posttitle{
+    margin:5px;
+    margin-top:30px;
+    font-size:22px;
+    font-weight:bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.postinfo{margin:15px;
+    margin-bottom:8px;
+    display:flex;
+    justify-content:space-between;
+    color:#727272;
+}
+.postcontent{
+    margin:25px;
+    font-size:14px;
+    font-weight:700;
+}
+.postcomment{
+    display:block;
+    margin:10px;
+    margin-left:20px;
+    border: 1px solid #afafaf; width: 640px;}
+.postcomment_c{
+    margin:15px 10px 5px 15px;
+    width: 90%;
+    border:none;
+    overflow:hidden;
+    box-sizing:border-box;
+    resize: none;
+}
+.postcomment_b{
+    margin-left:15px;
+    margin-bottom:20px;
+    width: 150px;
+    height: 30px;
+    background-color:#d83b3b;
+    border:none;
+    color:#ffffff;
+}
+.subpost{
+    margin: 20px;
+}
+
+
+
+
+
+
+

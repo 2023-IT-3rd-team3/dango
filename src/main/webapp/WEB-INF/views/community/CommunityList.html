@@ -5,16 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style.css" rel="stylesheet">
     <title>커뮤니티목록</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
+    <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
+    <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
+    <link rel="stylesheet" href="../../../resources/static/css/common/search.css">
+    <link rel="stylesheet" href="../../../resources/static/css/community/community.css">
+    <link rel="stylesheet" href="../../../resources/static/css/community/community_menu.css">
+
 </head>
 <body>
-    <header style="width: 100%; height: 140px; background-color: rgb(255, 255, 255); border-bottom: 1px solid #8a8a8a;"></header>
-    
+    <header>
+        <div>
+            <div>
+                <a id="logo" href="">
+                    <img src="" alt="">
+                    たんご🍡
+                </a>
+                <nav>
+                    <a href="">새 단어</a>
+                    <a href="">오답노트</a>
+                    <a href="">단어장</a>
+                    <a href="">사전</a>
+                    <a href="">커뮤니티</a>
+                </nav>
+            </div>
+            <a id="login" href="">로그인 / 회원가입</a>
+        </div>
+    </header>
 
     <div class="Commu_box">
         <form>
         <div class="search_banner">
             
-                <input class="search_bar" type="text" value="게시글 검색하기"><input class="search_button" type="submit">
+                <input class="search_bar" type="text" value="게시글 검색하기"><input class="search_button" type="submit" value="🔍">
                 <input class="new_text" type="button" value="글쓰기">
             
         </div>
@@ -24,6 +49,11 @@
                 <a class="Postmenu_m">공지사항</a>
                 <a class="Postmenu_m">자유게시판</a>
                 <a class="Postmenu_m">정보공유</a>
+            </div>
+            <div class="CoummnityClass">
+                <h1 class="CoummnityClassTitle">자유게시판</h1>
+                <h3 class="CoummnityClassText">자유 게시판은 회원 여러분의 자유로운 생각을 나누고 토론하는 공간입니다.</h3>
+                <a class="CoummnityClassLink">이용수칙 자세히 보기</a>
             </div>
             <div class="title">
             </div>
@@ -66,7 +96,18 @@
             <div style="width: 100%; height: 50px;"></div>
         </div>
     </div>
-    <footer></footer>
-    <script src="script.js" type="text/javascript"></script>
+    <footer>
+        <div class="footer_Box">
+        <a id="logo" href="">
+                    <img src="" alt="">
+                    たんご🍡
+        </a>
+        <p>
+            <span>팀명 : DanGo</span><br>
+            <span>팀원 : 김태현, 권오상, 문현민, 심효섭</span><br>
+            <span>Corpyright 2023. All Rights Reserved</span>
+        </p>
+        </div>
+    </footer>
 </body>
 </html>

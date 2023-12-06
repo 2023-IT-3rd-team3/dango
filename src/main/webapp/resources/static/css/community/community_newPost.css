@@ -1,0 +1,64 @@
+.NewPostbox{
+    margin:auto;
+    margin-top:120px;
+    margin-bottom: 20px;
+    width:750px;
+}
+.NewPostmain{
+    margin:10px;
+    margin-top:40px;
+    white-space: pre-line;
+    border:1px solid #e6e6e6;
+    height:auto; width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 1px rgb(197, 197, 197) ;
+}
+.NewPostTitle{
+    margin: 50px 30px 30px 30px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(199, 199, 199);
+
+}
+.NewPostTitleText{
+    font-size: 20px;
+    font-weight: bold;
+    width: 95%;
+    height: 40px;
+    border: none;
+}
+.NewPostTitleText:focus{
+    outline: none;
+}
+.NewPostContent{
+    height: auto;
+    margin: 30px;
+}
+.NewPostContentText{
+    overflow: hidden;
+    resize: none;
+    font-size: 14px;
+    width: 99%;
+    border: none;
+}
+.NewPostContentText:focus{
+    outline: none;
+}
+.newPost{
+    display: flex;
+    justify-content: end;
+}
+.newPostbutton{
+    margin: 20px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 35px;
+    background-color: #d83b3b;
+    color: #ffffff;
+    border: none;
+    font-size: 15px;
+}
+.newPostbutton:hover{
+    background-color:#e45656;
+    transition: 0.3s;
+}
