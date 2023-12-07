@@ -56,6 +56,13 @@ form {
 .input > input::placeholder {
     color: rgb(200,200,200);
 }
+.input > p {
+    color: rgb(255, 23, 68);
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: none;
+}
 #btn-group {
     margin-top: 20px;
     display: flex;

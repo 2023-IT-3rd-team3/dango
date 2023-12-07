@@ -1,12 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>새 단어 배우기</title>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
-<link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-<link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-<link rel="stylesheet" href="../../../resources/static/css/word/newWord.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWord.css">
 </head>
 <body>
 <header>
