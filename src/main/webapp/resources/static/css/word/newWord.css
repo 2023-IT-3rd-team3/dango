@@ -21,7 +21,46 @@ article {
     border: 1px solid rgb(255, 23, 68);
     padding: 30px;
     position: relative;
+    box-sizing: border-box;
+    transition: .3s ease-out;
 }
+article.vibration {
+    animation: vibration .2s infinite;
+}
+
+@keyframes vibration {
+    from {
+      transform: rotate(2deg);
+    }
+    to {
+      transform: rotate(-2deg);
+    }
+}
+
+.right-img {
+    position: absolute;
+    top: 10px;
+    right: 5%;
+    visibility: hidden;
+    transition: 2s ease-out;
+}
+.right-img > svg {
+    width: 150px;
+    color: green;
+}
+.wrong-img {
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    visibility: hidden;
+    transition: 2s ease-out;
+}
+.wrong-img > svg {
+    width: 150px;
+    color: red;
+}
+
+
 .check-btn {
     position: absolute;
     right: 30px;
@@ -79,3 +118,4 @@ article {
     color: #fff;
     background-color: rgb(255, 23, 68);
 }
+

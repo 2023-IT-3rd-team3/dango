@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWord.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWord.css?ab">
 </head>
 <body>
 <header>
@@ -39,6 +39,16 @@
     </div>
     <c:forEach var="sentence" items="${sentenceList}">
     	<article>
+            <div class="right-img">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022"/>
+                </svg>
+            </div>
+            <div class="wrong-img">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg>
+            </div>
 	        <div class="korean">
 		        <c:if test="${not empty sentence.exFrontKr}">
 		        	<p class="front-sentence-kr">${sentence.exFrontKr}</p>
@@ -53,6 +63,8 @@
 	            	<p class="front-sentence-jp">${sentence.exFrontJp}</p>
 	            </c:if>
 	            <input class="word-jp" type="text">
+	            <input class="answer" type="hidden" value="${sentence.wordWord}">
+	            <input class="answer2" type="hidden" value="${sentence.wordFurigana}">
 	            <c:if test="${not empty sentence.exBackJp}">	            
 	            	<p class="back-jp">${sentence.exBackJp}</p>
 	            </c:if>
@@ -62,94 +74,42 @@
 	        </div>
 	    </article>
     </c:forEach>
-    <article>
-        <button class="check-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
-                <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
-                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-              </svg>
-        </button>
-        <div class="korean">
-            <p class="front-sentence-kr">인원수를</p>
-            <h2 class="word-kr">확인</h2>
-            <p class="back-sentence-kr">하다</p>
-        </div>
-        <div class="japanese">
-            <p class="front-sentence-jp">人数を</p>
-            <input class="word-jp" type="text">
-            <p class="back-jp">する</p>
-        </div>
-        <div class="btn-group">
-            <button class="ok-btn">확인</button>
-        </div>
-    </article>
-    <article>
-        <button class="check-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
-                <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
-                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-              </svg>
-        </button>
-        <div class="korean">
-            <p class="front-sentence-kr">인원수를</p>
-            <h2 class="word-kr">확인</h2>
-            <p class="back-sentence-kr">하다</p>
-        </div>
-        <div class="japanese">
-            <p class="front-sentence-jp">人数を</p>
-            <input class="word-jp" type="text">
-            <p class="back-jp">する</p>
-        </div>
-        <div class="btn-group">
-            <button class="ok-btn">확인</button>
-        </div>
-    </article>
-    <article>
-        <button class="check-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
-                <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
-                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-              </svg>
-        </button>
-        <div class="korean">
-            <p class="front-sentence-kr">인원수를</p>
-            <h2 class="word-kr">확인</h2>
-            <p class="back-sentence-kr">하다</p>
-        </div>
-        <div class="japanese">
-            <p class="front-sentence-jp">人数を</p>
-            <input class="word-jp" type="text">
-            <p class="back-jp">する</p>
-        </div>
-        <div class="btn-group">
-            <button class="ok-btn">확인</button>
-        </div>
-    </article>
-    <article>
-        <button class="check-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
-                <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
-                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-              </svg>
-        </button>
-        <div class="korean">
-            <p class="front-sentence-kr">인원수를</p>
-            <h2 class="word-kr">확인</h2>
-            <p class="back-sentence-kr">하다</p>
-        </div>
-        <div class="japanese">
-            <p class="front-sentence-jp">人数を</p>
-            <input class="word-jp" type="text">
-            <p class="back-jp">する</p>
-        </div>
-        <div class="btn-group">
-            <button class="ok-btn">확인</button>
-        </div>
-    </article>
 </section>
+<script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
+
+<!-- <script src="${pageContext.request.contextPath}/resources/static/js/word/newWord.js"></script> -->
+<script>
+const okBtn = $(".ok-btn");
+const wordJp = $(".word-jp");
+const answer = $(".answer");
+const answer2 = $(".answer2");
+const article = $("article");
+const rightImg = $(".right-img");
+const wrongImg = $(".wrong-img");
+
+for(let i = 0; i < okBtn.length; i++) {
+    okBtn[i].addEventListener("click", () =>{
+        // const data = {
+        //     userId: userId,
+        //     wordId: answer[i].value
+        // };
+        if(wordJp[i].value !== answer[i].value && wordJp[i].value !== answer2[i].value) {
+            // addWrong(data);
+            article[i].classList.add("vibration");
+            wrongImg[i].style.visibility = "visible";
+            article[i].style.border = "1px solid red";
+            setTimeout(function() {
+                article[i].classList.remove("vibration");
+            }, 500);
+        } else {
+        	rightImg[i].style.visibility = "visible";
+            article[i].style.border = "1px solid green"
+        }
+        okBtn[i].style.visibility = "hidden";
+        // addEndWord(data);
+    })
+}
+
+</script>
 </body>
 </html>
