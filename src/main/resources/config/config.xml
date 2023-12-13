@@ -3,5 +3,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.threeteam.dango.domain.word.WordVO" alias="wordVO"/>
+		<typeAlias type="com.threeteam.dango.domain.word.SentenceDTO" alias="sentenceDTO"/>
 	</typeAliases>
 </configuration>

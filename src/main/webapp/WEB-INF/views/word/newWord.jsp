@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +20,14 @@
                 たんご🍡
             </a>
             <nav>
-                <a href="">새 단어</a>
-                <a href="">오답노트</a>
-                <a href="">단어장</a>
-                <a href="">사전</a>
-                <a href="">커뮤니티</a>
+                <a href="/dango/word/new">새 단어</a>
+                <a href="/dango/word/wrong">오답노트</a>
+                <a href="/dango/word/note">단어장</a>
+                <a href="/dango/dictionary">사전</a>
+                <a href="/dango/community">커뮤니티</a>
             </nav>
         </div>
-        <a id="login" href="">로그인 / 회원가입</a>
+        <a id="login" href="/dango/login">로그인 / 회원가입</a>
     </div>
 </header>
 <section>
@@ -37,6 +37,31 @@
             <p>새로운 단어 20개가 나와요! 같이 공부해봐요!</p>
         </div>
     </div>
+    <c:forEach var="sentence" items="${sentenceList}">
+    	<article>
+	        <div class="korean">
+		        <c:if test="${not empty sentence.exFrontKr}">
+		        	<p class="front-sentence-kr">${sentence.exFrontKr}</p>
+		        </c:if>
+	            <h2 class="word-kr">${sentence.wordMean}</h2>
+	            <c:if test="${not empty sentence.exBackKr}">
+	            	<p class="back-sentence-kr">${sentence.exBackKr}</p>
+	            </c:if>
+	        </div>
+	        <div class="japanese">
+	        	<c:if test="${not empty sentence.exFrontJp}">
+	            	<p class="front-sentence-jp">${sentence.exFrontJp}</p>
+	            </c:if>
+	            <input class="word-jp" type="text">
+	            <c:if test="${not empty sentence.exBackJp}">	            
+	            	<p class="back-jp">${sentence.exBackJp}</p>
+	            </c:if>
+	        </div>
+	        <div class="btn-group">
+	            <button class="ok-btn">확인</button>
+	        </div>
+	    </article>
+    </c:forEach>
     <article>
         <button class="check-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
