@@ -1,5 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +27,11 @@
                     たんご🍡
                 </a>
                 <nav>
-                    <a href="">새 단어</a>
+                    <a href="/dango/word/new">새 단어</a>
                     <a href="">오답노트</a>
                     <a href="">단어장</a>
                     <a href="">사전</a>
-                    <a href="">커뮤니티</a>
+                    <a href="/dango/community">커뮤니티</a>
                 </nav>
             </div>
             <a id="login" href="">로그인 / 회원가입</a>
