@@ -12,24 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWord.css?cdde">
 </head>
 <body>
-<header>
-    <div>
-        <div>
-            <a id="logo" href="">
-                <img src="" alt="">
-                たんご🍡
-            </a>
-            <nav>
-                <a href="/dango/word/new">새 단어</a>
-                <a href="/dango/word/wrong">오답노트</a>
-                <a href="/dango/word/note">단어장</a>
-                <a href="/dango/dictionary">사전</a>
-                <a href="/dango/community">커뮤니티</a>
-            </nav>
-        </div>
-        <a id="login" href="/dango/login">로그인 / 회원가입</a>
-    </div>
-</header>
+<jsp:include page="../common/header.jsp" />
 <section>
     <div id="intro">
         <div id="intro-text-area">

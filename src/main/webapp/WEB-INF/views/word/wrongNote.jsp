@@ -1,15 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오답노트</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-    <link rel="stylesheet" href="../../../resources/static/css/word/wrongNote.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/wrongNote.css">
 </head>
 <body>
+<jsp:include page="../common/header.jsp" />
     <section>
         <div id="intro">
             <div id="intro-text-area">
