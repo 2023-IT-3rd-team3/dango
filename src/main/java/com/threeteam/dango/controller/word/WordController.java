@@ -26,4 +26,8 @@ public class WordController {
 	public String selectLevel() {
 		return "word/newWordLevelSelect";
 	}
+	@GetMapping("/wrong")
+	public String wrongNote() {
+		return "word/wrongNote";
+	}
 }

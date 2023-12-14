@@ -9,27 +9,10 @@
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWord.css?ab">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWord.css?cdde">
 </head>
 <body>
-<header>
-    <div>
-        <div>
-            <a id="logo" href="">
-                <img src="" alt="">
-                たんご🍡
-            </a>
-            <nav>
-                <a href="/dango/word/new">새 단어</a>
-                <a href="/dango/word/wrong">오답노트</a>
-                <a href="/dango/word/note">단어장</a>
-                <a href="/dango/dictionary">사전</a>
-                <a href="/dango/community">커뮤니티</a>
-            </nav>
-        </div>
-        <a id="login" href="/dango/login">로그인 / 회원가입</a>
-    </div>
-</header>
+<jsp:include page="../common/header.jsp" />
 <section>
     <div id="intro">
         <div id="intro-text-area">
@@ -40,13 +23,13 @@
     <c:forEach var="sentence" items="${sentenceList}">
     	<article>
             <div class="right-img">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 </svg>
             </div>
             <div class="wrong-img">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022"/>
                 </svg>
             </div>
 	        <div class="korean">
@@ -97,13 +80,13 @@ for(let i = 0; i < okBtn.length; i++) {
             // addWrong(data);
             article[i].classList.add("vibration");
             wrongImg[i].style.visibility = "visible";
-            article[i].style.border = "1px solid red";
+            article[i].style.border = "4px solid rgb(255, 23, 68)";
             setTimeout(function() {
                 article[i].classList.remove("vibration");
             }, 500);
         } else {
         	rightImg[i].style.visibility = "visible";
-            article[i].style.border = "1px solid green"
+            article[i].style.border = "4px solid green"
         }
         okBtn[i].style.visibility = "hidden";
         // addEndWord(data);
