@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.threeteam.dango.mapper.community.BoardMapper;
 import com.threeteam.dango.vo.community.BoardVO;
 
 @Repository
@@ -27,7 +28,7 @@ public class BoardDAO {
 	private final String BOARD_LIST_T=
 			"select * from T_BOARD where boardtitle like '%'||?||'%' order by boardid desc";
 	// 유저ID로 검색
-	private final String BOARD_LIST_C=
+	private final String BOARD_LIST_U=
 			"select * from T_BOARD where userid '%'||?||'%' order by boardid desc";
 		
 	
@@ -45,12 +46,20 @@ public class BoardDAO {
 	}
 	
 	public BoardVO getBoard(BoardVO vo) {
+		
 		Object[] args = {vo.getBoardid()};
 		
-		return jdbcTemplate.queryForList(BOARD_GET, args, new );
+		return jdbcTemplate.queryForList(BOARD_GET, args, new BoardMapper);
 	}
 	
 	public List<BoardVO> getBoardList(BoardVO vo) {
-
+		Object[] args = {vo.getSearchKeyword()};
+		if(vo.getSearchKeyword().equals("TITLE")) {
+			return jdbcTemplate.query(BOARD_LIST, new BoardMapper());
+		}else if(vo.getSearchKeyword().equals("CONTENT")) {
+			return jdbcTemplate.query(BOARD_LIST, new BoardMapper());
+		}
+		
+		return null;
 	}
 }

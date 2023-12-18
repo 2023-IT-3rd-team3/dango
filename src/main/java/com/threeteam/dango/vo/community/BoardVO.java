@@ -14,6 +14,8 @@ public class BoardVO {
 	private String boardnotice;
 	private Date boardregisterdate;
 	private Date boardupdatedate;
+	private String searchCondition;
+	private String searchKeyword;
 	
 	public String getBoardid() {
 		return boardid;
@@ -58,11 +60,22 @@ public class BoardVO {
 	public void setBoardupdatedate(Date boardupdatedate) {
 		this.boardupdatedate = boardupdatedate;
 	}
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
 	
 	@Override
 	public String toString() {
-		return "BoardVO [boardseq="+boardid+", title="+boardtitle+", writer="+userid+", boardcontent="
-				+boardmain+", regDate="+boardregisterdate+"]";
+		return "BoardVO [boardid="+boardid+", boardtitle="+boardtitle+", userid="+userid+", boardmain="+boardmain+", boardregisterdate="+boardregisterdate+", boardnotice="+boardnotice+", boardupdatedate="+boardupdatedate+"]";
 	}
 
 }

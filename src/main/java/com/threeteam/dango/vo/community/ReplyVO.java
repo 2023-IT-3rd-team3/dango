@@ -53,6 +53,6 @@ public class ReplyVO {
 	
 	@Override
 	public String toString() {
-		return "ReplyVO [Replyseq="+replyid+", content="+replymain+", writer="+userid+", regDate="+replyregisterdate+"]";
+		return "ReplyVO [Replyid="+replyid+", replymain="+replymain+", userid="+userid+", replyregisterdate="+replyregisterdate+",replyupdatedate="+replyupdatedate+"]";
 	}
 }

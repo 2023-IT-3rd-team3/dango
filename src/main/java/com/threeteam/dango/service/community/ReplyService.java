@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.threeteam.dango.vo.community.ReplyVO;
 
 @Service
-public interface ReplySerivece {
+public interface ReplyService {
 	
 	public void addReply(ReplyVO vo);
 	public void deleteReply(ReplyVO vo);

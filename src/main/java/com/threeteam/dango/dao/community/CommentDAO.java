@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.threeteam.dango.vo.community.CommentVO;
 
+@Repository
 public class CommentDAO {
 
 	@Autowired
@@ -32,11 +34,9 @@ public class CommentDAO {
 	
 	public CommentVO getComment(CommentVO vo) {
 		return vo;
-		
 	}
 	
 	public List<CommentVO> getCommentList(CommentVO vo){
 		return null;
-		
 	}
 }

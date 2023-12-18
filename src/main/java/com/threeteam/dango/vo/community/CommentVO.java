@@ -10,6 +10,7 @@ public class CommentVO {
 	private String commentid;
 	private String commentmain;
 	private String userid;
+	private String boardid;
 	private Date commentregisterdate;
 	private Date commentupdatedate;
 	
@@ -43,8 +44,15 @@ public class CommentVO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+	public String getBoardid() {
+		return boardid;
+	}
+	public void setBoardid(String boardid) {
+		this.boardid = boardid;
+	}
+	
 	@Override
 	public String toString() {
-		return "CommentVO [commentseq="+commentid+", commentcontent="+commentmain+", writer="+userid+", regDate="+commentregisterdate+"]";
+		return "CommentVO [commentid="+commentid+", commentmaint="+commentmain+", userid="+userid+", boardid="+boardid+", commentregisterdate="+commentregisterdate+", commentupdatedate="+commentupdatedate+"]";
 	}
 }
