@@ -16,7 +16,7 @@ public class WordServiceImpl implements WordService {
 	WordDAO wordDAO;
 	
 	@Override
-	public List<SentenceDTO> getSentenceList(Integer wordLevel) {
-		return wordDAO.getSentenceList(wordLevel);
+	public List<SentenceDTO> getSentenceList(Integer wordLevel, String userId) {
+		return wordDAO.getSentenceList(wordLevel, userId);
 	}
 }

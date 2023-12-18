@@ -12,7 +12,7 @@ import lombok.Setter;
 @Component
 @NoArgsConstructor
 public class SentenceDTO {
-	private String wordId;
+	private Long wordId;
 	private String wordWord;
 	private String wordFurigana;
 	private String wordMean;
@@ -21,11 +21,12 @@ public class SentenceDTO {
 	private String exBackJp;
 	private String exFrontKr;
 	private String exBackKr;
+	private Integer wrongNum;
 	
-	public String getWordId() {
+	public Long getWordId() {
 		return wordId;
 	}
-	public void setWordId(String wordId) {
+	public void setWordId(Long wordId) {
 		this.wordId = wordId;
 	}
 	public String getWordWord() {
@@ -75,5 +76,11 @@ public class SentenceDTO {
 	}
 	public void setExBackKr(String exBackKr) {
 		this.exBackKr = exBackKr;
+	}
+	public Integer getWrongNum() {
+		return wrongNum;
+	}
+	public void setWrongNum(Integer wrongNum) {
+		this.wrongNum = wrongNum;
 	}
 }

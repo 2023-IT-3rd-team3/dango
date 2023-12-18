@@ -8,5 +8,5 @@ import com.threeteam.dango.domain.word.SentenceDTO;
 
 @Service
 public interface WordService {
-	public List<SentenceDTO> getSentenceList(Integer wordLevel);
+	public List<SentenceDTO> getSentenceList(Integer wordLevel, String userId);
 }

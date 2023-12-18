@@ -4,5 +4,7 @@
 	<typeAliases>
 		<typeAlias type="com.threeteam.dango.domain.word.WordVO" alias="wordVO"/>
 		<typeAlias type="com.threeteam.dango.domain.word.SentenceDTO" alias="sentenceDTO"/>
+		<typeAlias type="com.threeteam.dango.domain.word.WrongVO" alias="wrongVO"/>
+		<typeAlias type="com.threeteam.dango.domain.word.EndWordVO" alias="endWordVO"/>
 	</typeAliases>
 </configuration>

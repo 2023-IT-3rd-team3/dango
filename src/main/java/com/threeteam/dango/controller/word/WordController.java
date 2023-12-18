@@ -10,16 +10,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.threeteam.dango.mapper.word.WordMapper;
 import com.threeteam.dango.service.word.WordService;
+import com.threeteam.dango.service.word.WrongService;
 
 @Controller
 @RequestMapping("/word/*")
 public class WordController {
 	@Autowired
-	WordService WordService;
+	WordService wordService;
+	@Autowired
+	WrongService wrongService;
 	
 	@GetMapping("/new/{wordlevel}")
 	public String list(@PathVariable("wordlevel") Integer wordlevel, Model model) {
-		model.addAttribute("sentenceList", WordService.getSentenceList(wordlevel));
+		model.addAttribute("sentenceList", wordService.getSentenceList(wordlevel, "aaa"));
+		model.addAttribute("userId", "aaa");
 		return "word/newWord";
 	}
 	@GetMapping("/new")
@@ -27,7 +31,8 @@ public class WordController {
 		return "word/newWordLevelSelect";
 	}
 	@GetMapping("/wrong")
-	public String wrongNote() {
+	public String wrongNote(Model model) {
+		model.addAttribute("sentenceList", wrongService.getWrongAllByUserId("aaa"));
 		return "word/wrongNote";
 	}
 }

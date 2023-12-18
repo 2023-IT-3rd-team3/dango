@@ -13,7 +13,7 @@ public class WordDAO {
 	@Autowired
 	WordMapper wordMapper;
 	
-	public List<SentenceDTO> getSentenceList(Integer wordLevel) {
-		return wordMapper.getSentenceList(wordLevel);
+	public List<SentenceDTO> getSentenceList(Integer wordLevel, String userId) {
+		return wordMapper.getSentenceList(wordLevel, userId);
 	}
 }

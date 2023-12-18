@@ -15,6 +15,7 @@ public class WordVO {
 	private String wordWord;
 	private String wordFurigana;
 	private String wordMean;
+	private Integer wordLevel;
 	private Date wordRegisterDate;
 	private Date wordUpdateDate;
 }

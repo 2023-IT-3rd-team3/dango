@@ -46,9 +46,10 @@
 	            	<p class="front-sentence-jp">${sentence.exFrontJp}</p>
 	            </c:if>
 	            <input class="word-jp" type="text">
+	            <input class="word-id" type="hidden" value="${sentence.wordId}">
 	            <input class="answer" type="hidden" value="${sentence.wordWord}">
 	            <input class="answer2" type="hidden" value="${sentence.wordFurigana}">
-	            <c:if test="${not empty sentence.exBackJp}">	            
+	            <c:if test="${not empty sentence.exBackJp}">
 	            	<p class="back-jp">${sentence.exBackJp}</p>
 	            </c:if>
 	        </div>
@@ -59,25 +60,28 @@
     </c:forEach>
 </section>
 <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
-
-<!-- <script src="${pageContext.request.contextPath}/resources/static/js/word/newWord.js"></script> -->
+<script type="text/javascript">
+const userId = `${userId}`;
+</script>
+<script src="${pageContext.request.contextPath}/resources/static/js/word/newWord.js"></script>
 <script>
 const okBtn = $(".ok-btn");
 const wordJp = $(".word-jp");
 const answer = $(".answer");
 const answer2 = $(".answer2");
+const wordId = $(".word-id");
 const article = $("article");
 const rightImg = $(".right-img");
 const wrongImg = $(".wrong-img");
 
 for(let i = 0; i < okBtn.length; i++) {
     okBtn[i].addEventListener("click", () =>{
-        // const data = {
-        //     userId: userId,
-        //     wordId: answer[i].value
-        // };
+        const data = {
+            userId: userId,
+            wordId: wordId[i].value
+        };
         if(wordJp[i].value !== answer[i].value && wordJp[i].value !== answer2[i].value) {
-            // addWrong(data);
+            addWrong(data);
             article[i].classList.add("vibration");
             wrongImg[i].style.visibility = "visible";
             article[i].style.border = "4px solid rgb(255, 23, 68)";
@@ -89,7 +93,7 @@ for(let i = 0; i < okBtn.length; i++) {
             article[i].style.border = "4px solid green"
         }
         okBtn[i].style.visibility = "hidden";
-        // addEndWord(data);
+        addEndWord(data);
     })
 }
 
