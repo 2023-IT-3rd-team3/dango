@@ -39,8 +39,8 @@
                 <div class="PostHeader">
                     <div class="Posttype">자유게시판</div>
                     <div class="PostHeaderButtonGroup">
-                        <input type="button" class="PostHeaderButtonRemove" value="삭제">
-                        <input type="button" class="PostHeaderButtonEdit" value="수정">
+                        <a class="PostHeaderButtonRemove">삭제</a>
+                        <a class="PostHeaderButtonEdit">수정</a>
                     </div>
                 </div>
                 <div class="Posttitle">
@@ -58,8 +58,10 @@
                     이 글은 예시를 위해 작성된 글이다.<br>
                 </div>
                 <div class="postcomment">
-                    <textarea placeholder="댓글을 입력해주세요." id="comment" class="postcomment_c"></textarea>
-                    <input class="postcomment_b" type="button" value="등록">
+                    <form action="" method="get">
+                        <textarea placeholder="댓글을 입력해주세요." id="comment" class="postcomment_c"></textarea>
+                        <input class="postcomment_b" type="button" value="등록">
+                    </form>
                 </div>
                 <div class="postinfo">
                     <div>유저이름</div>
@@ -78,23 +80,48 @@
                 <div class="announ_box">
                     <div class="title">
                         <h2 class="title_name">자유게시판</h2>
-                        <h3 class="title_more">더보기</h3>
+                        <a class="title_more">더보기</a>
                     </div>
-                    <div class="textbox">
-                        <div></div><div class="textbox_title">예시글1</div>
-                    </div>
-                    <div class="textbox">
-                        <div></div><div class="textbox_title">예시글2</div>
-                    </div>
-                    <div class="textbox">
-                        <div></div><div class="textbox_title">예시글3</div>
-                    </div>
-                    <div class="textbox">
-                        <div></div><div class="textbox_title">예시글4</div>
-                    </div>
-                    <div class="textbox">
-                        <div></div><div class="textbox_title">예시글5</div>
-                    </div>
+                    <a class="textbox">
+                        <div class="textbox_title">예시글1</div>
+                        <div class="textbox_info">
+                            <div style="margin-left: 10px;">2023/11/15</div>
+                            <div style="margin-left: 10px;">30</div>
+                            <div style="margin-left: 10px;">0</div>
+                        </div>
+                    </a>
+                    <a class="textbox">
+                        <div class="textbox_title">예시글2</div>
+                        <div class="textbox_info">
+                            <div style="margin-left: 10px;">2023/11/15</div>
+                            <div style="margin-left: 10px;">30</div>
+                            <div style="margin-left: 10px;">0</div>
+                        </div>
+                    </a>
+                    <a class="textbox">
+                        <div class="textbox_title">예시글3</div>
+                        <div class="textbox_info">
+                            <div style="margin-left: 10px;">2023/11/15</div>
+                            <div style="margin-left: 10px;">30</div>
+                            <div style="margin-left: 10px;">0</div>
+                        </div>
+                    </a>
+                    <a class="textbox">
+                        <div class="textbox_title">예시글4</div>
+                        <div class="textbox_info">
+                            <div style="margin-left: 10px;">2023/11/15</div>
+                            <div style="margin-left: 10px;">30</div>
+                            <div style="margin-left: 10px;">0</div>
+                        </div>
+                    </a>
+                    <a class="textbox">
+                        <div class="textbox_title">예시글5</div>
+                        <div class="textbox_info">
+                            <div style="margin-left: 10px;">2023/11/15</div>
+                            <div style="margin-left: 10px;">30</div>
+                            <div style="margin-left: 10px;">0</div>
+                        </div>
+                    </a>
                     <div style="width: 100%; height: 50px;"></div>
                 </div>
             </div>
