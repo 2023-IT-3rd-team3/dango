@@ -2,6 +2,9 @@ package com.threeteam.dango.vo.community;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class RecommendVO {
 
 	private String recommendid;
@@ -28,4 +31,17 @@ public class RecommendVO {
 	public void setRecommendupdatedate(Date recommendupdatedate) {
 		this.recommendupdatedate = recommendupdatedate;
 	}
+	public String getBoardid() {
+		return boardid;
+	}
+	public void setBoardid(String boardid) {
+		this.boardid = boardid;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	
 }

@@ -2,6 +2,9 @@ package com.threeteam.dango.vo.community;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CommentVO {
 
 	private String commentid;
@@ -34,7 +37,12 @@ public class CommentVO {
 	public void setCommentupdatedate(Date commentupdatedate) {
 		this.commentupdatedate = commentupdatedate;
 	}
-	
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	@Override
 	public String toString() {
 		return "CommentVO [commentseq="+commentid+", commentcontent="+commentmain+", writer="+userid+", regDate="+commentregisterdate+"]";

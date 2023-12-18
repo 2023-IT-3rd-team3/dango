@@ -5,27 +5,27 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.threeteam.dango.vo.community.BoardVO;
+import com.threeteam.dango.vo.community.ScrapVO;
 
 public class ScrapDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	public void addScrap(BoardVO vo) {
+	public void addScrap(ScrapVO vo) {
 		
 	}
 	
-	public void deleteScrap(BoardVO vo) {
+	public void deleteScrap(ScrapVO vo) {
 		
 	}
 	
-	public BoardVO getScrap(BoardVO vo) {
+	public ScrapVO getScrap(ScrapVO vo) {
 		return vo;
 		
 	}
 	
-	public List<BoardVO> getScrapList(BoardVO vo){
+	public List<ScrapVO> getScrapList(ScrapVO vo){
 		return null;
 		
 	}

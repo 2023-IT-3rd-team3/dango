@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.threeteam.dango.vo.community.BoardVO;
 
-@Repository("BoardDAO")
+@Repository
 public class BoardDAO {
 
 	@Autowired
@@ -22,9 +22,6 @@ public class BoardDAO {
 	private final String BOARD_GET="select * from T_BAROD where boardid=?";
 	private final String BOARD_LIST="select * from T_BOARD order by boardid desc";
 	
-	
-	/*--------------------------------------------------------------------------*/
-	
 	// 검색 명령어
 	// 제목으로 검색
 	private final String BOARD_LIST_T=
@@ -33,6 +30,8 @@ public class BoardDAO {
 	private final String BOARD_LIST_C=
 			"select * from T_BOARD where userid '%'||?||'%' order by boardid desc";
 		
+	
+	
 	public void insertBoard(BoardVO vo) {
 		jdbcTemplate.update(BOARD_INSERT, vo.getBoardtitle(), vo.getUserid(), vo.getBoardmain());
 	}
@@ -45,13 +44,13 @@ public class BoardDAO {
 		jdbcTemplate.update(BOARD_DELETE);
 	}
 	
-	
 	public BoardVO getBoard(BoardVO vo) {
+		Object[] args = {vo.getBoardid()};
 		
-		return null;
+		return jdbcTemplate.queryForList(BOARD_GET, args, new );
 	}
 	
-	public List<BoardVO> getBoardList(BoardVO vo){
-		return null;
+	public List<BoardVO> getBoardList(BoardVO vo) {
+
 	}
 }

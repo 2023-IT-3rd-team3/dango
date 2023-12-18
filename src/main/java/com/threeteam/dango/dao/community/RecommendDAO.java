@@ -3,19 +3,18 @@ package com.threeteam.dango.dao.community;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.threeteam.dango.vo.community.BoardVO;
+import com.threeteam.dango.vo.community.RecommendVO;
 
 public class RecommendDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	// Recommend
-	public void plusRecommend(BoardVO vo) {
+	public void plusRecommend(RecommendVO vo) {
 			
 	}
 		
-	public void minusRecommend(BoardVO vo) {
+	public void minusRecommend(RecommendVO vo) {
 			
 	}
 }

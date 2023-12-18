@@ -2,6 +2,9 @@ package com.threeteam.dango.vo.community;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ReplyVO {
 
 	private String replyid;
@@ -47,7 +50,7 @@ public class ReplyVO {
 	public void setReplymain(String replymain) {
 		this.replymain = replymain;
 	}
-		
+	
 	@Override
 	public String toString() {
 		return "ReplyVO [Replyseq="+replyid+", content="+replymain+", writer="+userid+", regDate="+replyregisterdate+"]";
