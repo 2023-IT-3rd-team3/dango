@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.threeteam.dango.service.community.BoardVO;
+import com.threeteam.dango.vo.community.BoardVO;
 
 public class ScrapDAO {
 

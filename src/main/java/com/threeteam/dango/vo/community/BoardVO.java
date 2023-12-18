@@ -1,10 +1,9 @@
-package com.threeteam.dango.service.community;
+package com.threeteam.dango.vo.community;
 
 import java.util.Date;
 
 public class BoardVO {
 
-	// Community Board
 	private String boardid;
 	private String boardtitle;
 	private String userid;
@@ -59,7 +58,7 @@ public class BoardVO {
 	
 	@Override
 	public String toString() {
-		return "BoardVO [seq="+boardid+", title="+boardtitle+", writer="+userid+", content="
+		return "BoardVO [boardseq="+boardid+", title="+boardtitle+", writer="+userid+", boardcontent="
 				+boardmain+", regDate="+boardregisterdate+"]";
 	}
 
