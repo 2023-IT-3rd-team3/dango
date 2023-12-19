@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BoardVO {
 
-	private String boardid;
+	private int boardid;
 	private String boardtitle;
 	private String userid;
 	private String boardmain;
@@ -17,10 +17,11 @@ public class BoardVO {
 	private String searchCondition;
 	private String searchKeyword;
 	
-	public String getBoardid() {
+	}
+	public int getBoardid() {
 		return boardid;
 	}
-	public void setBoardid(String boardid) {
+	public void setBoardid(int boardid) {
 		this.boardid = boardid;
 	}
 	public String getBoardtitle() {

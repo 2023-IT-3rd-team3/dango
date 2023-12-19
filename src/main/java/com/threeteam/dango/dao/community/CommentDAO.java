@@ -33,7 +33,7 @@ public class CommentDAO {
 	}
 	
 	public CommentVO getComment(CommentVO vo) {
-		return vo;
+		
 	}
 	
 	public List<CommentVO> getCommentList(CommentVO vo){

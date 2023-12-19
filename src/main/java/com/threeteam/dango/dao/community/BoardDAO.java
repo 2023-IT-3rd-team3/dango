@@ -49,7 +49,7 @@ public class BoardDAO {
 		
 		Object[] args = {vo.getBoardid()};
 		
-		return jdbcTemplate.queryForList(BOARD_GET, args, new BoardMapper);
+		return jdbcTemplate.queryForObject(BOARD_GET, args, new BoardMapper());
 	}
 	
 	public List<BoardVO> getBoardList(BoardVO vo) {

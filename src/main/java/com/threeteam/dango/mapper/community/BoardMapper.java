@@ -3,9 +3,11 @@ package com.threeteam.dango.mapper.community;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.jdbc.core.RowMapper;
+
 import com.threeteam.dango.vo.community.BoardVO;
 
-public interface BoardMapper implements RowMapper<BoardVO>{
+public class BoardMapper implements RowMapper<BoardVO>{
 	
 	public BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
@@ -14,7 +16,7 @@ public interface BoardMapper implements RowMapper<BoardVO>{
 		board.setBoardtitle(rs.getString("boardtitle"));
 		board.setBoardmain(rs.getString("boardmain"));
 		board.setUserid(rs.getString("userid"));
-		board.setBoardregisterate(rs.getDate("boadregisterdate"));
+		board.setBoardregisterdate(rs.getDate("boadregisterdate"));
 		
 		return board;
 	}

@@ -11,6 +11,6 @@ import com.threeteam.dango.service.community.BoardService;
 public class CommunityController {
 
 	@Autowired
-	BoardService ComService;
+	
 	
 }

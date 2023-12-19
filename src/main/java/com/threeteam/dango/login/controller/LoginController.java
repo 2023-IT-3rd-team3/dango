@@ -19,15 +19,15 @@ import com.threeteam.dango.login.service.LoginService;
 
 
 /*
- * Task(ÀÛ¾÷)		URL(°æ·Î)		Method		Parameter(¼Ó¼º)	Form		URLÀÌµ¿
+ * Task(ï¿½Û¾ï¿½)		URL(ï¿½ï¿½ï¿½)		Method		Parameter(ï¿½Ó¼ï¿½)	Form		URLï¿½Ìµï¿½
  * 
- * o·Î±×ÀÎÆäÀÌÁö		/login/loginPage	get			¸ðµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(home)
- * o·Î±×¾Æ¿ô			/login/logout		get			USER_PW						ÀÌµ¿(home)
- * o·Î±×ÀÎÈ®ÀÎ			/login/home			post		
- * oÈ¸¿øµî·Ï			/login/register		Post		¸ðµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(loginPage)
- * oÈ¸¿øÁ¤º¸¼öÁ¤		/login/usermodify	Post		¸ðµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä  ÀÌµ¿(home)
- * o»èÁ¦Ã³¸®			/login/remove		Get			USER_ID			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(loginPage)
- * oID Ã£±â,PW ¼öÁ¤	/login/findPage 	Get			USER_ID,USER_PW	ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(findPage)
+ * oï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		/login/loginPage	get			ï¿½ï¿½ï¿½ ï¿½×¸ï¿½			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(home)
+ * oï¿½Î±×¾Æ¿ï¿½				/login/logout		get			USER_PW						ï¿½Ìµï¿½(home)
+ * oï¿½Î±ï¿½ï¿½ï¿½È®ï¿½ï¿½			/login/home			post		
+ * oÈ¸ï¿½ï¿½ï¿½ï¿½ï¿½			/login/register		Post		ï¿½ï¿½ï¿½ ï¿½×¸ï¿½			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(loginPage)
+ * oÈ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		/login/usermodify	Post		ï¿½ï¿½ï¿½ ï¿½×¸ï¿½			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½  ï¿½Ìµï¿½(home)
+ * oï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½			/login/remove		Get			USER_ID			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(loginPage)
+ * oID Ã£ï¿½ï¿½,PW ï¿½ï¿½ï¿½ï¿½	/login/findPage 	Get			USER_ID,USER_PW	ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(findPage)
  */
 
 @restController
@@ -37,15 +37,15 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
-	//·Î±×ÀÎ ÆäÀÌÁö
+	//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@GetMapping("/loginPage")
 	public String loginPage() {
 		return "/login/loginPage" ;
 	}
 	
 	
-	//·Î±×ÀÎ È®ÀÎ
-	//ÆÄ¶ó¹ÌÅÍ id, ÆÄ¶ó¹ÌÅÍ pw ¸¦ Àü´Þ ¹Þ¾Æ loginService.loginCheck()¸Þ¼­µå ¿¡°Ô Àü´ÞÇÑ´Ù.
+	//ï¿½Î±ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+	//ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ id, ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ pw ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ loginService.loginCheck()ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	@PostMapping("/loginCheck")
 	public String loginCheck(Model model ,String id, String pw,HttpSession session,RedirectAttributes rttr) {
 		LoginVO userCheck = new LoginVO();
@@ -54,7 +54,7 @@ public class LoginController {
 		LoginVO user = loginService.loginCheck(userCheck, session);
 		
 		if(session.getAttribute("userVO") == null) {
-			rttr.addFlashAttribute("message","¾ø´Â ¾ÆÀÌµð ÀÔ´Ï´Ù.");
+			rttr.addFlashAttribute("message","ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô´Ï´ï¿½.");
 			return "redirect:/login/loginPage";
 		}
 			model.addAttribute("user", user);
@@ -62,14 +62,14 @@ public class LoginController {
 		return "/login/home";
 	}
 	
-	//·Î±×¾Æ¿ô
+	//ï¿½Î±×¾Æ¿ï¿½
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		loginService.logOut(session);
 		return "/login/loginPage";
 	}
 	
-	//È¸¿ø°¡ÀÔ
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@GetMapping("/register")
 	public String register() {
 		return "/login/register";
@@ -79,20 +79,20 @@ public class LoginController {
 	public String registerCheck(LoginVO login,Model model) {
 		loginService.register(login);
 		
-		model.addAttribute("message","È¸¿ø°¡ÀÔ ¿Ï·á");
+		model.addAttribute("message","È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 		return "/login/loginPage";
 	}
 	
-	//È¸¿øÅ»Åð
+	//È¸ï¿½ï¿½Å»ï¿½ï¿½
 	@GetMapping("/regout")
 	public String regout(String id,Model model) {
 		loginService.remove(id);
 
-		model.addAttribute("message","È¸¿øÅ»Åð ¿Ï·á");
+		model.addAttribute("message","È¸ï¿½ï¿½Å»ï¿½ï¿½ ï¿½Ï·ï¿½");
 		return "/login/loginPage";
 	}
-	//È¸¿øÁ¤º¸¼öÁ¤
-	//ÇöÀç ¾ÆÀÌµð °ªÀ» °¡Á®¿Í¼­ È¸¿ø ÀüÃ¼ Á¤º¸¸¦ Ãâ·Â
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@GetMapping("/usermodify")
 	public String usermodify(String id,Model model) {
 		
@@ -102,7 +102,7 @@ public class LoginController {
 		return "/login/usermodify";
 	}
 	
-	//¼öÁ¤ÇÑ Á¤º¸¸¦ º¸³»¼­ ¾÷µ¥ÀÌÆ®
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	@PostMapping("/usermodify")
 	public String usermodify(LoginVO user,Model model) {
 		loginService.usermodify(user);
@@ -110,7 +110,7 @@ public class LoginController {
 		return "/login/home";
 	}
 	
-	//¾ÆÀÌµð,ºñ¹Ð¹øÈ£ Ã£±â
+	//ï¿½ï¿½ï¿½Ìµï¿½,ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½
 	
 	@GetMapping("/findPage")
 	public String findPage() {
@@ -122,7 +122,7 @@ public class LoginController {
 		if(name != null) {
 			String username = loginService.FindID(name);
 			if(username == null) {
-				model.addAttribute("namecheck", "ÇØ´ç ÀÌ¸§Àº µî·ÏµÇ¾î¾úÁö¾Ê½À´Ï´Ù");
+				model.addAttribute("namecheck", "ï¿½Ø´ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
 				return "/login/findPage";
 			}
 			model.addAttribute("name",username);
@@ -131,7 +131,7 @@ public class LoginController {
 		if(id != null) {
 			String userid = loginService.FindPW(id);
 			if(userid == null) {
-				model.addAttribute("idcheck", "ÇØ´ç ¾ÆÀÌµð´Â µî·ÏµÇ¾î¾úÁö¾Ê½À´Ï´Ù");
+				model.addAttribute("idcheck", "ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
 				return "/login/findPage";
 			}
 			model.addAttribute("id",userid);
