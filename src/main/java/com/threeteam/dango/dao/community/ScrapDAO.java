@@ -4,29 +4,30 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+import com.threeteam.dango.mapper.community.ScrapMapper;
 import com.threeteam.dango.vo.community.ScrapVO;
 
+@Repository
 public class ScrapDAO {
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	ScrapMapper scrapMapper;
 	
-	public void addScrap(ScrapVO vo) {
-		
+	public void addScrap(ScrapVO scrapVO) {
+		scrapMapper.addScrap(scrapVO);
 	}
 	
-	public void deleteScrap(ScrapVO vo) {
-		
+	public void deleteScrap(ScrapVO scrapVO) {
+		scrapMapper.deleteScrap(scrapVO);
 	}
 	
-	public ScrapVO getScrap(ScrapVO vo) {
-		return vo;
-		
+	public ScrapVO getScrap(ScrapVO scrapVO) {
+		return scrapMapper.getScarp(scrapVO);
 	}
 	
-	public List<ScrapVO> getScrapList(ScrapVO vo){
-		return null;
-		
+	public List<ScrapVO> getScrapList(String scrapId){
+		return scrapMapper.getScrapList(scrapId);
 	}
 }

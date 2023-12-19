@@ -1,5 +1,7 @@
 package com.threeteam.dango.service.community;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.threeteam.dango.dao.community.ScrapDAO;
@@ -11,13 +13,23 @@ public class ScrapServiceImpl implements ScrapService {
 	ScrapDAO scrapDAO;
 	
 	@Override
-	public void addScrap(ScrapVO vo) {
-		scrapDAO.addScrap(vo);
+	public List<ScrapVO> getScrapList(String scrapId) {
+		return scrapDAO.getScrapList(scrapId);
 	}
 
 	@Override
-	public void deleteScrap(ScrapVO vo) {
-		scrapDAO.deleteScrap(vo);
+	public ScrapVO getScrapVO(ScrapVO scrapVO) {
+		return scrapDAO.getScrap(scrapVO);
+	}
+	
+	@Override
+	public void addScrap(ScrapVO scrapVO) {
+		scrapDAO.addScrap(scrapVO);
+	}
+
+	@Override
+	public void deleteScrap(ScrapVO scrapVO) {
+		scrapDAO.deleteScrap(scrapVO);
 	}
 
 }

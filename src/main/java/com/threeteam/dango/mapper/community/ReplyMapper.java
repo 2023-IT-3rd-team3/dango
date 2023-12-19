@@ -1,8 +1,17 @@
 package com.threeteam.dango.mapper.community;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+
+import com.threeteam.dango.vo.community.ReplyVO;
 
 @Mapper
 public interface ReplyMapper {
 
+	public List<ReplyVO> getReplyList(String replyId);
+	public ReplyVO getReply(ReplyVO replyVO);
+	public void addReply(ReplyVO replyVO);
+	public void deleteReply(ReplyVO replyVO);
+	public void updateReply(ReplyVO replyVO);
 }

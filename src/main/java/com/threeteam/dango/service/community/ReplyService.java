@@ -9,8 +9,8 @@ import com.threeteam.dango.vo.community.ReplyVO;
 @Service
 public interface ReplyService {
 	
-	public void addReply(ReplyVO vo);
-	public void deleteReply(ReplyVO vo);
-	public ReplyVO getReply(ReplyVO vo);
-	public List<ReplyVO> getReplyList(ReplyVO vo);
+	public void addReply(ReplyVO replyVO);
+	public void deleteReply(ReplyVO replyVO);
+	public ReplyVO getReply(ReplyVO replyVO);
+	public List<ReplyVO> getReplyList(ReplyVO replyVO);
 }

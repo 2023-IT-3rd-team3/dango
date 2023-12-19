@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.threeteam.dango.mapper.community.BoardMapper">
+	<select id="insertBoard" resultType="BoardDAO">
+		INSERT INTO T_BOARD 
+		(BOARDID, BOARDTITLE, USERID, BOARDMAIN, BOARDNOTICE, BOARDREGISTERDATE, BOARDUPDATEDATE) 
+		VALUES 
+		(#{boardId}, #{boardTitle}, #{userId}, #{boardMain}, #{boardNotice}, #{boardRegisterdate}, #{boardUpdatedate})
+	</select>
+	
+	<select id="deleteBoard" resultType="BoardDAO">
+		DELETE FROM T_BOARD 
+		WHERE BOARDID=#{boardid}
+	</select>
+	
+	<select id="updateBoard" resultType="BoardDAO">
+		UPDATE T_BOARD SET 
+		BOARDTITLE=?, BOARDMAIN=? 
+		WHERE BOARDID=#{boardid}
+	</select>
+	
+	<select id="getBoard" resultType="BoardDAO">
+		SELECT * FROM T_BOARD 
+		WHERE BOARDID=#{boardid}
+	</select>
+	
+	<select id="getBoardList" resultType="BoardDAO">
+		SELECT * FROM T_BOARD 
+		ORDER BY BOARDID DESC
+	</select>
+	
+	<select id="searchForTitle" resultType="BoardDAO">
+		SELECT * FROM T_BOARD 
+		WHERE BOARDTITLE 
+		LIKE '%'||?||'%' 
+		ORDER BY BOARDID DESC
+	</select>
+	
+	<select id="searchForUser" resultType="BoardDAO">
+		SELECT * FROM T_BOARD 
+		WHERE USERID '%'||?||'%' 
+		ORDER BY BOARDID DESC
+	</select>
+</mapper>
