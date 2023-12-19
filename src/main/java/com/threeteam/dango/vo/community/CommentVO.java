@@ -53,6 +53,6 @@ public class CommentVO {
 	
 	@Override
 	public String toString() {
-		return "CommentVO [commentid="+commentid+", commentmaint="+commentmain+", userid="+userid+", boardid="+boardid+", commentregisterdate="+commentregisterdate+", commentupdatedate="+commentupdatedate+"]";
+		return "CommentVO [commentid="+commentid+", commentmain="+commentmain+", userid="+userid+", boardid="+boardid+", commentregisterdate="+commentregisterdate+", commentupdatedate="+commentupdatedate+"]";
 	}
 }
