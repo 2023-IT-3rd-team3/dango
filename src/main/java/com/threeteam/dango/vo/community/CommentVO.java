@@ -7,17 +7,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommentVO {
 
-	private String commentid;
+	private int commentid;
 	private String commentmain;
 	private String userid;
 	private String boardid;
 	private Date commentregisterdate;
 	private Date commentupdatedate;
 	
-	public String getCommentid() {
+	public int getCommentid() {
 		return commentid;
 	}
-	public void setCommentid(String commentid) {
+	public void setCommentid(int commentid) {
 		this.commentid = commentid;
 	}
 	public String getCommentmain() {
