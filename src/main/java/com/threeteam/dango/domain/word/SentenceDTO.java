@@ -22,6 +22,7 @@ public class SentenceDTO {
 	private String exFrontKr;
 	private String exBackKr;
 	private Integer wrongNum;
+	private Long wrongId;
 	
 	public Long getWordId() {
 		return wordId;
@@ -82,5 +83,11 @@ public class SentenceDTO {
 	}
 	public void setWrongNum(Integer wrongNum) {
 		this.wrongNum = wrongNum;
+	}
+	public Long getWrongId() {
+		return wrongId;
+	}
+	public void setWrongId(Long wrongId) {
+		this.wrongId = wrongId;
 	}
 }
