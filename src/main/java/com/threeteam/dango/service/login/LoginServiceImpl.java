@@ -1,4 +1,4 @@
-package com.threeteam.dango.login.service;
+package com.threeteam.dango.service.login;
 
 import java.util.Enumeration;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.threeteam.dango.login.domain.dao.LoginDAO;
-import com.threeteam.dango.login.domain.vo.LoginVO;
+import com.threeteam.dango.dao.login.LoginDAO;
+import com.threeteam.dango.domain.login.LoginVO;
 
 import lombok.extern.log4j.Log4j;
 

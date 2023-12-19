@@ -1,11 +1,11 @@
-package com.threeteam.dango.login.service;
+package com.threeteam.dango.service.login;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
-import com.threeteam.dango.login.domain.vo.LoginVO;
+import com.threeteam.dango.domain.login.LoginVO;
 
 @Service
 public interface LoginService {

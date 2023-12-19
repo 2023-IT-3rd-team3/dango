@@ -1,4 +1,4 @@
-package com.threeteam.dango.login.controller;
+package com.threeteam.dango.controller.login;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.threeteam.dango.login.domain.vo.LoginVO;
-import com.threeteam.dango.login.service.LoginService;
+import com.threeteam.dango.domain.login.LoginVO;
+import com.threeteam.dango.service.login.LoginService;
 
 
 

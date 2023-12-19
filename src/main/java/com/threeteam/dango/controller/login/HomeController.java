@@ -1,4 +1,4 @@
-package com.threeteam.dango.login.controller;
+package com.threeteam.dango.controller.login;
 
 import java.text.DateFormat;
 import java.util.Date;

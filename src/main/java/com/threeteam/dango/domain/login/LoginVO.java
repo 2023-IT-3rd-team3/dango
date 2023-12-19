@@ -1,4 +1,4 @@
-package com.threeteam.dango.login.domain.vo;
+package com.threeteam.dango.domain.login;
 
 import org.springframework.stereotype.Component;
 

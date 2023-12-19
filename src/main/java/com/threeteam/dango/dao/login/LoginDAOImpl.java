@@ -1,10 +1,10 @@
-package com.threeteam.dango.login.domain.dao;
+package com.threeteam.dango.dao.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.threeteam.dango.login.domain.vo.LoginVO;
-import com.threeteam.dango.login.mapper.LoginMapper;
+import com.threeteam.dango.domain.login.LoginVO;
+import com.threeteam.dango.mapper.login.LoginMapper;
 
 import lombok.extern.log4j.Log4j;
 

@@ -1,8 +1,8 @@
-package com.threeteam.dango.login.domain.dao;
+package com.threeteam.dango.dao.login;
 
 import org.springframework.stereotype.Repository;
 
-import com.threeteam.dango.login.domain.vo.LoginVO;
+import com.threeteam.dango.domain.login.LoginVO;
 
 @Repository
 public interface LoginDAO {

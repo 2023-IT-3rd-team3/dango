@@ -1,8 +1,8 @@
-package com.threeteam.dango.login.mapper;
+package com.threeteam.dango.mapper.login;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.threeteam.dango.login.domain.vo.LoginVO;
+import com.threeteam.dango.domain.login.LoginVO;
 
 @Mapper
 public interface LoginMapper {
