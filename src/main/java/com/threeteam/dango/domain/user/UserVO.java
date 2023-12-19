@@ -1,9 +1,9 @@
-package com.threeteam.dango.domain.login;
+package com.threeteam.dango.domain.user;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class LoginVO {
+public class UserVO {
 
 	private String userid;
 	private String userpw;
@@ -64,7 +64,7 @@ public class LoginVO {
 	}
 	@Override
 	public String toString() {
-		return "LoginVO [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", userphone="
+		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", userphone="
 				+ userphone + ", useremail=" + useremail + ", useradmin=" + useradmin + ", userregisterdate="
 				+ userregisterdate + ", userupdatedate=" + userupdatedate + "]";
 	}
