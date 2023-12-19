@@ -28,11 +28,11 @@ public class ReplyDAO {
 	}
 	
 	public ReplyVO getReply(ReplyVO replyVO) {
-		replyMapper.getReply(replyVO);
+		return replyMapper.getReply(replyVO);
 	}
 	
 	public List<ReplyVO> getReplyList(String replyId){
-		replyMapper.getReplyList(replyId);
+		return replyMapper.getReplyList(replyId);
 	}
 		
 }

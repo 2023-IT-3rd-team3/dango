@@ -28,10 +28,10 @@ public class CommentDAO {
 	}
 	
 	public CommentVO getComment(CommentVO commentVO) {
-		commentMapper.getComment(commentVO);
+	    return commentMapper.getComment(commentVO);
 	}
 	
 	public List<CommentVO> getCommentList(String commentId){
-		commentMapper.getCommentList(commentId);
+		return commentMapper.getCommentList(commentId);
 	}
 }

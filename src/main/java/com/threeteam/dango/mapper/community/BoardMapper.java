@@ -12,6 +12,6 @@ public interface BoardMapper {
 	public void insertBoard(BoardVO boardVO);
 	public void deleteBoard(BoardVO boardVO);
 	public void updateBoard(BoardVO boardVO);
-	public List<BoardVO> getBoardList(BoardVO boardId);
+	public List<BoardVO> getBoardList(String boardId);
 	public BoardVO getBoard(BoardVO boardVO);
 }

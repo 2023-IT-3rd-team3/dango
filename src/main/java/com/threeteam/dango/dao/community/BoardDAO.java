@@ -26,9 +26,9 @@ public class BoardDAO {
 		boardMapper.deleteBoard(boardVO);
 	}
 	public BoardVO getBoard(BoardVO boardVO) {
-		boardMapper.getBoard(boardVO);
+		return boardMapper.getBoard(boardVO);
 	}
 	public List<BoardVO> getBoardList(String boardId) {
-		boardMapper.getBoardList(boardId);
+		return boardMapper.getBoardList(boardId);
 	}
 }
