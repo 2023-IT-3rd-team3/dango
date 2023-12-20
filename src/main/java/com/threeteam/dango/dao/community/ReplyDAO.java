@@ -4,40 +4,35 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+import com.threeteam.dango.mapper.community.ReplyMapper;
 import com.threeteam.dango.vo.community.ReplyVO;
 
+@Repository
 public class ReplyDAO {
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	ReplyMapper replyMapper;
 	
-	// SQL 명령어
-	private final String REPLY_ADD="insert into T_REPLY(replyid, replymain, userid, commentid) values(?, ?, ?, ?)";
-	private final String REPLY_DELETE="select * from T_REPLY order by replyid desc";
-	private final String REPLY_UPDATE="update T_REPLY set replymain=? where replyid=?";
-	
-	
-	public void addReply(ReplyVO vo) {
-		jdbcTemplate.update(REPLY_ADD, vo.getReplymain());
+	public void addReply(ReplyVO replyVO) {
+		replyMapper.addReply(replyVO);
 	}
 	
-	public void deleteReply(ReplyVO vo) {
-		jdbcTemplate.update(REPLY_DELETE);
+	public void deleteReply(ReplyVO replyVO) {
+		replyMapper.deleteReply(replyVO);
 	}
 	
-	public void updateReply(ReplyVO vo) {
-		jdbcTemplate.update(REPLY_UPDATE, vo.getReplymain());
+	public void updateReply(ReplyVO replyVO) {
+		replyMapper.updateReply(replyVO);
 	}
 	
-	public ReplyVO getReply(ReplyVO vo) {
-		return vo;
-		
+	public ReplyVO getReply(ReplyVO replyVO) {
+		return replyMapper.getReply(replyVO);
 	}
 	
-	public List<ReplyVO> getReplyList(ReplyVO vo){
-		return null;
-		
+	public List<ReplyVO> getReplyList(ReplyVO replyVO){
+		return replyMapper.getReplyList(replyVO);
 	}
 		
 }

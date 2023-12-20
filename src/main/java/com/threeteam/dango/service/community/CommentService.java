@@ -9,8 +9,8 @@ import com.threeteam.dango.vo.community.CommentVO;
 @Service
 public interface CommentService {
 
-	public void addComment(CommentVO vo);
-	public void deleteComment(CommentVO vo);
-	public CommentVO getComment(CommentVO vo);
-	public List<CommentVO> getCommantList(CommentVO vo);
+	public void addComment(CommentVO commentVO);
+	public void deleteComment(CommentVO commentVO);
+	public CommentVO getComment(CommentVO commentVO);
+	public List<CommentVO> getCommantList(CommentVO commentVO);
 }

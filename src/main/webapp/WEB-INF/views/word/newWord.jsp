@@ -8,7 +8,7 @@
 <title>새 단어 배우기</title>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css?abcd">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWord.css?cdde">
 </head>
 <body>
@@ -28,9 +28,9 @@
                 </svg>
             </div>
             <div class="wrong-img">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+				  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg>
             </div>
 	        <div class="korean">
 		        <c:if test="${not empty sentence.exFrontKr}">

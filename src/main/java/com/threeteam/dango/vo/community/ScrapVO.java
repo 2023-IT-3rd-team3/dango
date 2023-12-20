@@ -4,29 +4,16 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Component
+@Getter
+@Setter
 public class ScrapVO {
 
-	private String scrapid;
-	private Date scrapregisterdate;
-	private Date scrapupdatedate;
+	private String scrapId;
+	private Date scrapRegisterdate;
+	private Date scrapUpdatedate;
 	
-	public String getScrapid() {
-		return scrapid;
-	}
-	public void setScrapid(String scrapid) {
-		this.scrapid = scrapid;
-	}
-	public Date getScrapregisterdate() {
-		return scrapregisterdate;
-	}
-	public void setScrapregisterdate(Date scrapregisterdate) {
-		this.scrapregisterdate = scrapregisterdate;
-	}
-	public Date getScrapupdatedate() {
-		return scrapupdatedate;
-	}
-	public void setScrapupdatedate(Date scrapupdatedate) {
-		this.scrapupdatedate = scrapupdatedate;
-	}
 }

@@ -7,6 +7,6 @@ import com.threeteam.dango.vo.community.RecommendVO;
 @Service
 public interface RecommendService {
 
-	public void plusRecommend(RecommendVO vo);
-	public void minusRecommend(RecommendVO vo);
+	public void plusRecommend(RecommendVO recommendVO);
+	public void minusRecommend(RecommendVO recommendVO);
 }

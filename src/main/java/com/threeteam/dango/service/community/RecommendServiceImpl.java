@@ -1,23 +1,25 @@
 package com.threeteam.dango.service.community;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.community.RecommendDAO;
 import com.threeteam.dango.vo.community.RecommendVO;
 
+@Service
 public class RecommendServiceImpl implements RecommendService {
 
 	@Autowired
 	RecommendDAO recommendDAO;
 	
 	@Override
-	public void plusRecommend(RecommendVO vo) {
-		recommendDAO.plusRecommend(vo);
+	public void plusRecommend(RecommendVO recommendVO) {
+		recommendDAO.plusRecommend(recommendVO);
 	}
 
 	@Override
-	public void minusRecommend(RecommendVO vo) {
-		recommendDAO.minusRecommend(vo);
+	public void minusRecommend(RecommendVO recommendVO) {
+		recommendDAO.minusRecommend(recommendVO);
 	}
 
 }

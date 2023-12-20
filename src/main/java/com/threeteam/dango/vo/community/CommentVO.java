@@ -4,55 +4,17 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
 @Component
+@Data
 public class CommentVO {
 
-	private int commentid;
-	private String commentmain;
-	private String userid;
-	private String boardid;
-	private Date commentregisterdate;
-	private Date commentupdatedate;
+	private int commentId;
+	private String commentMain;
+	private String userId;
+	private String boardId;
+	private Date commentRegisterdate;
+	private Date commentUpdatedate;
 	
-	public int getCommentid() {
-		return commentid;
-	}
-	public void setCommentid(int commentid) {
-		this.commentid = commentid;
-	}
-	public String getCommentmain() {
-		return commentmain;
-	}
-	public void setCommentmain(String commentmain) {
-		this.commentmain = commentmain;
-	}
-	public Date getCommentregisterdate() {
-		return commentregisterdate;
-	}
-	public void setCommentregisterdate(Date commentregisterdate) {
-		this.commentregisterdate = commentregisterdate;
-	}
-	public Date getCommentupdatedate() {
-		return commentupdatedate;
-	}
-	public void setCommentupdatedate(Date commentupdatedate) {
-		this.commentupdatedate = commentupdatedate;
-	}
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-	public String getBoardid() {
-		return boardid;
-	}
-	public void setBoardid(String boardid) {
-		this.boardid = boardid;
-	}
-	
-	@Override
-	public String toString() {
-		return "CommentVO [commentid="+commentid+", commentmain="+commentmain+", userid="+userid+", boardid="+boardid+", commentregisterdate="+commentregisterdate+", commentupdatedate="+commentupdatedate+"]";
-	}
 }
