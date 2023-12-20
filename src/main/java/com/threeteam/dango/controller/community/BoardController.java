@@ -17,50 +17,32 @@ import lombok.extern.log4j.Log4j;
 
 @RestController
 @RequestMapping("/community/*")
-@Log4j
 public class BoardController {
 
 	@Autowired
 	BoardService boardService;
 	
-	// 커뮤니티 홈(community)
 	@GetMapping
 	public String boardMain(BoardVO boardVO, Model model) {
 		return "/community/communityMain";
 	}
 	
-	// 게시판 목록(communitylist)
-	@GetMapping("/boardList")
-	public String boardList(BoardVO boardVO, Model model) {
-		model.addAttribute("boardList", boardService.getBoardList(boardVO));
-		return "CommunityList.jsp";
-	}
-	
-	// 공지사항 목록(communityinfo)
-	@GetMapping()
-	public String boardInfoList() {
-		return "";
-	}
-	
-	// 게시글 추가(communitynewpost)
 	@GetMapping("/boardInsert")
 	public String insertBoard(BoardVO boardVO) {
 		boardService.insertBoard(boardVO);
-		return "CommunityNewPost.jsp";
+		return "/community/getBoardList";
 	}
 	
-	// 게시글 수정(communityeditpost)
 	@GetMapping("/boardUpdate")
 	public String updateBoard(BoardVO boardVO) {
 		boardService.updateBoard(boardVO);
-		return "";
+		return "/community/getBoardList";
 	}
 	
-	// 게시글 삭제(삭제 후 -> communitylist)
 	@GetMapping("/boardDelete")
 	public String deleteBoard(BoardVO boardVO) {
 		boardService.deleteBoard(boardVO);
-		return "/community/getBoard";
+		return "/community/getBoardList";
 	}
 	
 	@GetMapping("/getBoard")
@@ -69,14 +51,14 @@ public class BoardController {
 		return "CommunityNewPost.jsp";
 	}
 	
-	@GetMapping("getBoardInfoList")
+	@GetMapping("/getBoardInfoList")
 	public String getBoardInfoList(BoardVO boardVO, Model model) {
 		model.addAttribute("", boardService.getBoardInfoList(boardVO));
-		return "CommunityInfo";
+		return "CommunityInfo.jsp";
 	}
 	
-	@GetMapping()
-	public String getBoardList() {
+	@GetMapping("/getBoardList")
+	public String getBoardList(BoardVO boardVO, Model model) {
 		return "CommunityList.jsp";
 	}
 	/* ----------- 검색기능 ----------- */
