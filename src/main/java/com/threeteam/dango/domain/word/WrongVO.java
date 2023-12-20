@@ -9,6 +9,7 @@ public class WrongVO {
 	private Integer wrongNum;
 	private Date wrongRegisterDate;
 	private Date wrongUpdateDate;
+	
 	public Long getWrongId() {
 		return wrongId;
 	}
