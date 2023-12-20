@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.service.community.BoardService;
 import com.threeteam.dango.vo.community.BoardVO;
 
@@ -24,8 +25,8 @@ public class BoardController {
 	
 	// 커뮤니티 홈(community)
 	@GetMapping
-	public String boardHome(BoardVO boardVO, Model model) {
-		return "/Home";
+	public String boardMain(BoardVO boardVO, Model model) {
+		return "/community/communityMain";
 	}
 	
 	// 게시판 목록(communitylist)
@@ -44,7 +45,6 @@ public class BoardController {
 	// 게시글 추가(communitynewpost)
 	@GetMapping("/boardInsert")
 	public String insertBoard(BoardVO boardVO) {
-		if()
 		boardService.insertBoard(boardVO);
 		return "CommunityNewPost.jsp";
 	}
@@ -60,6 +60,12 @@ public class BoardController {
 	@GetMapping("/boardDelete")
 	public String deleteBoard(BoardVO boardVO) {
 		boardService.deleteBoard(boardVO);
+		return "/community/getBoard";
+	}
+	
+	@GetMapping("/getBoard")
+	public String getBoard(BoardVO boardVO, Model model) {
+		model.addAttribute("check", boardService.getBoard(boardVO));
 		return "CommunityList.jsp";
 	}
 	
