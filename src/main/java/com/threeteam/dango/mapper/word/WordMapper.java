@@ -10,6 +10,7 @@ import com.threeteam.dango.domain.word.WordVO;
 
 @Mapper
 public interface WordMapper {
-	public List<SentenceDTO> getSentenceList(@Param("wordLevel") Integer wordLevel, @Param("userId") String userId);
-	
+	public List<SentenceDTO> selectSentenceList(@Param("wordLevel") Integer wordLevel, @Param("userId") String userId);
+	public SentenceDTO selectSentenceByWordId(Long wordId);
+	public List<WordVO> selectAllByKeyword(String keyword);
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>'${keyword}'의 검색결과 : だんご 사전</title>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
@@ -16,72 +16,70 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/dictionary/dictionaryList.css">
 </head>
 <body>
+
 <jsp:include page="../common/header.jsp" />
+
 <section id="container" class="wrapper">
 	<div id="content">
 		<div>
 			<form class="search_box">
-			<fieldset id="search_area">
-			<input type="search" placeholder="일본어 검색" class="search_input">
-			<button type="submit" value="검색" class="search_button"><i class="fa fa-search"></i></button>
-			</fieldset>
+				<fieldset id="search_area">
+					<input type="search" placeholder="일본어 검색" class="search_input" value="${keyword}">
+					<button type="submit" value="검색" class="search_button"><i class="fa fa-search"></i></button>
+				</fieldset>
 			</form>
 		</div>
 			
 		<div id="dictionary_area">
-			<ul>
-				<c:forEach var="word" items="${wordList}">
-					<li class="sentence_JP">
-						<a href="">
-							<ruby>
-								${word.word}
-								<rt>${word.furigana}</rt>
-							</ruby>
-						</a>
-					</li>
-				</c:forEach>
-				<li class="sentence_JP"><a href="#"><ruby>遊<rt>あそ</rt>ぶ<ruby></ruby></a><br></li>
-				<h2>뜻 : 놀다</h2>
-				
-				<li class="sentence_JP"><a href="#"><ruby>遊<rt>あそ</rt>ぶ<ruby></ruby></a><br></li>
-				<h2>뜻 : 놀다</h2>
-				
-				<li class="sentence_JP"><a href="#"><ruby>遊<rt>あそ</rt>ぶ<ruby></ruby></a><br></li>
-				<h2>뜻 : 놀다</h2>
-				
-				<li class="sentence_JP"><a href="#"><ruby>遊<rt>あそ</rt>ぶ<ruby></ruby></a><br></li>
-				<h2>뜻 : 놀다</h2>
-				
-				<li class="sentence_JP"><a href="#"><ruby>遊<rt>あそ</rt>ぶ<ruby></ruby></a><br></li>
-				<h2>뜻 : 놀다</h2>
-				
-				<li class="sentence_JP"><a href="#"><ruby>遊<rt>あそ</rt>ぶ<ruby></ruby></a><br></li>
-				<h2>뜻 : 놀다</h2>
-			</ul>
+			<c:forEach var="word" items="${wordList}">
+				<div class="voca">
+					<div class="word">
+						<a class="furigana" href="/dango/dictionary/${word.wordId}">${word.wordFurigana }</a>
+						<p class="kanji">${word.wordWord}</p>
+					</div>
+					<p class="mean">${word.wordMean}</p>
+				</div>
+			</c:forEach>
+			<div class="voca" href="">
+				<div class="word">
+					<a class="furigana">あそぶ</a>
+					<p class="kanji">【遊ぶ】</p>
+				</div>
+				<p class="mean">놀다</p>
+			</div>
+			<div class="voca" href="">
+				<div class="word">
+					<a class="furigana">あそぶ</a>
+					<p class="kanji">【遊ぶ】</p>
+				</div>
+				<p class="mean">놀다</p>
+			</div>
+			<div class="voca" href="">
+				<div class="word">
+					<a class="furigana">あそぶ</a>
+					<p class="kanji">【遊ぶ】</p>
+				</div>
+				<p class="mean">놀다</p>
+			</div>
+			<div class="voca" href="">
+				<div class="word">
+					<a class="furigana">あそぶ</a>
+					<p class="kanji">【遊ぶ】</p>
+				</div>
+				<p class="mean">놀다</p>
+			</div>
+			<div class="voca" href="">
+				<div class="word">
+					<a class="furigana">あそぶ</a>
+					<p class="kanji">【遊ぶ】</p>
+				</div>
+				<p class="mean">놀다</p>
+			</div>
 		</div>
-		
-		<!-- <div>
-			<p><a href="#">1</a></p> &nbsp;&nbsp;
-			<p><a href="#">2</a></p> &nbsp;&nbsp;
-			<p><a href="#">3</a></p> &nbsp;&nbsp;
-			<p><a href="#">4</a></p> &nbsp;&nbsp;
-			<p>...</p> &nbsp;&nbsp;
-		</div> -->
 	</div>
 </section>
 
-<footer>
-	<div class="footer_Box">
-	<a id="logo" href="">
-                <img src="" alt="">
-                たんご🍡
-    </a>
-	<p>
-		<span>팀명 : DanGo</span><br>
-		<span>팀원 : 김태현, 권오상, 문현민, 심효섭</span><br>
-		<span>Corpyright 2023. All Rights Reserved</span>
-	</p>
-	</div>
-</footer>
+<jsp:include page="../common/footer.jsp" />
+
 </body>
 </html>

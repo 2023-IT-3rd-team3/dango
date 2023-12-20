@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.word.WordDAO;
 import com.threeteam.dango.domain.word.SentenceDTO;
+import com.threeteam.dango.domain.word.WordVO;
 
 @Service
 @Primary
@@ -18,5 +19,15 @@ public class WordServiceImpl implements WordService {
 	@Override
 	public List<SentenceDTO> getSentenceList(Integer wordLevel, String userId) {
 		return wordDAO.getSentenceList(wordLevel, userId);
+	}
+
+	@Override
+	public SentenceDTO getSentenceByWordId(Long wordId) {
+		return wordDAO.getSentenceByWordId(wordId);
+	}
+
+	@Override
+	public List<WordVO> getWordAllByKeyword(String keyword) {
+		return wordDAO.getWordAllByKeyword(keyword);
 	}
 }

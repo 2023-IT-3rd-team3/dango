@@ -1,15 +1,10 @@
 #container {
-	display: table;
-	table-layout: fixed;
-	height: 100%;
-	margin: 90px 10px -300px 10px;
-	padding: 20px 400px 0px 450px;
-	align-content: center;
+	margin-top: 100px;
 }
 
 #content {
-	display: table-cell;
-	width: 80%;
+	width: 1080px;
+    margin: 0 auto;
     vertical-align: top;
 }
 
