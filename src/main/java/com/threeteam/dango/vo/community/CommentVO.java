@@ -10,11 +10,11 @@ import lombok.Data;
 @Data
 public class CommentVO {
 
-	private int commentid;
-	private String commentmain;
-	private String userid;
-	private String boardid;
-	private Date commentregisterdate;
-	private Date commentupdatedate;
+	private int commentId;
+	private String commentMain;
+	private String userId;
+	private String boardId;
+	private Date commentRegisterdate;
+	private Date commentUpdatedate;
 	
 }

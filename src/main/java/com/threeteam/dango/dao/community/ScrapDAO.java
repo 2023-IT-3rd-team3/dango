@@ -18,6 +18,14 @@ public class ScrapDAO {
 	public void addScrap(ScrapVO scrapVO) {
 		scrapMapper.addScrap(scrapVO);
 	}
+	/* 
+	 *  스크랩 추가할 때 필요
+	 *  boardId : 어느 게시글을 스크랩할지
+	 *  userId : 어느 유저가 추가할지
+	 *  scrapId
+	 *  scrapregisterdate : 언제 스크랩했는지
+	 *  scrapupdatedate : ??
+	 */
 	
 	public void deleteScrap(ScrapVO scrapVO) {
 		scrapMapper.deleteScrap(scrapVO);

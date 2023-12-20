@@ -6,11 +6,17 @@
 		T_SCRAP
 	</select>
 	
-	<select id="">
+	<select id="deleteScrap">
+		SELETC * FROM T_SCRAP 
+		ORDER BY SCARPID 
+		DESC
+	</select>
+	
+	<select id="getScrap">
 	
 	</select>
 	
-	<select id="">
+	<select id="getScrapList">
 	
 	</select>
 </mapper>

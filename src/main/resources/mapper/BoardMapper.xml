@@ -10,18 +10,18 @@
 	
 	<select id="deleteBoard" resultType="BoardDAO">
 		DELETE FROM T_BOARD 
-		WHERE BOARDID=#{boardid}
+		WHERE BOARDID=#{boardId}
 	</select>
 	
 	<select id="updateBoard" resultType="BoardDAO">
 		UPDATE T_BOARD SET 
 		BOARDTITLE=?, BOARDMAIN=? 
-		WHERE BOARDID=#{boardid}
+		WHERE BOARDID=#{boardId}
 	</select>
 	
 	<select id="getBoard" resultType="BoardDAO">
 		SELECT * FROM T_BOARD 
-		WHERE BOARDID=#{boardid}
+		WHERE BOARDID=#{boardId}
 	</select>
 	
 	<select id="getBoardList" resultType="BoardDAO">
