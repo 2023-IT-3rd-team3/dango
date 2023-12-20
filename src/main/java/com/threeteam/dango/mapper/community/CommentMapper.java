@@ -9,9 +9,9 @@ import com.threeteam.dango.vo.community.CommentVO;
 @Mapper
 public interface CommentMapper {
 
+	public CommentVO getComment(CommentVO commentVO);
+	public List<CommentVO> getCommentList(CommentVO commentId);
 	public void addComment(CommentVO commentVO);
 	public void deleteComment(CommentVO commentVO);
 	public void updateComment(CommentVO commentVO);
-	public CommentVO getComment(CommentVO commentVO);
-	public List<CommentVO> getCommentList(CommentVO commentId);
 }

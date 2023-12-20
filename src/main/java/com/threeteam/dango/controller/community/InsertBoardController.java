@@ -12,7 +12,7 @@ public class InsertBoardController {
 			
 			boardDAO.insertBoard(boardVO);
 
-			return "boardList";
+			return "getBoard";
 			
 		}
 }

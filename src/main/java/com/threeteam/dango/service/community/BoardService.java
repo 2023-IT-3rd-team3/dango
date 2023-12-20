@@ -13,7 +13,9 @@ public interface BoardService {
 	public void updateBoard(BoardVO boardVO);
 	public void deleteBoard(BoardVO boardVO);
 	public BoardVO getBoard(BoardVO boardVO);
+	public BoardVO getBOardInfo(BoardVO boardVO);
 	public List<BoardVO> getBoardList(BoardVO boardVO);
+	public List<BoardVO> getBoardInfoList(BoardVO boardVO);
 	
 	/* ----------- 검색기능 ----------- */
 	

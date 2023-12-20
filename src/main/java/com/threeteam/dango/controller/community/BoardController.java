@@ -65,10 +65,20 @@ public class BoardController {
 	
 	@GetMapping("/getBoard")
 	public String getBoard(BoardVO boardVO, Model model) {
-		model.addAttribute("check", boardService.getBoard(boardVO));
-		return "CommunityList.jsp";
+		model.addAttribute("", boardService.getBoard(boardVO));
+		return "CommunityNewPost.jsp";
 	}
 	
+	@GetMapping("getBoardInfoList")
+	public String getBoardInfoList(BoardVO boardVO, Model model) {
+		model.addAttribute("", boardService.getBoardInfoList(boardVO));
+		return "CommunityInfo";
+	}
+	
+	@GetMapping()
+	public String getBoardList() {
+		return "CommunityList.jsp";
+	}
 	/* ----------- 검색기능 ----------- */
 	
 	
