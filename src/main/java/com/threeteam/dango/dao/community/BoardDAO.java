@@ -28,7 +28,16 @@ public class BoardDAO {
 	public BoardVO getBoard(BoardVO boardVO) {
 		return boardMapper.getBoard(boardVO);
 	}
-	public List<BoardVO> getBoardList(String boardId) {
-		return boardMapper.getBoardList(boardId);
+	public List<BoardVO> getBoardList(BoardVO boardVO) {
+		return boardMapper.getBoardList(boardVO);
+	}
+	public boolean adminCheck(BoardVO boardVO) {
+		return boardMapper.adminCheck(boardVO);
+	}
+	public void adminY(BoardVO boardVO) {
+		boardMapper.adminY(boardVO);
+	}
+	public void adminN(BoardVO boardVO) {
+		boardMapper.adminN(boardVO);
 	}
 }

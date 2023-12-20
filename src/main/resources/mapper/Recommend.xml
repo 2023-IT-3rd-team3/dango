@@ -5,11 +5,11 @@
 		INSERT INTO	T_RECOMMEND 
 		(RECOMMENDID, USERID, BOARDID, RECOMMENDREGISTERDATE, RECOMMENDUPDATEDATE) 
 		VALUES 
-		(#{recommendid}, #{userid}, #{boardid}, #{recommendregisterdate}, #{recommendupdatedate})
+		(#{recommendId}, #{userId}, #{boardId}, #{recommendRegisterdate}, #{recommendUpdatedate})
 	</select>
 	<insert id="minusRecommend">
 		DELETE FROM T_RECOMMEND 
 		WHERE 
-		RECOMMENDID=#{recommendid}
+		RECOMMENDID=#{recommendId}
 	</insert>
 </mapper>

@@ -31,8 +31,8 @@ public class ReplyDAO {
 		return replyMapper.getReply(replyVO);
 	}
 	
-	public List<ReplyVO> getReplyList(String replyId){
-		return replyMapper.getReplyList(replyId);
+	public List<ReplyVO> getReplyList(ReplyVO replyVO){
+		return replyMapper.getReplyList(replyVO);
 	}
 		
 }

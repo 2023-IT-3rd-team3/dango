@@ -12,9 +12,9 @@ import lombok.Setter;
 @Setter
 public class RecommendVO {
 
-	private String recommendid;
-	private String boardid;
+	private String recommendId;
+	private String boardId;
 	private String userid;
-	private Date recommendregisterdate;
-	private Date recommendupdatedate;
+	private Date recommendRegisterdate;
+	private Date recommendUpdatedate;
 }

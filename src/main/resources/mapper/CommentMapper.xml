@@ -9,14 +9,14 @@
 	</select>
 	
 	<select id="deleteComment">
-		DELETE FROM T_BOARD 
-		WHERE BOARDID=#{commentid}
+		DELETE FROM T_COMMENT 
+		WHERE BOARDID=#{commentId}
 	</select>
 	
 	<select id="updateComment">
 		UPDATE T_COMMENT SET COMMENTMAIN=? 
 		WHERE 
-		COMMENTID=#{commentid}
+		COMMENTID=#{commentId}
 	</select>
 	
 	<select id="getComment">

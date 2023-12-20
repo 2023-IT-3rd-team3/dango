@@ -13,5 +13,5 @@ public interface CommentMapper {
 	public void deleteComment(CommentVO commentVO);
 	public void updateComment(CommentVO commentVO);
 	public CommentVO getComment(CommentVO commentVO);
-	public List<CommentVO> getCommentList(String commentId);
+	public List<CommentVO> getCommentList(CommentVO commentId);
 }

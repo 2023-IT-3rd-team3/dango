@@ -10,10 +10,10 @@ import lombok.Data;
 @Data
 public class ReplyVO {
 
-	private String replyid;
-	private String userid;
-	private String commentid;
-	private String replymain;
-	private Date replyregisterdate;
-	private Date replyupdatedate;
+	private String replyId;
+	private String userId;
+	private String commentId;
+	private String replyMain;
+	private Date replyRegisterdate;
+	private Date replyUpdatedate;
 }

@@ -14,4 +14,8 @@ public interface BoardService {
 	public void deleteBoard(BoardVO boardVO);
 	public BoardVO getBoard(BoardVO boardVO);
 	public List<BoardVO> getBoardList(BoardVO boardVO);
+	
+	// 관리자 체크
+	public boolean adminCheck(BoardVO boardVO);
+	
 }
