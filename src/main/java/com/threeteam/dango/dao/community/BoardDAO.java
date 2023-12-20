@@ -31,6 +31,8 @@ public class BoardDAO {
 	public List<BoardVO> getBoardList(BoardVO boardVO) {
 		return boardMapper.getBoardList(boardVO);
 	}
+	
+	/* ----------- 관리자 관련 ----------- */
 	public boolean adminCheck(BoardVO boardVO) {
 		return boardMapper.adminCheck(boardVO);
 	}

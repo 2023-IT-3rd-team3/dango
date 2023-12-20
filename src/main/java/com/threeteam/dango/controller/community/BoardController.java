@@ -60,9 +60,13 @@ public class BoardController {
 	@GetMapping("/boardDelete")
 	public String deleteBoard(BoardVO boardVO) {
 		boardService.deleteBoard(boardVO);
-		return "";
+		return "CommunityList.jsp";
 	}
 	
+	/* ----------- 검색기능 ----------- */
+	
+	
+	/* ----------- 관리자 ----------- */
 	// 관리자 체크
 	@GetMapping("/admincheck")
 	public boolean adminCheck(BoardVO boardVO) {

@@ -15,7 +15,14 @@ public interface BoardService {
 	public BoardVO getBoard(BoardVO boardVO);
 	public List<BoardVO> getBoardList(BoardVO boardVO);
 	
+	/* ----------- 검색기능 ----------- */
+	
+	
+	/* ----------- 관리자 관련 ----------- */
 	// 관리자 체크
 	public boolean adminCheck(BoardVO boardVO);
-	
+	// 관리자O
+	public void adminY(BoardVO boardVO);
+	// 관리자X
+	public void adminN(BoardVO boardVO);
 }
