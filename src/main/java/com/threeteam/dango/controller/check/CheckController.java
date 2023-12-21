@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.threeteam.dango.domain.check.CheckService;
 import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.word.WordVO;
+import com.threeteam.dango.service.check.CheckService;
 
 @RestController
 @RequestMapping("/check/*")

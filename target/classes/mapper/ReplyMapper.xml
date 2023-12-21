@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.threeteam.dango.mapper.community.ReplyMapper">
-	<select id="addReply">
+	<insert id="addReply">
 		INSERT INTO T_REPLY  
 		(REPLYID, REPLYMAIN, USERID, BOARDID, COMMENTID, REPLYREGISTERDATE, REPLYUPDATEDATE) 
 		VALUES 
 		(#{replyId}, #{replyMain}, #{userId}, #{boardId}, #{commentId}, #{replyRegisterdate}, #{replyUpdatedate})
-	</select>
+	</insert>
 	
-	<select id="deleteReply">
+	<delete id="deleteReply">
 		SELETC * FROM T_REPLY 
 		ORDER BY REPLYID 
 		DESC
+	</delete>
+	
+	<update id="updateReply">
+		UPDATE T_REPLY SET REPLYMAIN=#{replyMain} 
+		WHERE REPLYID=#{replyId}
+	</update>
+	
+	<select id="getReply">
+		SELECT * FROM T_REPLY
+		WHERE REPLYID=#{replyId}
 	</select>
 	
-	<select id="updateReply">
-		UPDATE T_REPLY SET REPLYMAIN=#{replyMain} 
-		WHERE
-		REPLYID=#{replyId}
+	<select id="getReplyList">
+		SELECT * FROM T_REPLY 
+		ORDER BY SCRAPID DESC
 	</select>
 </mapper>

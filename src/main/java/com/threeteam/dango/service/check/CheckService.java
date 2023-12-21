@@ -1,7 +1,8 @@
-package com.threeteam.dango.domain.check;
+package com.threeteam.dango.service.check;
 
 import java.util.List;
 
+import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.word.WordVO;
 
 public interface CheckService {

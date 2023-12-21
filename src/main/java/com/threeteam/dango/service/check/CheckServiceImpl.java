@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.check.CheckDAO;
-import com.threeteam.dango.domain.check.CheckService;
 import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.word.WordVO;
 

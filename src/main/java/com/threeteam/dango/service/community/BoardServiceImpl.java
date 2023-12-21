@@ -44,6 +44,15 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getBoardList(boardVO);
 	}
 	
+	@Override
+	public List<BoardVO> getBoardInfoList(BoardVO boardVO){
+		return boardDAO.getBoardInfoList(boardVO);
+	}
+	
+	/* ----------- 검색기능 ----------- */
+	
+	
+	/* ----------- 관리자 관련 ----------- */
 	// 관리자 체크
 	@Override
 	public boolean adminCheck(BoardVO boardVO) {

@@ -9,8 +9,8 @@ import com.threeteam.dango.vo.community.ReplyVO;
 @Mapper
 public interface ReplyMapper {
 
-	public List<ReplyVO> getReplyList(ReplyVO replyVO);
 	public ReplyVO getReply(ReplyVO replyVO);
+	public List<ReplyVO> getReplyList(ReplyVO replyVO);
 	public void addReply(ReplyVO replyVO);
 	public void deleteReply(ReplyVO replyVO);
 	public void updateReply(ReplyVO replyVO);
