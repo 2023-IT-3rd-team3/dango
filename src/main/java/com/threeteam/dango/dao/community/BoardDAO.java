@@ -28,12 +28,20 @@ public class BoardDAO {
 	public BoardVO getBoard(BoardVO boardVO) {
 		return boardMapper.getBoard(boardVO);
 	}
+	public BoardVO getBoardInfo(BoardVO boardVO) {
+		return boardMapper.getBoardInfo(boardVO);
+	}
 	public List<BoardVO> getBoardList(BoardVO boardVO) {
 		return boardMapper.getBoardList(boardVO);
 	}
 
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO) {
 		return boardMapper.getBoardInfoList(boardVO);
+	}
+	
+	/* ----------- 검색기능 ----------- */
+	public void communitySearch(BoardVO boardVO) {
+		boardMapper.communitySearch(boardVO);
 	}
 	
 	/* ----------- 관리자 관련 ----------- */

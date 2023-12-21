@@ -10,7 +10,7 @@ import com.threeteam.dango.vo.community.ScrapVO;
 public interface ScrapMapper {
 
 	public ScrapVO getScarp(ScrapVO scrapVO);
-	public List<ScrapVO> getScrapList(String scrapId);
+	public List<ScrapVO> getScrapList(ScrapVO scrapVO);
 	public void addScrap(ScrapVO scrapVO);
 	public void deleteScrap(ScrapVO scrapVO);
 }

@@ -38,6 +38,11 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getBoard(boardVO);
 	}
 	
+	@Override
+	public BoardVO getBoardInfo(BoardVO boardVO) {
+		return boardDAO.getBoardInfo(boardVO);
+	}
+	
 	// 게시글 목록 보기
 	@Override
 	public List<BoardVO> getBoardList(BoardVO boardVO){
@@ -50,7 +55,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	/* ----------- 검색기능 ----------- */
-	
+	@Override
+	public void communitySearch(BoardVO boardVO) {
+		boardDAO.communitySearch(boardVO);
+	}
 	
 	/* ----------- 관리자 관련 ----------- */
 	// 관리자 체크

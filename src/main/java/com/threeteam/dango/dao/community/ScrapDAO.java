@@ -15,7 +15,7 @@ public class ScrapDAO {
 	@Autowired
 	ScrapMapper scrapMapper;
 	
-	public void addScrap(ScrapVO scrapVO) {
+	public void insertScrap(ScrapVO scrapVO) {
 		scrapMapper.addScrap(scrapVO);
 	}
 	
@@ -27,7 +27,7 @@ public class ScrapDAO {
 		return scrapMapper.getScarp(scrapVO);
 	}
 	
-	public List<ScrapVO> getScrapList(String scrapId){
-		return scrapMapper.getScrapList(scrapId);
+	public List<ScrapVO> getScrapList(ScrapVO scrapVO){
+		return scrapMapper.getScrapList(scrapVO);
 	}
 }
