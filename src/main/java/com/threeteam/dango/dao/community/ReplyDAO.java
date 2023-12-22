@@ -15,7 +15,7 @@ public class ReplyDAO {
 	@Autowired
 	ReplyMapper replyMapper;
 	
-	public void addReply(ReplyVO replyVO) {
+	public void insertReply(ReplyVO replyVO) {
 		replyMapper.addReply(replyVO);
 	}
 	

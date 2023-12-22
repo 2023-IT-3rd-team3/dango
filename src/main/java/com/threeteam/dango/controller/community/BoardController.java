@@ -45,6 +45,11 @@ public class BoardController {
 		return "/community/getBoardList";
 	}
 	
+	@GetMapping()
+	public String BoardView(BoardVO boardVO) {
+		return "CommunityPostpage.jspt";
+	}
+	
 	@GetMapping("/getBoard")
 	public String getBoard(BoardVO boardVO, Model model) {
 		model.addAttribute("", boardService.getBoard(boardVO));
@@ -59,10 +64,15 @@ public class BoardController {
 	
 	@GetMapping("/getBoardList")
 	public String getBoardList(BoardVO boardVO, Model model) {
+		model.addAttribute("", boardService.getBoardList(boardVO));
 		return "CommunityList.jsp";
 	}
-	/* ----------- 검색기능 ----------- */
 	
+	/* ----------- 검색기능 ----------- */
+	@GetMapping("/CommunitySearch")
+	public String communitySearch() {
+		return "getBordList";
+	}
 	
 	/* ----------- 관리자 ----------- */
 	// 관리자 체크

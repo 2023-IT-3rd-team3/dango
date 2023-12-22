@@ -15,23 +15,23 @@ public class CommentServiceImpl implements CommentService {
 	CommentDAO commentDAO;
 	
 	@Override
-	public void addComment(CommentVO vo) {
-		commentDAO.addComment(vo);
+	public void insertComment(CommentVO commentVO) {
+		commentDAO.insertComment(commentVO);
 	}
 
 	@Override
-	public void deleteComment(CommentVO vo) {
-		commentDAO.deleteComment(vo);
+	public void deleteComment(CommentVO commentVO) {
+		commentDAO.deleteComment(commentVO);
 	}
 
 	@Override
-	public CommentVO getComment(CommentVO vo) {
-		return commentDAO.getComment(vo);
+	public CommentVO getComment(CommentVO commentVO) {
+		return commentDAO.getComment(commentVO);
 	}
 
 	@Override
-	public List<CommentVO> getCommantList(CommentVO vo) {
-		return commentDAO.getCommentList(vo);
+	public List<CommentVO> getCommantList(CommentVO commentVO) {
+		return commentDAO.getCommentList(commentVO);
 	}
 
 }

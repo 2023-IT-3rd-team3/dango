@@ -15,32 +15,13 @@ public class RecommentController {
 	RecommendService recommendService;
 	
 	@GetMapping
-	public String recommendMain() {
+	public String plusRecommend() {
 		return "";
 	}
 	
 	@GetMapping
-	public String insertRecommend() {
+	public String minusRecommend() {
 		return "";
 	}
 	
-	@GetMapping
-	public String deleteRecommend() {
-		return "";
-	}
-	
-	@GetMapping
-	public String updateRecommend() {
-		return "";
-	}
-	
-	@GetMapping
-	public String getRecommend() {
-		return "";
-	}
-	
-	@GetMapping
-	public String getRecommendList() {
-		return "";
-	}
 }

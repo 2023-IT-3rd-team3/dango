@@ -15,8 +15,8 @@ public class ReplyServiceImpl implements ReplyService {
 	ReplyDAO replyDAO;
 	
 	@Override
-	public void addReply(ReplyVO replyVO) {
-		replyDAO.addReply(replyVO);
+	public void insertReply(ReplyVO replyVO) {
+		replyDAO.insertReply(replyVO);
 	}
 
 	@Override

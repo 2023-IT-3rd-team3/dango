@@ -15,7 +15,7 @@ public class CommentDAO {
 	@Autowired
 	CommentMapper commentMapper;
 	
-	public void addComment(CommentVO commentVO) {
+	public void insertComment(CommentVO commentVO) {
 		commentMapper.addComment(commentVO);
 	}
 	
