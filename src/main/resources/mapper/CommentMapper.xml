@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.threeteam.dango.mapper.community.CommentMapper">
-	<select id="addComment">
+	<insert id="addComment">
 		INSERT INTO T_COMMENT 
 		(COMMENTID, COMMENTMAIN, USERID, BOARDID, COMMENTREGISTERDATE, COMMENTUPDATEDATE) 
 		VLAUES 
 		(#{commentId}, #{commentMain}, #{userId}, #{boardId}, #[commentRegisterdate}, #{commentUpdatedate}])
-	</select>
+	</insert>	
 	
-	<select id="deleteComment">
+	<delete id="deleteComment">
 		DELETE FROM T_COMMENT 
-		WHERE BOARDID=#{commentId}
-	</select>
+		WHERE COMMENTID=#{commentId}
+	</delete>	
 	
-	<select id="updateComment">
-		UPDATE T_COMMENT SET COMMENTMAIN=? 
+	<update id="updateComment">
+		UPDATE T_COMMENT SET COMMENTMAIN=#{commentMain} 
 		WHERE 
 		COMMENTID=#{commentId}
-	</select>
+	</update>
 	
-	<select id="getComment">
+	<select id="getComment" resultType="CommentVO">
+		SELECT * FROM T_COMMENT 
+		WHERE COMMENTID=#{commentId}
+	</select>	
 	
-	</select>
-	
-	<select id="getCommentList">
-	
+	<select id="getCommentList" resultType="CommentVO">
+		SELECT * FROM T_COMMENT 
+		ORDER BY COMMENTID DESC
 	</select>
 </mapper>

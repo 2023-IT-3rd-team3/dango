@@ -18,25 +18,7 @@
     
     <title>커뮤니티</title>
 </head>
-<body>
-    <header>
-        <div>
-            <div>
-                <a id="logo" href="">
-                    <img src="" alt="">
-                    たんご🍡
-                </a>
-                <nav>
-                    <a href="/dango/word/new">새 단어</a>
-                    <a href="">오답노트</a>
-                    <a href="">단어장</a>
-                    <a href="">사전</a>
-                    <a href="/dango/community">커뮤니티</a>
-                </nav>
-            </div>
-            <a id="login" href="">로그인 / 회원가입</a>
-        </div>
-    </header>
+<jsp:include page="../common/header.jsp" />
 
     <div class="Commu_box">
         <form>
@@ -48,7 +30,7 @@
         <div class="announ_box">
             <div class="title">
                 <h2 class="title_name">공지사항</h2>
-                <a class="title_more">더보기</a>
+                <a class="title_more" href="/community/getBoardInfoList">더보기</a>
             </div>
             <a class="textbox" href="">
                 <div class="textbox_title">예시글1</div>
@@ -95,7 +77,7 @@
         <div class="announ_box">
             <div class="title">
                 <h2 class="title_name">자유게시판</h2>
-                <a class="title_more">더보기</a>
+                <a class="title_more" href="/community/getBoardList">더보기</a>
             </div>
             <div class="textbox">
                 <div class="textbox_title">예시글1</div>
@@ -130,7 +112,7 @@
                 </div>
             </div>
             <div class="textbox">
-                <div class="textbox_title">예시글5</div>
+                <div class="textbox_title">${getBoardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -140,18 +122,8 @@
             <div style="width: 100%; height: 50px;"></div>
         </div>
     </div>
-    <footer>
-        <div class="footer_Box">
-        <a id="logo" href="">
-                    <img src="" alt="">
-                    たんご🍡
-        </a>
-        <p>
-            <span>팀명 : DanGo</span><br>
-            <span>팀원 : 김태현, 권오상, 문현민, 심효섭</span><br>
-            <span>Corpyright 2023. All Rights Reserved</span>
-        </p>
-        </div>
-    </footer>
+   
+<jsp:include page="../common/footer.jsp" />
+
 </body>
 </html>

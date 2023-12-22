@@ -4,15 +4,17 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Component
-@Getter
-@Setter
+@Data
 public class ScrapVO {
 
 	private String scrapId;
+	private String boardId;
+	private String userId;
 	private Date scrapRegisterdate;
 	private Date scrapUpdatedate;
 	

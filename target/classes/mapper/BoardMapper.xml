@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.threeteam.dango.mapper.community.BoardMapper">
-	<select id="insertBoard" resultType="BoardDAO">
+	<insert id="insertBoard">
 		INSERT INTO T_BOARD 
 		(BOARDID, BOARDTITLE, USERID, BOARDMAIN, BOARDNOTICE, BOARDREGISTERDATE, BOARDUPDATEDATE) 
 		VALUES 
 		(#{boardId}, #{boardTitle}, #{userId}, #{boardMain}, #{boardNotice}, #{boardRegisterdate}, #{boardUpdatedate})
-	</select>
+	</insert>
 	
-	<select id="deleteBoard" resultType="BoardDAO">
+	<delete id="deleteBoard">
 		DELETE FROM T_BOARD 
 		WHERE BOARDID=#{boardId}
-	</select>
+	</delete>
 	
-	<select id="updateBoard" resultType="BoardDAO">
+	<update id="updateBoard">
 		UPDATE T_BOARD SET 
-		BOARDTITLE=?, BOARDMAIN=? 
+		BOARDTITLE=#{boarTitle}, BOARDMAIN=#{boardMain} 
 		WHERE BOARDID=#{boardId}
-	</select>
+	</update>
 	
-	<select id="getBoard" resultType="BoardDAO">
+	<select id="getBoard" resultType="BoardVO">
 		SELECT * FROM T_BOARD 
 		WHERE BOARDID=#{boardId}
-	</select>
+	</select>	
 	
-	<select id="getBoardList" resultType="BoardDAO">
+	<select id="getBoardList" resultType="BoardVO">
 		SELECT * FROM T_BOARD 
 		ORDER BY BOARDID DESC
-	</select>
+	</select>	
 	
-	<select id="searchForTitle" resultType="BoardDAO">
+	<select id="searchForTitle" resultType="BoardVO">
 		SELECT * FROM T_BOARD 
 		WHERE BOARDTITLE 
-		LIKE '%'||?||'%' 
+		LIKE '%'||#{boardTitle}||'%' 
 		ORDER BY BOARDID DESC
-	</select>
+	</select>	
 	
-	<select id="searchForUser" resultType="BoardDAO">
+	<select id="searchForUser" resultType="BoardVO">
 		SELECT * FROM T_BOARD 
-		WHERE USERID '%'||?||'%' 
+		WHERE USERID '%'||#{userId}||'%' 
 		ORDER BY BOARDID DESC
 	</select>
 </mapper>

@@ -9,6 +9,6 @@ public class DeleteBoardController {
 		
 		boardDAO.deleteBoard(boardVO);
 
-		return "boardList";
+		return "getBoardList";
 	}
 }

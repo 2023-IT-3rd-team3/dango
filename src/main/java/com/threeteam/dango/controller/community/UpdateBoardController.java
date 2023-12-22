@@ -9,6 +9,6 @@ public class UpdateBoardController {
 		
 		boardDAO.updateBoard(boardVO);
 		
-		return "boardList";
+		return "getBoardList";
 	}
 }

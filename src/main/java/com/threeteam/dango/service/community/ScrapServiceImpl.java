@@ -13,18 +13,18 @@ public class ScrapServiceImpl implements ScrapService {
 	ScrapDAO scrapDAO;
 	
 	@Override
-	public List<ScrapVO> getScrapList(String scrapId) {
-		return scrapDAO.getScrapList(scrapId);
+	public List<ScrapVO> getScrapList(ScrapVO scrapVO) {
+		return scrapDAO.getScrapList(scrapVO);
 	}
 
 	@Override
-	public ScrapVO getScrapVO(ScrapVO scrapVO) {
+	public ScrapVO getScrap(ScrapVO scrapVO) {
 		return scrapDAO.getScrap(scrapVO);
 	}
 	
 	@Override
-	public void addScrap(ScrapVO scrapVO) {
-		scrapDAO.addScrap(scrapVO);
+	public void insertScrap(ScrapVO scrapVO) {
+		scrapDAO.insertScrap(scrapVO);
 	}
 
 	@Override
