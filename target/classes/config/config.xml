@@ -7,5 +7,6 @@
 		<typeAlias type="com.threeteam.dango.domain.word.WrongVO" alias="wrongVO"/>
 		<typeAlias type="com.threeteam.dango.domain.word.EndWordVO" alias="endWordVO"/>
 		<typeAlias type="com.threeteam.dango.domain.check.CheckVO" alias="checkVO"/>
+		<typeAlias type="com.threeteam.dango.domain.recent.RecentVO" alias="recentVO"/>
 	</typeAliases>
 </configuration>
