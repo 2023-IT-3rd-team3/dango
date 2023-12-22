@@ -34,12 +34,29 @@ article {
     align-content: space-between;
 }
 .check-btn {
+    background: url(../image/star_on.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 15px;
+    heigth: 15px;
+    cursor: pointer;
+    z-index: 999;
     position: absolute;
     right: 30px;
-    background-color: transparent;
-    border: 1px solid transparent;
+}
+.check-btn.action {
+	background: url(../image/star_off.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 15px;
+    heigth: 15px;
     cursor: pointer;
-    color: rgb(255, 23, 68);
+    transition: 0.3s;
+    z-index: 999;
+    position: absolute;
+    right: 30px;
 }
 .word-hurigana {
     display: flex;
