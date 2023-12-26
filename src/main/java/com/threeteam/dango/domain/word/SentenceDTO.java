@@ -14,10 +14,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SentenceDTO {
 	private Long wordId;
-	private String word;
-	private String furigana;
-	private String mean;
-	private Integer level;
+	private String wordWord;
+	private String wordFurigana;
+	private String wordMean;
+	private Integer wordLevel;
 	private String exFrontJp;
 	private String exBackJp;
 	private String exFrontKr;

@@ -7,6 +7,7 @@
 		<typeAlias type="com.threeteam.dango.domain.word.WrongVO" alias="wrongVO"/>
 		<typeAlias type="com.threeteam.dango.domain.word.EndWordVO" alias="endWordVO"/>
 		<typeAlias type="com.threeteam.dango.domain.check.CheckVO" alias="checkVO"/>
+<<<<<<< HEAD
 		
 		<!-- Community -->
 		<typeAlias type="com.threeteam.dango.vo.community.BoardVO" alias="BoardVO" />
@@ -14,5 +15,8 @@
 		<typeAlias type="com.threeteam.dango.vo.community.RecommendVO" alias="RecommendVO" />
 		<typeAlias type="com.threeteam.dango.vo.community.ReplyVO" alias="ReplyVO" />
 		<typeAlias type="com.threeteam.dango.vo.community.ScrapVO" alias="ScrapVO" />
+=======
+		<typeAlias type="com.threeteam.dango.domain.recent.RecentVO" alias="recentVO"/>
+>>>>>>> cba2b57800ff596d03ea65a8ae1b83abc66e448c
 	</typeAliases>
 </configuration>

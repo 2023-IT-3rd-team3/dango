@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WordVO {
 	private Long wordId;
-	private String word;
-	private String furigana;
-	private String mean;
-	private Integer level;
+	private String wordWord;
+	private String wordFurigana;
+	private String wordMean;
+	private Integer wordLevel;
 	private Date wordRegisterDate;
 	private Date wordUpdateDate;
 }
