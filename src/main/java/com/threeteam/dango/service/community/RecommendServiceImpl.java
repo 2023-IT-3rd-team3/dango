@@ -21,5 +21,4 @@ public class RecommendServiceImpl implements RecommendService {
 	public void minusRecommend(RecommendVO recommendVO) {
 		recommendDAO.minusRecommend(recommendVO);
 	}
-
 }

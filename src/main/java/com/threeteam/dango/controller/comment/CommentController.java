@@ -1,46 +1,55 @@
 package com.threeteam.dango.controller.comment;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.threeteam.dango.service.community.CommentService;
+import com.threeteam.dango.vo.community.CommentVO;
 
 @RestController
-@RequestMapping
+@SessionAttributes("comment")
+@RequestMapping("/comment/*")
 public class CommentController {
 
 	@Autowired
 	CommentService commentService;
 	
-	@GetMapping
-	public String commentMain() {
-		return "";
+	@GetMapping("/")
+	public String commentMain(CommentVO commentVO, Model model) {
+		return "/comment/main";
 	}
 	
-	@GetMapping
-	public String insertComment() {
-		return "";
+	@GetMapping("/insertComment")
+	public String insertComment(CommentVO commentVO) {
+		commentService.insertComment(commentVO);
+		return "getCommentList";
 	}
 	
-	@GetMapping
-	public String deleteComment() {
-		return "";
+	@GetMapping("/deleteComment")
+	public String deleteComment(CommentVO commentVO) {
+		commentService.deleteComment(commentVO);
+		return "getCommentList";
 	}
 	
-	@GetMapping
-	public String updateComment() {
-		return "";
+	@GetMapping("/updateComment")
+	public String updateComment(CommentVO commentVO) {
+		commentService.updateComment(commentVO);
+		return "getCommentList";
 	}
 	
-	@GetMapping
-	public String getComment() {
-		return "";
+	@GetMapping("/getComment")
+	public String getComment(CommentVO commentVO, Model model) {
+		model.addAttribute("comment", commentService.getComment(commentVO));
+		return ".jsp";
 	}
 	
-	@GetMapping
-	public String getCommentList() {
-		return "";
+	@GetMapping("/getCommentList")
+	public String getCommentList(CommentVO commentVO, Model model) {
+		model.addAttribute("comment", commentService.getCommantList(commentVO));
+		return ".jsp";
 	}
 }

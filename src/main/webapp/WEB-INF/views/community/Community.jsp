@@ -33,7 +33,7 @@
                 <a class="title_more" href="/community/getBoardInfoList">더보기</a>
             </div>
             <a class="textbox" href="">
-                <div class="textbox_title">예시글1</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -41,7 +41,7 @@
                 </div>
             </a>
             <a class="textbox" href="">
-                <div class="textbox_title">예시글2</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -49,7 +49,7 @@
                 </div>
             </a>
             <a class="textbox" href="">
-                <div class="textbox_title">예시글3</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -57,7 +57,7 @@
                 </div>
             </a>
             <a class="textbox" href="">
-                <div class="textbox_title">예시글4</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -65,7 +65,7 @@
                 </div>
             </a>
             <a class="textbox" href="">
-                <div class="textbox_title">예시글5</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -80,7 +80,7 @@
                 <a class="title_more" href="/community/getBoardList">더보기</a>
             </div>
             <div class="textbox">
-                <div class="textbox_title">예시글1</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="textbox">
-                <div class="textbox_title">예시글2</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="textbox">
-                <div class="textbox_title">예시글3</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="textbox">
-                <div class="textbox_title">예시글4</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="textbox">
-                <div class="textbox_title">${getBoardTitle }</div>
+                <div class="textbox_title">${boardTitle }</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">2023/11/15</div>
                     <div style="margin-left: 10px;">30</div>
