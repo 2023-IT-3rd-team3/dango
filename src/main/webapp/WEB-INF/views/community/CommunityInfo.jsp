@@ -45,102 +45,18 @@
             </div>
             <div class="title">
             </div>
-            <a class="textbox">
-                <div class="textbox_title">예시글1</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글2</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글3</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글4</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글5</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글6</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글7</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글8</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글9</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글10</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글11</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
-            <a class="textbox">
-                <div class="textbox_title">예시글12</div>
-                <div class="textbox_info">
-                    <div style="margin-left: 10px;">2023/11/15</div>
-                    <div style="margin-left: 10px;">30</div>
-                    <div style="margin-left: 10px;">0</div>
-                </div>
-            </a>
+            
+            <c:forEach var="boardinfo" items="${boardinfoList}">
+        	<a class="textbox" href="/community/viewBoard?boardId=${board.boardId}">
+	            <div class="textbox_title">${board.boardTitle}</div>
+    	        <div class="textbox_info">
+                <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
+                <div style="margin-left: 10px;">${board.views}</div>
+                <div style="margin-left: 10px;">${board.likes}</div>
+            </div>
+        	</a>
+    		</c:forEach>
+    		
             <div style="width: 100%; height: 50px;"></div>
         </div>
     </div>

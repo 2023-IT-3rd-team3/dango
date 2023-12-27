@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: KOS
-=======
-Built-By: USER
->>>>>>> cba2b57800ff596d03ea65a8ae1b83abc66e448c
 Build-Jdk: 1.8.0_391
 Created-By: Maven Integration for Eclipse
 

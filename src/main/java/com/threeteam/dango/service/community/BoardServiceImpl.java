@@ -56,8 +56,8 @@ public class BoardServiceImpl implements BoardService {
 	
 	/* ----------- 검색기능 ----------- */
 	@Override
-	public void communitySearch(BoardVO boardVO) {
-		boardDAO.communitySearch(boardVO);
+	public List<BoardVO> communitySearch(BoardVO boardVO) {
+		return boardDAO.communitySearch(boardVO);
 	}
 	
 	/* ----------- 관리자 관련 ----------- */

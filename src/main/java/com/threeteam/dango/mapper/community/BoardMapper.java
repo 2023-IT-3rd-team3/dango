@@ -18,7 +18,7 @@ public interface BoardMapper {
 	public void updateBoard(BoardVO boardVO);
 
 	/* ----------- 검색기능 ----------- */
-	public void communitySearch(BoardVO boardVO);
+	public List<BoardVO> communitySearch(BoardVO boardVO);
 	
 	/* --------- 관리자 관련 --------- */
 	public boolean adminCheck(BoardVO boardVO);

@@ -16,30 +16,12 @@
     <link rel="stylesheet" href="../../../resources/static/css/community/community.css">
     <link rel="stylesheet" href="../../../resources/static/css/community/community_newPost.css">
 
-<jsp:include page="../common/header.jsp" />
-
 <body>
-    <header>
-        <div>
-            <div>
-                <a id="logo" href="">
-                    <img src="" alt="">
-                    たんご🍡
-                </a>
-                <nav>
-                    <a href="">새 단어</a>
-                    <a href="">오답노트</a>
-                    <a href="">단어장</a>
-                    <a href="">사전</a>
-                    <a href="">커뮤니티</a>
-                </nav>
-            </div>
-            <a id="login" href="">로그인 / 회원가입</a>
-        </div>
-    </header>
+	<jsp:include page="../common/header.jsp" />
+    
     <div class="NewPostbox">
         <div class="NewPostmain">
-            <form action="" method="post">
+            <form action="boardInsert" method="post">
             <div class="NewPostTitle">
                 <input class="NewPostTitleText" type="text" placeholder="제목을 수정해 주세요.">
             </div>

@@ -40,8 +40,8 @@ public class BoardDAO {
 	}
 	
 	/* ----------- 검색기능 ----------- */
-	public void communitySearch(BoardVO boardVO) {
-		boardMapper.communitySearch(boardVO);
+	public List<BoardVO> communitySearch(BoardVO boardVO) {
+		return boardMapper.communitySearch(boardVO);
 	}
 	
 	/* ----------- 관리자 관련 ----------- */
