@@ -10,7 +10,7 @@
   position: relative;
   display: inline-block;
   padding: 0 0 0 50px;
-  background: #FFE3EE;
+  background: #BF3131;
   border: none;
   border-radius: 5px;
   border: 1px solid rgb(200, 200, 200);
@@ -80,7 +80,7 @@
 
 .fa-search {
   font-size: 1.4rem;
-  color: #29abe2;
+  color: #EAD196;
   z-index: 3;
   top: 25%;
   -webkit-transform: translate(-300px, 0);
