@@ -18,7 +18,7 @@ public interface BoardService {
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO);
 	
 	/* ----------- 검색기능 ----------- */
-	public void communitySearch(BoardVO boardVO);
+	public List<BoardVO> communitySearch(BoardVO boardVO);
 	
 	/* ----------- 관리자 관련 ----------- */
 	// 관리자 체크

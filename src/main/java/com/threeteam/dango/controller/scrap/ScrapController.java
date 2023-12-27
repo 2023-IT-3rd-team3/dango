@@ -10,35 +10,36 @@ import com.threeteam.dango.service.community.ScrapService;
 import com.threeteam.dango.vo.community.ScrapVO;
 
 @RestController
-@RequestMapping("/scrap")
+@RequestMapping("/scrap/*")
 public class ScrapController {
 
 	@Autowired
 	ScrapService scrapService;
 	
 	@GetMapping
-	public String scrapMain() {
-		return "";
+	public String scrapMain(ScrapVO scrapVO, Model model) {
+		
+		return "/scrap/main";
 	}
 	
 	@GetMapping
-	public String insertScrap() {
-		return "";
+	public String insertScrap(ScrapVO scrapVO) {
+		return "/scrap/insertScrap";
 	}
 	
 	@GetMapping
-	public String deleteScrap() {
-		return "";
+	public String deleteScrap(ScrapVO scrapVO) {
+		return "/scrap/deleteScrap";
 	}
 	
 	@GetMapping
-	public String getScrap(ScrapVO scrapVO, Model odel) {
+	public String getScrap(ScrapVO scrapVO, Model model) {
 		model.addAttribute("", scrapService.getScrap(scrapVO));
-		return "";
+		return ".jsp";
 	}
 	
 	@GetMapping
 	public String getScrapList() {
-		return "";
+		return ".jsp";
 	}
 }
