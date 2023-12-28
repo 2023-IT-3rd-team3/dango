@@ -134,13 +134,47 @@
 .commentbox{
 	margin: auto;
 }
+
+
+
+/* 추천, 스크랩 관련 */
+
+.scrapBox{
+	display: flex;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.scrapbuttonBox{
+	margin-left: 1055px;
+	margin-right: 20px; 
+	 
+}
+
+.scrapbutton{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#e22938;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 32px;
+    cursor: pointer;
+}
+
 .recommendinfo{
-	margin: 35px 0px 1px 550px;
+	display: flex;
+	margin: 35px 0px 1px 0px;
 }
 .recommendbox{
 	margin: 15px 0px 0px;
 }
-
+.recommendNO{
+	margin: auto 0;
+	font-size: 18px;
+	font-weight: bold;
+}
 #recommendbutton{
   border: 0;
   outline: none;

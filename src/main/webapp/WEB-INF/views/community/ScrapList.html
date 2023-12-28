@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./style.css" rel="stylesheet">
-    <title>자유게시판목록</title>
-    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/search.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community_menu.css">
-
+<meta charset="UTF-8">
+<title>스크랩 목록</title>
+<link href="./style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
+<link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
+<link rel="stylesheet" href="../../../resources/static/css/common/header.css">
+<link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
+<link rel="stylesheet" href="../../../resources/static/css/common/search.css">
+<link rel="stylesheet" href="../../../resources/static/css/community/community.css">
+<link rel="stylesheet" href="../../../resources/static/css/community/community_menu.css">
 </head>
 <body>
-    <header>
+
+<!-- header -->
+<header>
         <div>
             <div>
                 <a id="logo" href="">
@@ -24,18 +24,19 @@
                     たんご🍡
                 </a>
                 <nav>
-                    <a href="">새 단어</a>
+                    <a href="/dango/word/new">새 단어</a>
                     <a href="">오답노트</a>
                     <a href="">단어장</a>
                     <a href="">사전</a>
-                    <a href="">커뮤니티</a>
+                    <a href="/dango/community">커뮤니티</a>
                 </nav>
             </div>
             <a id="login" href="">로그인 / 회원가입</a>
         </div>
-    </header>
+</header>
 
-    <div class="Commu_box">
+<!-- body -->
+<div class="Commu_box">
         <form>
         <div class="search_banner">
             
@@ -52,10 +53,10 @@
             </div>
             <div class="CoummnityClass">
                 <div class="CoummnityClasshead">
-                    <h1 class="CoummnityClassTitle">자유게시판</h1>
-                    <h3 class="CoummnityClassText">자유 게시판은 회원 여러분의 자유로운 생각을 나누고 토론하는 공간입니다.</h3>
+                    <h1 class="CoummnityClassTitle">스크랩</h1>
+                    <h3 class="CoummnityClassText">모아놓은 게시글을 확인하는 곳</h3>
                 </div>
-                <a class="CoummnityClassLink">이용수칙 자세히 보기</a>
+                <a class="CoummnityClassLink" href="#">이용수칙 자세히 보기</a>
             </div>
             <div class="title">
             </div>
@@ -158,7 +159,9 @@
             <div style="width: 100%; height: 50px;"></div>
         </div>
     </div>
-    <footer>
+
+<!-- footer -->
+<footer>
         <div class="footer_Box">
         <a id="logo" href="">
                     <img src="" alt="">
@@ -170,6 +173,7 @@
             <span>Corpyright 2023. All Rights Reserved</span>
         </p>
         </div>
-    </footer>
+</footer>
+
 </body>
 </html>
