@@ -21,14 +21,14 @@ import com.threeteam.dango.domain.word.WordVO;
 import com.threeteam.dango.service.check.CheckService;
 
 @RestController
-@RequestMapping("/check/*")
+@RequestMapping("/dango/*")
 public class CheckController {
 
 	@Autowired
 	private CheckService checkService;
 	
 	@PostMapping(value="/toggleCheck", consumes = "application/json")
-	public boolean checkWord(@RequestBody int wordId, HttpServletRequest request, Model model) {
+	public boolean checkWord(@RequestBody Long wordId, HttpServletRequest request, Model model) {
 		
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO)session.getAttribute("user");
