@@ -21,4 +21,16 @@ public class RecommendServiceImpl implements RecommendService {
 	public void minusRecommend(RecommendVO recommendVO) {
 		recommendDAO.minusRecommend(recommendVO);
 	}
+
+	@Override
+	public Integer findByUserIdBoardId(RecommendVO recommendVO) {
+		// TODO Auto-generated method stub
+		return recommendDAO.findByUserIdBoardId(recommendVO);
+	}
+
+	@Override
+	public Integer findCountByBoardId(Long boardId) {
+		// TODO Auto-generated method stub
+		return recommendDAO.findCountByBoardId(boardId);
+	}
 }

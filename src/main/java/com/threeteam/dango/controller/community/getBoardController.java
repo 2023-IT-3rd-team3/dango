@@ -16,7 +16,7 @@ public class getBoardController {
 	public ModelAndView getBoard(BoardVO boardVO, BoardDAO boardDAO, ModelAndView mav) {
 		BoardVO infoCheck = boardService.getBoard(boardVO);
 		
-		// boardNotice가 Y일떄는 공지사항, N일때 일반게시판
+		// boardNotice媛� Y�씪�뻹�뒗 怨듭��궗�빆, N�씪�븣 �씪諛섍쾶�떆�뙋
 		if(infoCheck != null) {
 			if("Y".equals(infoCheck.getBoardNotice())){
 				mav.addObject("boardInfo", boardDAO.getBoardInfo(boardVO));
