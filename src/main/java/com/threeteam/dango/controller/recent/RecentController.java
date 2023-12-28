@@ -1,6 +1,4 @@
-package com.threeteam.dango.controller.check;
-
-import java.util.List;
+package com.threeteam.dango.controller.recent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,40 +12,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.threeteam.dango.domain.check.CheckVO;
+import com.threeteam.dango.domain.recent.RecentVO;
 import com.threeteam.dango.domain.user.UserVO;
-import com.threeteam.dango.service.check.CheckService;
+import com.threeteam.dango.service.recent.RecentService;
 
 @Controller
-@RequestMapping("/dango/check/*")
-public class CheckController {
-
+@RequestMapping("dango/recent/*")
+public class RecentController {
+	
 	@Autowired
-	private CheckService checkService;
+	private RecentService recentService;
 	
 	@ResponseBody
-	@PostMapping(value="/toggleCheck", consumes = "application/json")
-	public boolean checkWord(@RequestBody Long wordId, HttpServletRequest request, Model model) {
+	@PostMapping(value = "/", consumes = "application/json")
+	public boolean insertRecent(@RequestBody Long wordId, HttpServletRequest request, Model model) {
 		
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO)session.getAttribute("user");
 		
-		CheckVO vo = new CheckVO();
+		RecentVO vo = new RecentVO();
 		vo.setUserId(userVO.getUserid());
 		vo.setWordId(wordId);
+		boolean recent = recentService.isRecent(vo);
 		
-		boolean isChecked = checkService.isCheck(vo);
-		
-		return isChecked;
+		return recent;
 	}
 	
-	@GetMapping(value="/getCheckList")
-	public String getCheckList(HttpServletRequest request, Model model) {
-		System.out.println("check 목록 보기 처리");
+	@GetMapping(value = "/getRecentList")
+	public String getRecentList(HttpServletRequest request, Model model) {
+		System.out.println("recent 목록 보기 처리");
+		
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO)session.getAttribute("user");
-
-		model.addAttribute("check", checkService.getCheckList(userVO));
-		return "/getCheckList";
+		
+		model.addAttribute("recent", recentService.getRecentList(userVO));
+		return "/getRecentList";
 	}
 }

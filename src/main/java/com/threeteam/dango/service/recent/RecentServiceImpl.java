@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.threeteam.dango.dao.recent.RecentDAO;
 import com.threeteam.dango.domain.recent.RecentVO;
+import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
-import com.threeteam.dango.impl.recent.RecentDAO;
 
 @Service("recentService")
 public class RecentServiceImpl implements RecentService {
@@ -33,13 +34,8 @@ public class RecentServiceImpl implements RecentService {
 	}
 
 	@Override
-	public WordVO getRecent(RecentVO vo) {
-		return (WordVO)RecentDAO.getRecent(vo);
-	}
-
-	@Override
-	public List<WordVO> getRecentList(RecentVO vo) {
-		return RecentDAO.getRecentList(vo);
+	public List<WordVO> getRecentList(UserVO userVO) {
+		return RecentDAO.getRecentList(userVO);
 	}
 
 }

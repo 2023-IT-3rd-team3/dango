@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.threeteam.dango.domain.check.CheckVO;
+import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
 
 @Repository("checkDAO")
@@ -30,13 +31,8 @@ public class CheckDAO {
 		mybatis.delete("CheckDAO.offCheck", vo);
 	}
 	
-	public WordVO getCheck(CheckVO vo) {
-		System.out.println("------>>> getCheck() 기능 처리");
-		return (WordVO)mybatis.selectOne("CheckDAO.getCheck", vo);
-	}
-	
-	public List<WordVO> getCheckList(CheckVO vo){
+	public List<WordVO> getCheckList(UserVO userVO){
 		System.out.println("------>>> getCheckList() 기능 처리");
-		return mybatis.selectList("CheckDAO.getCheckList", vo);
+		return mybatis.selectList("CheckDAO.getCheckList", userVO.getUserid());
 	}
 }

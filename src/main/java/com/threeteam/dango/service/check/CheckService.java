@@ -3,6 +3,7 @@ package com.threeteam.dango.service.check;
 import java.util.List;
 
 import com.threeteam.dango.domain.check.CheckVO;
+import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
 
 public interface CheckService {
@@ -13,8 +14,6 @@ public interface CheckService {
 	public void onCheck(CheckVO vo);
 	// 체크 되어있는 단어의 체크 버튼을 클릭했을 때
 	public void offCheck(CheckVO vo);
-	// 체크된 단어 정보를 가져오기
-	public WordVO getCheck(CheckVO vo);
 	// 체크된 단어 리스트를 가져오기
-	public List<WordVO> getCheckList(CheckVO vo);
+	public List<WordVO> getCheckList(UserVO userVO);
 }
