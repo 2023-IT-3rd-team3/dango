@@ -39,12 +39,12 @@ public class BoardDAO {
 		return boardMapper.getBoardInfoList(boardVO);
 	}
 	
-	/* ----------- 검색기능 ----------- */
+	/* ----------- 寃��깋湲곕뒫 ----------- */
 	public List<BoardVO> communitySearch(BoardVO boardVO) {
 		return boardMapper.communitySearch(boardVO);
 	}
 	
-	/* ----------- 관리자 관련 ----------- */
+	/* ----------- 愿�由ъ옄 愿��젴 ----------- */
 	public boolean adminCheck(BoardVO boardVO) {
 		return boardMapper.adminCheck(boardVO);
 	}

@@ -38,8 +38,8 @@ public class ScrapController {
 		return ".jsp";
 	}
 	
-	@GetMapping
+	@GetMapping("/scrapList")
 	public String getScrapList() {
-		return ".jsp";
+		return "ScrapList.jsp";
 	}
 }

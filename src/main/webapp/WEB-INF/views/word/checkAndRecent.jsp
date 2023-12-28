@@ -17,7 +17,12 @@
 <body>
 <jsp:include page="../common/header.jsp" />
 
-
+<section>
+    <div class="checkRecentMain">
+        <div></div>
+        <div></div>
+    </div>
+</section>
 
 <jsp:include page="../common/footer.jsp" />
 </body>

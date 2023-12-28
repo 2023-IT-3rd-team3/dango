@@ -9,4 +9,6 @@ public interface RecommendService {
 
 	public void plusRecommend(RecommendVO recommendVO);
 	public void minusRecommend(RecommendVO recommendVO);
+	public Integer findByUserIdBoardId(RecommendVO recommendVO);
+	public Integer findCountByBoardId(Long boardId);
 }

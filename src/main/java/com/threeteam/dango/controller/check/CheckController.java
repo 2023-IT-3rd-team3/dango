@@ -41,9 +41,22 @@ public class CheckController {
 		return isChecked;
 	}
 	
+<<<<<<< HEAD
 	@GetMapping(value="/getCheckList")
 	public String getCheckList(HttpServletRequest request, Model model) {
 		System.out.println("check 목록 보기 처리");
+=======
+	@GetMapping(value="/getCheck", consumes = "application/json;")
+	public String getCheck(@RequestBody CheckVO vo, HttpServletRequest request, Model model) {
+		System.out.println("check �긽�꽭 蹂닿린 泥섎━");
+		model.addAttribute("check", checkService.getCheck(vo));
+		return "getCheck.jsp";
+	}
+	
+	@GetMapping(value="/getCheckList", consumes = "application/json;")
+	public String getCheckList(@RequestBody WordVO wordVO, HttpServletRequest request, Model model) {
+		System.out.println("check 紐⑸줉 蹂닿린 泥섎━");
+>>>>>>> db6ee24375c65cbf4756f63852754dc67259de3b
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO)session.getAttribute("user");
 
