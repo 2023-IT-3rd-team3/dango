@@ -41,6 +41,10 @@ public class BoardDAO {
 	
 	/* ----------- 검색기능 ----------- */
 	public List<BoardVO> communitySearch(BoardVO boardVO) {
+		searchCondition = 
+		
+		if
+		
 		return boardMapper.communitySearch(boardVO);
 	}
 	

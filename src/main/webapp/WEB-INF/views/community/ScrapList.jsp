@@ -32,9 +32,9 @@
             </div>
             <div class="title">
             </div>
-           <c:forEach var="board" items="${boardList}">
+           <c:forEach var="scrap" items="${scrapList}">
         	
-        	<a class="textbox" href="/community/viewBoard?boardId=${board.boardId}">
+        	<a class="textbox" href="/community/viewBoard?boardId=${scrap.scrapId}">
 		    	<div class="textbox_title">${board.boardTitle}</div>
         	   	<div class="textbox_info">
                 <div style="margin-left: 10px;">${board.boardRegisterDate}</div>

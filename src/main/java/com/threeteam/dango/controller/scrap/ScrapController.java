@@ -42,4 +42,12 @@ public class ScrapController {
 	public String getScrapList() {
 		return "ScrapList.jsp";
 	}
+	
+	/*
+	스크랩 버튼을 누르면
+	보드테이블에서 보드id, 유저id 받아서 scrap테이블에 저장
+	count 컬럼 추가해서 0이면 추가하고 1이면 추가 x (boolean?)
+	
+	view? -> boardid 추적?
+*/
 }

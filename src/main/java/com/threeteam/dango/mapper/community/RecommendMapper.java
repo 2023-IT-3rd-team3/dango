@@ -9,4 +9,6 @@ public interface RecommendMapper {
 	
 	public void plusRecommend(RecommendVO recommendVO);
 	public void minusRecommend(RecommendVO recommendVO);
+	public Integer selectByUserIdBoardId(RecommendVO recommendVO);
+	public Integer selectCountByBoardId(Long boardId);
 }

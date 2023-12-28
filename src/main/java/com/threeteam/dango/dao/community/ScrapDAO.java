@@ -15,6 +15,10 @@ public class ScrapDAO {
 	@Autowired
 	ScrapMapper scrapMapper;
 	
+	public boolean isScrap(ScrapVO scrapVO) {
+		return scrapMapper.isScrap(scrapVO);
+	}
+	
 	public void insertScrap(ScrapVO scrapVO) {
 		scrapMapper.addScrap(scrapVO);
 	}
