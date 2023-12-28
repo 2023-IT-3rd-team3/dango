@@ -11,12 +11,12 @@
     <title>${boardTitle }</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/search.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community_post.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/search.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community_post.css">
 </head>
 <body>
 
@@ -32,6 +32,14 @@
                         <a class="PostHeaderButtonEdit">수정</a>
                     </div>
                 </div>
+                
+                <!-- 스크랩 버튼 -->
+                <div class="scrapBox">
+                	<div class="scrapbuttonBox">
+                	<a class="scrapbutton">스크랩</a>
+                	</div>
+                </div>
+                
                 <div class="Posttitle">
                     ${board.boardTitle }
                 </div>
@@ -101,4 +109,11 @@
 <jsp:include page="../common/footer.jsp" />
 
 </body>
+
+<script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js" />
+<script>
+
+
+</script>
+
 </html>

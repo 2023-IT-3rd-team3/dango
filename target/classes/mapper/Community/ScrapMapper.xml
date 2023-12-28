@@ -6,7 +6,6 @@
 		(SCRAPID, USERID, BOARDID, SCRAPREGISTERDATE, SCRAPUPDATEDATE) 
 		VALUES
 		({#scrapId}, #{userId}, #{boardId}, #{scrapRegisterdate}, #{scrapUpdatedate})
-		
 	</insert>
 	
 	<delete id="deleteScrap">

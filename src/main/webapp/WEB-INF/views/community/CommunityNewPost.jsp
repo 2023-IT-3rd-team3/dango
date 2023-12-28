@@ -11,12 +11,12 @@
     <title>새 글 쓰기</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/search.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community_newPost.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/search.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community_newPost.css">
 
 </head>
 

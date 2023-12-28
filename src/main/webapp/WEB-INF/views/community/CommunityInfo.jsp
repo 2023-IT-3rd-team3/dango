@@ -10,12 +10,12 @@
     <title>공지사항목록</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
-    <link rel="stylesheet" href="../../../resources/static/css/common/search.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community_menu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/search.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community_menu.css">
 
 </head>
 <body>
@@ -35,6 +35,7 @@
             <div class="Postmenu">
                 <a class="Postmenu_m">공지사항</a>
                 <a class="Postmenu_m">자유게시판</a>
+                <a class="Postmenu_m">스크랩</a>
             </div>
             <div class="CoummnityClass">
                 <div class="CoummnityClasshead">

@@ -49,19 +49,19 @@ public class BoardController {
 	
 	@GetMapping("/boardView")
 	public String BoardView(BoardVO boardVO) {
-		return "CommunityPostpage.jsp";
+		return "community/CommunityPostpage";
 	}
 	
 	@GetMapping("/getBoard")
 	public String getBoard(BoardVO boardVO, Model model) {
 		model.addAttribute("board", boardService.getBoard(boardVO));
-		return "CommunityNewPost.jsp";
+		return "community/CommunityNewPost";
 	}
 	
 	@GetMapping("/getBoardList")
 	public String getBoardList(BoardVO boardVO, Model model) {
 		model.addAttribute("boardList", boardService.getBoardList(boardVO));
-		return "CommunityList.jsp";
+		return "community/CommunityList";
 	}
 	
 	@GetMapping("/getBoardInfo")
