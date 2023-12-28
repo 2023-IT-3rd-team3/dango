@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style.css" rel="stylesheet">
-    <title>게시글</title>
+    <title>${boardTitle }</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
     <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
@@ -33,36 +33,41 @@
                     </div>
                 </div>
                 <div class="Posttitle">
-                    글제목
+                    ${board.boardTitle }
                 </div>
                 <div class="postinfo">
-                    <div class="postinfo_user">유저이름</div>
-                    <div class="postinfo_date">2023/11/15</div>
+                    <div class="postinfo_user">${board.userId }</div>
+                    <div class="postinfo_date">${board.boardRegDate }</div>
                 </div>
                 <hr style="margin: 10px;">
                 <div class="commentbox">
+                
+                <!-- 유저가 작성한 댓글 -->
+                <div class="postcontent">
+                   ${board.boardMain }
+                </div>
+                
+                <!-- 추천버튼 -->
                 <div class="recommendinfo">
                 	<button class="recommendbutton">추천</button>
+                	<p align="right">추천개수</p>
                 </div>
-                <div class="postcontent">
-                    글 내용<br>
-                    이곳에 유저가 작성한 글 내용이 들어간다.<br>
-                    <br>
-                    이 글은 예시를 위해 작성된 글이다.<br>
-                </div>
+                
+                <!-- 댓글추가 -->
                 <div class="postcomment">
-                    <form action="" method="get">
+                    <form action="/reply/insertComment" method="get">
                         <textarea placeholder="댓글을 입력해주세요." id="comment" class="postcomment_c"></textarea>
+                        <input type="hidden" name="boardId" value="${board.boardId }">
                         <input class="postcomment_b" type="button" value="등록">
                     </form>
                 </div>
+                
                 <div class="postinfo">
-                    <div>유저이름</div>
-                    <div>2023/11/15</div>
+                    <div>${board.userID }</div>
+                    <div>${reply.replyRegisterDate }</div>
                 </div>
                 <div class="postcontent">
-                    답글 내용<br>
-                    이곳에 유저가 해당글에 대한 댓글에 작성한 내용이 들어간다.<br>
+                    ${reply.raplyMain }
                 </div>
                 </div>
                 <div style="margin: 10px;">
@@ -76,46 +81,17 @@
                         <h2 class="title_name">자유게시판</h2>
                         <a class="title_more">더보기</a>
                     </div>
-                    <a class="textbox">
-                        <div class="textbox_title">예시글1</div>
-                        <div class="textbox_info">
-                            <div style="margin-left: 10px;">2023/11/15</div>
-                            <div style="margin-left: 10px;">30</div>
-                            <div style="margin-left: 10px;">0</div>
-                        </div>
-                    </a>
-                    <a class="textbox">
-                        <div class="textbox_title">예시글2</div>
-                        <div class="textbox_info">
-                            <div style="margin-left: 10px;">2023/11/15</div>
-                            <div style="margin-left: 10px;">30</div>
-                            <div style="margin-left: 10px;">0</div>
-                        </div>
-                    </a>
-                    <a class="textbox">
-                        <div class="textbox_title">예시글3</div>
-                        <div class="textbox_info">
-                            <div style="margin-left: 10px;">2023/11/15</div>
-                            <div style="margin-left: 10px;">30</div>
-                            <div style="margin-left: 10px;">0</div>
-                        </div>
-                    </a>
-                    <a class="textbox">
-                        <div class="textbox_title">예시글4</div>
-                        <div class="textbox_info">
-                            <div style="margin-left: 10px;">2023/11/15</div>
-                            <div style="margin-left: 10px;">30</div>
-                            <div style="margin-left: 10px;">0</div>
-                        </div>
-                    </a>
-                    <a class="textbox">
-                        <div class="textbox_title">예시글5</div>
-                        <div class="textbox_info">
-                            <div style="margin-left: 10px;">2023/11/15</div>
-                            <div style="margin-left: 10px;">30</div>
-                            <div style="margin-left: 10px;">0</div>
-                        </div>
-                    </a>
+                    
+            <c:forEach var="board" items="${boardList}">
+        	<a class="textbox" href="/community/viewBoard?boardId=${board.boardId}">
+		    	<div class="textbox_title">${board.boardTitle}</div>
+        	   	<div class="textbox_info">
+                <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
+                <div style="margin-left: 10px;">${board.views}</div>
+	            <div style="margin-left: 10px;">${board.likes}</div>
+        	</a>
+    		</c:forEach>
+    		
                     <div style="width: 100%; height: 50px;"></div>
                 </div>
             </div>

@@ -26,24 +26,29 @@
 		
 		<div class="voca_view">
 			<div id="voca_viewinfo">
-				<h3>수준 : ${sentence.wordLevel}</h3>
+				<h3>수준 : N1</h3>
 			</div>
 			<div class="voca_viewBox">
+				<button id="check-button-on">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check-fill" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+					</svg>
+				</button>
+				<button id="check-button-off">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+						<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+					</svg>
+				</button>
 				<div class="mean">
-					<p class="sentence_JP">${sentence.wordHurigana} [${sentence.wordWord}]</p>
-					<p>뜻 : ${sentence.wordMean}</p>
+					<p class="sentence_JP">へこ-む [凹む]</p>
+					<p>뜻 : 1.욱다;움푹 패다 2.굴복하다;찌부러지다 3.밑지다</p>
 				</div>
 				<hr>
 				<div id="ex_sentence">
 					<p class="sentence_JP">예문</p>
-					<p>${sentence.exFrontKr}</p>
-					<h1>${sentence.wordWord}</h1>
-					<p>${sentence.exBackKr}</p>
-				</div>
-				<div id="ex_sentence">
-					<p>${sentence.exFrontJp}</p>
-					<h1>${sentence.wordMean}</h1>
-					<p>${sentence.exBackJp}</p>
+					<p>道路どうろがぽこっとへこむ</p>
+					<p>どうろ どうろがぽこっとへこむ</p>
 				</div>
 			</div>
 		</div>

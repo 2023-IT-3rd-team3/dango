@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
     <link rel="stylesheet" href="../../../resources/static/css/common/search.css">
     <link rel="stylesheet" href="../../../resources/static/css/community/community.css">
-    <link rel="stylesheet" href="../../../resources/static/css/community/community_newPost.css"></head>
+    <link rel="stylesheet" href="../../../resources/static/css/community/community_newPost.css">
+
+</head>
+
 <body>
 
 <jsp:include page="../common/header.jsp" />

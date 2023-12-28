@@ -15,7 +15,7 @@
 	
 	<update id="updateBoard">
 		UPDATE T_BOARD SET 
-		BOARDTITLE=#{boarTitle}, BOARDMAIN=#{boardMain} 
+		BOARDTITLE=#{boardTitle}, BOARDMAIN=#{boardMain} 
 		WHERE BOARDID=#{boardId}
 	</update>
 	
@@ -38,7 +38,8 @@
 	
 	<select id="searchForUser" resultType="BoardVO">
 		SELECT * FROM T_BOARD 
-		WHERE USERID '%'||#{userId}||'%' 
+		WHERE USERID 
+		LIKE '%'||#{userId}||'%' 
 		ORDER BY BOARDID DESC
 	</select>
 </mapper>

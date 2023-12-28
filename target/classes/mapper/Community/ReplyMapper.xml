@@ -19,12 +19,12 @@
 		WHERE REPLYID=#{replyId}
 	</update>
 	
-	<select id="getReply">
+	<select id="getReply" resultType="ReplyVO">
 		SELECT * FROM T_REPLY
 		WHERE REPLYID=#{replyId}
 	</select>
 	
-	<select id="getReplyList">
+	<select id="getReplyList" resultType="ReplyVO">
 		SELECT * FROM T_REPLY 
 		ORDER BY SCRAPID DESC
 	</select>
