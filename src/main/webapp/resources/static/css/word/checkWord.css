@@ -39,7 +39,7 @@ article {
     background-position: center;
     background-repeat: no-repeat;
     width: 15px;
-    heigth: 15px;
+    height: 15px;
     cursor: pointer;
     z-index: 999;
     position: absolute;
@@ -51,7 +51,7 @@ article {
     background-position: center;
     background-repeat: no-repeat;
     width: 15px;
-    heigth: 15px;
+    height: 15px;
     cursor: pointer;
     transition: 0.3s;
     z-index: 999;

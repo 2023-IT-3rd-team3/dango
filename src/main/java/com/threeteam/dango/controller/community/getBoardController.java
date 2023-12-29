@@ -22,7 +22,7 @@ public class getBoardController {
 				mav.addObject("boardInfo", boardDAO.getBoardInfo(boardVO));
 				mav.setViewName(".jsp");
 			}
-			else if("N".equals(infoCheck.getBoardNotic())){
+			else if("N".equals(infoCheck.getBoardNotice())){
 				mav.addObject("board", boardDAO.getBoard(boardVO));
 				mav.setViewName(".jsp");
 			}

@@ -17,7 +17,7 @@ import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.service.recent.RecentService;
 
 @Controller
-@RequestMapping("dango/recent/*")
+@RequestMapping("/recent/*")
 public class RecentController {
 	
 	@Autowired
@@ -45,7 +45,7 @@ public class RecentController {
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO)session.getAttribute("user");
 		
-		model.addAttribute("recent", recentService.getRecentList(userVO));
-		return "/getRecentList";
+		model.addAttribute("recentList", recentService.getRecentList(userVO));
+		return "recent/getRecentList";
 	}
 }

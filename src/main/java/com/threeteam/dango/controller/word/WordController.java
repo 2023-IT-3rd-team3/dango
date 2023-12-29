@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.mapper.word.WordMapper;
+import com.threeteam.dango.service.check.CheckService;
+import com.threeteam.dango.service.recent.RecentService;
 import com.threeteam.dango.service.word.WordService;
 import com.threeteam.dango.service.word.WrongService;
 
@@ -23,6 +25,10 @@ public class WordController {
 	WordService wordService;
 	@Autowired
 	WrongService wrongService;
+	@Autowired
+	private CheckService checkService;
+	@Autowired
+	private RecentService recentService;
 	
 	private UserVO getSessionUser(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -57,5 +63,16 @@ public class WordController {
 		
 		model.addAttribute("sentenceList", wrongService.getWrongAllByUserId(userInfo.getUserid()));
 		return "word/wrongNote";
+	}
+	
+	@GetMapping("/wordMain")
+	public String wordMain(HttpServletRequest request, Model model) {
+		System.out.println("단어장 main 화면");
+
+		UserVO userInfo = getSessionUser(request);
+		model.addAttribute("checkList", checkService.getCheckList(userInfo));
+		model.addAttribute("recentList", recentService.getRecentList(userInfo));
+		
+		return "word/main";
 	}
 }
