@@ -39,7 +39,7 @@ public class BoardDAO {
 		return boardMapper.getBoardInfoList(boardVO);
 	}
 	
-	public List<BoardVO> communitySearch(Map<String, String> boardVO) {
+	public List<BoardVO> communitySearch(BoardVO boardVO) {
 		 return boardMapper.communitySearch(boardVO);
 	}
 	

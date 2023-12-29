@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.check.CheckDAO;
 import com.threeteam.dango.domain.check.CheckVO;
+import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
 
 @Service("checkService")
@@ -37,13 +38,8 @@ public class CheckServiceImpl implements CheckService {
 	}
 
 	@Override
-	public WordVO getCheck(CheckVO vo) {
-		return (WordVO)checkDAO.getCheck(vo);
-	}
-
-	@Override
-	public List<WordVO> getCheckList(CheckVO vo) {
-		return checkDAO.getCheckList(vo);
+	public List<WordVO> getCheckList(UserVO userVO) {
+		return checkDAO.getCheckList(userVO);
 	}
 
 }

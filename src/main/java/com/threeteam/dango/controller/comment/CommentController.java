@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.threeteam.dango.service.community.BoardService;
 import com.threeteam.dango.service.community.CommentService;
 import com.threeteam.dango.vo.community.CommentVO;
 
@@ -18,12 +19,10 @@ import com.threeteam.dango.vo.community.CommentVO;
 public class CommentController {
 
 	@Autowired
-	CommentService commentService;
+	BoardService boardService;
 	
-	@GetMapping("/")
-	public String commentMain(CommentVO commentVO, Model model) {
-		return "/comment/main";
-	}
+	@Autowired
+	CommentService commentService;
 	
 	@GetMapping("/insertComment")
 	public String insertComment(@RequestBody CommentVO commentVO) {
@@ -54,4 +53,6 @@ public class CommentController {
 		model.addAttribute("comment", commentService.getCommentList(commentVO));
 		return ".jsp";
 	}
+	
+	
 }

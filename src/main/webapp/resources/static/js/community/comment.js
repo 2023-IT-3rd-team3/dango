@@ -1,18 +1,15 @@
 function createReply(name, comment, date) {
 
-  // Comment div생성
   var divTag = document.createElement('div');
   
   var namedateDiv = document.createElement('div');
-  namedateDiv.style.display = 'flex';
-  namedateDiv.style.justifyContent = 'space-between';
+  namedateDiv.classList.add('postinfo');
 
   var nameDiv = document.createElement('div');
   var nameTag = document.createElement('p');
   nameTag.textContent = name;
   nameDiv.appendChild(nameTag);
   namedateDiv.appendChild(nameDiv);
-  namedateDiv.classList.add('postinfo');
 
   var dateDiv = document.createElement('div');
   var dateTag = document.createElement('p');
@@ -48,7 +45,7 @@ function createReply(name, comment, date) {
   divTag.appendChild(deleteButton);
   
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/api/comments', true);
+  xhr.open('POST', '/comment/getcommentList', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
 
   var data = {
@@ -70,7 +67,7 @@ function createReply(name, comment, date) {
   xhr.send(JSON.stringify(data));
 }
 
-function updateComment(commentTag) {
+function updateComment(divTag, commentTag, dateTag) {
   var newComment = prompt('수정할 댓글을 입력하세요.');
   if (newComment !== null && newComment !== '') {
     commentTag.textContent = newComment;
@@ -78,7 +75,7 @@ function updateComment(commentTag) {
 }
 
 function deleteComment(divTag) {
-  var DeleteCheck = deleteCheck('삭제하시겠습니까?');
+  var DeleteCheck = confirm('삭제하시겠습니까?');
   if (deleteCheck) {
     divTag.parentNode.removeChild(divTag);
   }

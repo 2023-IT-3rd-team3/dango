@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.threeteam.dango.service.community.ScrapService;
 import com.threeteam.dango.vo.community.ScrapVO;
 
 @RestController
+@SessionAttributes("scrap")
 @RequestMapping("/scrap/*")
 public class ScrapController {
 

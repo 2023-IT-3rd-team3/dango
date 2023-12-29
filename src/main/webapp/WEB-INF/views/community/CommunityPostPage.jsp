@@ -159,6 +159,10 @@
 	<script type="text/javascript" 
 		src="${pageContext.request.contextPath}/resources/static/js/community/scrap.js">
 	</script>
+	
+	<script type="text/javascript" 
+		src="${pageContext.request.contextPath}/resources/static/js/community/comment.js">
+	</script>
 </body>
 
 <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js" />

@@ -17,15 +17,15 @@ import com.threeteam.dango.service.user.UserService;
 import lombok.extern.log4j.Log4j;
 
 /*
- * Task(ÀÛ¾÷)		URL(°æ·Î)			Method		Parameter(¼Ó¼º)	Form		URLÀÌµ¿
+ * Task(ï¿½Û¾ï¿½)		URL(ï¿½ï¿½ï¿½)			Method		Parameter(ï¿½Ó¼ï¿½)	Form		URLï¿½Ìµï¿½
  * 
- * o·Î±×ÀÎÆäÀÌÁö		/user/userPage		get			¸ðµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(home)
- * o·Î±×¾Æ¿ô			/user/logout		get			USER_PW						ÀÌµ¿(home)
- * o·Î±×ÀÎÈ®ÀÎ			/user/userinfo		post		
- * oÈ¸¿øµî·Ï			/user/register		Post		¸ðµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(userPage)
- * oÈ¸¿øÁ¤º¸¼öÁ¤		/user/usermodify	Post		¸ðµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä  ÀÌµ¿(home)
- * o»èÁ¦Ã³¸®			/user/remove		Get			USER_ID			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(userPage)
- * ID Ã£±â,PW ¼öÁ¤	/user/findPage 		Get			USER_ID,USER_PW	ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(findPage)
+ * oï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		/user/userPage		get			ï¿½ï¿½ï¿½ ï¿½×¸ï¿½			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(home)
+ * oï¿½Î±×¾Æ¿ï¿½			/user/logout		get			USER_PW						ï¿½Ìµï¿½(home)
+ * oï¿½Î±ï¿½ï¿½ï¿½È®ï¿½ï¿½			/user/userinfo		post		
+ * oÈ¸ï¿½ï¿½ï¿½ï¿½ï¿½			/user/register		Post		ï¿½ï¿½ï¿½ ï¿½×¸ï¿½			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(userPage)
+ * oÈ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		/user/usermodify	Post		ï¿½ï¿½ï¿½ ï¿½×¸ï¿½			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½  ï¿½Ìµï¿½(home)
+ * oï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½			/user/remove		Get			USER_ID			ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(userPage)
+ * ID Ã£ï¿½ï¿½,PW ï¿½ï¿½ï¿½ï¿½	/user/findPage 		Get			USER_ID,USER_PW	ï¿½Ô·ï¿½È­ï¿½ï¿½ ï¿½Ê¿ï¿½	ï¿½Ìµï¿½(findPage)
  */
 
 @Controller
@@ -35,18 +35,18 @@ public class UserController {
 	@Autowired
 	private UserService userservice;
 	
-	//·Î±×ÀÎ ÆäÀÌÁö
+	//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@GetMapping("/loginPage")
 	public String gologinPage() {
 		return "/user/login" ;
 	}
 	
-	//·Î±×ÀÎ È®ÀÎ
+	//ï¿½Î±ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 	@PostMapping("/userlogin")
 	public String userlogin(String id,String pw,Model model,HttpServletRequest request) {
 		UserVO user = userservice.login(id, pw);
 		if(user == null) {
-			model.addAttribute("message","°èÁ¤ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			model.addAttribute("message","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
 		}
 		//model.addAttribute("userinfo",user);
 		HttpSession session = request.getSession();
@@ -63,17 +63,17 @@ public class UserController {
 		return "redirect:/user/loginPage" ;
 	}
 	
-	//È¸¿ø°¡ÀÔ ÆäÀÌÁö
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@GetMapping("/register")
 	public String register() {
 		return "/user/signup" ;
 	}
 	
-	//»õ·Î¿î È¸¿øÁ¤º¸ »ý¼º
+	//ï¿½ï¿½ï¿½Î¿ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@GetMapping("/newregister")
 	public String newregister(UserVO user,RedirectAttributes rttr) {
 		userservice.register(user);
-		rttr.addFlashAttribute("message","°èÁ¤ »ý¼º ¿Ï·á");
+		rttr.addFlashAttribute("message","ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 		return "redirect:/user/loginPage";
 	}
 	
@@ -87,17 +87,17 @@ public class UserController {
 	
 	@PostMapping("/infomodify")
 	public String infomodify(UserVO user,HttpSession session,Model model) {
-		//ÇöÀç À¯Àú Á¤º¸¸¦ °¡Á®¿Â´Ù
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 		UserVO usercheck = (UserVO) session.getAttribute("userinfo");
 		
-		//usercheck¿¡ ¼öÁ¤ ÇÑ Á¤·Î·Î µ¤¾î ¾¯¿î´Ù.
+		//usercheckï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Î·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 		usercheck.setUsername(user.getUsername());
 		usercheck.setUserphone(user.getUserphone());
 		usercheck.setUseremail(user.getUseremail());
 		System.out.println(usercheck.toString());
 		
 		if(userservice.update(usercheck)) {
-			model.addAttribute("message","È¸¿ø Á¤º¸ ¼öÁ¤ ¿Ï·á");
+			model.addAttribute("message","È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 		}
 		
 		return "/user/myPage";
@@ -108,7 +108,7 @@ public class UserController {
 		UserVO id = (UserVO) session.getAttribute("userinfo");
 		
 		if(userservice.remove(id.getUserid())) {
-			rttr.addFlashAttribute("message","È¸¿ø Å»Åð ¿Ï·á");
+			rttr.addFlashAttribute("message","È¸ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½Ï·ï¿½");
 		}
 		
 		return "redirect:/user/loginPage" ;
@@ -129,7 +129,7 @@ public class UserController {
 			rttr.addFlashAttribute("id",userservice.findid(userinfo));
 		}
 		else {
-			rttr.addFlashAttribute("namecheck","¾ÆÀÌµð Ã£±â ½ÇÆÐ");
+			rttr.addFlashAttribute("namecheck","ï¿½ï¿½ï¿½Ìµï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 		
 		
@@ -145,7 +145,7 @@ public class UserController {
 			rttr.addFlashAttribute("pw",userservice.findpw(userinfo));
 		}
 		else {
-			rttr.addFlashAttribute("idcheck","ºñ¹Ð¹øÈ£ Ã£±â ½ÇÆÐ");
+			rttr.addFlashAttribute("idcheck","ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 		
 		return "redirect:/user/userfind";

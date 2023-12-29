@@ -2,11 +2,14 @@
 
 package com.threeteam.dango.controller.community;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -24,9 +27,9 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	
-	@GetMapping("/")
+	@GetMapping("/main")
 	public String boardMain(BoardVO boardVO, Model model) {
-		return "/community/main";
+		return "Community.jsp";
 	}
 	
 	@GetMapping("/boardInsert")
@@ -55,13 +58,13 @@ public class BoardController {
 	@GetMapping("/getBoard")
 	public String getBoard(BoardVO boardVO, Model model) {
 		model.addAttribute("board", boardService.getBoard(boardVO));
-		return "community/CommunityNewPost";
+		return "CommunityNewPost.jsp";
 	}
 	
 	@GetMapping("/getBoardList")
 	public String getBoardList(BoardVO boardVO, Model model) {
 		model.addAttribute("boardList", boardService.getBoardList(boardVO));
-		return "community/CommunityList";
+		return "CommunityList.jsp";
 	}
 	
 	@GetMapping("/getBoardInfo")
@@ -73,14 +76,16 @@ public class BoardController {
 	@GetMapping("/getBoardInfoList")
 	public String getBoardInfoList(BoardVO boardVO, Model model) {
 		model.addAttribute("boardInfoList", boardService.getBoardInfoList(boardVO));
-		return "CommunityNewPost.jsp";
+		return "CommunityInfo.jsp";
 	}
 	
 	
 	/* ----------- 검색기능 ----------- */
 	@GetMapping("/CommunitySearch")
-	public String communitySearch() {
-		return "getBordList";
+	public String communitySearch(@RequestParam("boardTitle") String boardTitle, @RequestParam("userId") String userId, Model model) {
+		List<BoardVO> boardList = boardService.communitySearch(boardTitle, userId);
+        model.addAttribute("communitySearch", boardList);
+        return "searchResult";
 	}
 	
 	/* ----------- 관리자 ----------- */

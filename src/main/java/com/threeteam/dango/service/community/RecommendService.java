@@ -11,8 +11,4 @@ public interface RecommendService {
 	public void minusRecommend(RecommendVO recommendVO);
 	public Integer findByUserIdBoardId(RecommendVO recommendVO);
 	public Integer findCountByBoardId(Long boardId);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> db6ee24375c65cbf4756f63852754dc67259de3b
