@@ -1,0 +1,77 @@
+strong{
+    color: rgb(255, 23, 68);
+}
+sub{
+    color: rgb(102, 102, 102);
+    display: flex;
+    align-items: end;
+    margin: 0 10px;
+    font-size: 10px;
+}
+.mainpagearea{
+    width: 1200px;
+    margin: 90px auto;
+}
+.mainbannerarea{
+    width: 100%;
+    height: 150px;
+    background-color: gray;
+}
+.mainpagetitlearea{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+}
+.mainpagetitle{
+    font-size: 32px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.mainpagecontentarea{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    width: 100%;
+    height: 100%;
+}
+.mainpagecontenttitle{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenttitle{
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+}
+.contentmore{
+    font-weight: bold;
+}
+.mainwordarea{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.dictionarywordalign{
+    margin-top: 40px;
+    display: flex;
+}
+.mainpagedictionaryword{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 150px;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.dictionarywordJP{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 20px
+}

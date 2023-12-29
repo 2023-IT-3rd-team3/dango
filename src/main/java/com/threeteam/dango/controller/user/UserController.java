@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,16 +17,19 @@ import com.threeteam.dango.service.user.UserService;
 
 import lombok.extern.log4j.Log4j;
 
+
+
+
 /*
- * Task(ÀÛ¾÷)		URL(°æ·Î)			Method		Parameter(¼Ó¼º)	Form		URLÀÌµ¿
+ * Task(å ìŒœì–µì˜™)		URL(å ì™ì˜™å ï¿½)			Method		Parameter(å ìŒˆì‡½ì˜™)	Form		URLå ì‹±ë“¸ì˜™
  * 
- * o·Î±×ÀÎÆäÀÌÁö		/user/userPage		get			¸ğµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(home)
- * o·Î±×¾Æ¿ô			/user/logout		get			USER_PW						ÀÌµ¿(home)
- * o·Î±×ÀÎÈ®ÀÎ			/user/userinfo		post		
- * oÈ¸¿øµî·Ï			/user/register		Post		¸ğµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(userPage)
- * oÈ¸¿øÁ¤º¸¼öÁ¤		/user/usermodify	Post		¸ğµç Ç×¸ñ			ÀÔ·ÂÈ­¸é ÇÊ¿ä  ÀÌµ¿(home)
- * o»èÁ¦Ã³¸®			/user/remove		Get			USER_ID			ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(userPage)
- * ID Ã£±â,PW ¼öÁ¤	/user/findPage 		Get			USER_ID,USER_PW	ÀÔ·ÂÈ­¸é ÇÊ¿ä	ÀÌµ¿(findPage)
+ * oå ì‹¸ê¹ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™		/dango/userPage		get			å ì™ì˜™å ï¿½ å ìŒ“ëªŒì˜™			å ìŒ‰ë¤„ì˜™í™”å ì™ì˜™ å ì‹­ìš¸ì˜™	å ì‹±ë“¸ì˜™(home)
+ * oå ì‹¸ê·¸ì•„ìš¸ì˜™			/dango/logout		get			USER_PW						å ì‹±ë“¸ì˜™(home)
+ * oå ì‹¸ê¹ì˜™å ì™ì˜™í™•å ì™ì˜™			/dango/userinfo		post		
+ * oíšŒå ì™ì˜™å ì™ì˜™å ï¿½			/dango/register		Post		å ì™ì˜™å ï¿½ å ìŒ“ëªŒì˜™			å ìŒ‰ë¤„ì˜™í™”å ì™ì˜™ å ì‹­ìš¸ì˜™	å ì‹±ë“¸ì˜™(userPage)
+ * oíšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™		/dango/usermodify	Post		å ì™ì˜™å ï¿½ å ìŒ“ëªŒì˜™			å ìŒ‰ë¤„ì˜™í™”å ì™ì˜™ å ì‹­ìš¸ì˜™  å ì‹±ë“¸ì˜™(home)
+ * oå ì™ì˜™å ì™ì˜™ì²˜å ì™ì˜™			/dango/remove		Get			USER_ID			å ìŒ‰ë¤„ì˜™í™”å ì™ì˜™ å ì‹­ìš¸ì˜™	å ì‹±ë“¸ì˜™(userPage)
+ * ID ì°¾å ì™ì˜™,PW å ì™ì˜™å ì™ì˜™	/dango/findPage 		Get			USER_ID,USER_PW	å ìŒ‰ë¤„ì˜™í™”å ì™ì˜™ å ì‹­ìš¸ì˜™	å ì‹±ë“¸ì˜™(findPage)
  */
 
 @Controller
@@ -35,105 +39,126 @@ public class UserController {
 	@Autowired
 	private UserService userservice;
 	
-	//·Î±×ÀÎ ÆäÀÌÁö
-	@GetMapping("/loginPage")
+	private UserVO getSessionUser(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("user");
+		
+		return userInfo;
+	}
+	
+	//å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™
+	@GetMapping("/")
+	public String homePage() {
+		return "/mainpage";
+	}
+	
+	//å ì‹¸ê¹ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™
+	@GetMapping("/login")
 	public String gologinPage() {
 		return "/user/login" ;
 	}
 	
-	//·Î±×ÀÎ È®ÀÎ
-	@PostMapping("/userlogin")
-	public String userlogin(String id,String pw,Model model,HttpServletRequest request) {
+	//å ì‹¸ê¹ì˜™å ì™ì˜™ í™•å ì™ì˜™
+	@PostMapping("/login")
+	public String userLogin(String id,String pw,Model model,HttpServletRequest request) {
 		UserVO user = userservice.login(id, pw);
 		if(user == null) {
-			model.addAttribute("message","°èÁ¤ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+			model.addAttribute("message","ê³„ì •ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 		}
 		//model.addAttribute("userinfo",user);
 		HttpSession session = request.getSession();
-		session.setAttribute("userinfo",user);
+		session.setAttribute("user",user);
 		
-		return "/user/myPage" ;
+		return "redirect:/";
 	}
 	
-	@GetMapping("/userlogout")
+	@GetMapping("/logout")
 	public String userlogout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		return "redirect:/user/loginPage" ;
+		return "redirect:/" ;
 	}
 	
-	//È¸¿ø°¡ÀÔ ÆäÀÌÁö
+	//íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™
 	@GetMapping("/register")
 	public String register() {
 		return "/user/signup" ;
 	}
 	
-	//»õ·Î¿î È¸¿øÁ¤º¸ »ı¼º
-	@GetMapping("/newregister")
+	//å ì™ì˜™å ì‹¸ìš¸ì˜™ íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™
+	@PostMapping("/register")
 	public String newregister(UserVO user,RedirectAttributes rttr) {
 		userservice.register(user);
-		rttr.addFlashAttribute("message","°èÁ¤ »ı¼º ¿Ï·á");
-		return "redirect:/user/loginPage";
+		rttr.addFlashAttribute("message","ê³„ì • ìƒì„± ì™„ë£Œ");
+		return "redirect:/user/login";
 	}
 	
 	@GetMapping("/modify")
-	public String updatepage(HttpSession session,Model model) {
-		UserVO user = (UserVO) session.getAttribute("userset");
-		model.addAttribute("userinfo",user);
+	public String updatepage(HttpServletRequest request, Model model) {
+		UserVO user = getSessionUser(request);
+		if(user == null)
+			return "/user/login";
+		model.addAttribute("userinfo", user);
 		
-		return "/user/usermodify";
+		return "/user/myPage";
 	}
 	
 	@PostMapping("/infomodify")
-	public String infomodify(UserVO user,HttpSession session,Model model) {
-		//ÇöÀç À¯Àú Á¤º¸¸¦ °¡Á®¿Â´Ù
-		UserVO usercheck = (UserVO) session.getAttribute("userinfo");
+	public String infomodify(UserVO user,HttpServletRequest request,Model model) {
+		//å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ìŠ¹ëŒì˜™
+		UserVO usercheck = getSessionUser(request);
 		
-		//usercheck¿¡ ¼öÁ¤ ÇÑ Á¤·Î·Î µ¤¾î ¾¯¿î´Ù.
+		//usercheckå ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™ å ì™ì˜™å ì‹¸ë¤„ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ï¿½.
 		usercheck.setUsername(user.getUsername());
 		usercheck.setUserphone(user.getUserphone());
 		usercheck.setUseremail(user.getUseremail());
+		usercheck.setUserpw(user.getUserpw());
+		
 		System.out.println(usercheck.toString());
 		
 		if(userservice.update(usercheck)) {
-			model.addAttribute("message","È¸¿ø Á¤º¸ ¼öÁ¤ ¿Ï·á");
+			model.addAttribute("message","íšŒì› ì •ë³´ ìˆ˜ì • ì™„ë£Œ");
 		}
 		
 		return "/user/myPage";
 	}
 	
-	@GetMapping("/regout")
-	public String userregout(HttpSession session,RedirectAttributes rttr) {
-		UserVO id = (UserVO) session.getAttribute("userinfo");
+	@PostMapping("/regout")
+	public String userregout(HttpServletRequest request,RedirectAttributes rttr) {
+		UserVO id = getSessionUser(request);
 		
 		if(userservice.remove(id.getUserid())) {
-			rttr.addFlashAttribute("message","È¸¿ø Å»Åğ ¿Ï·á");
+			rttr.addFlashAttribute("message","íšŒì› íƒˆí‡´ ì™„ë£Œ");
 		}
 		
-		return "redirect:/user/loginPage" ;
+		return "redirect:/user/login" ;
 	}
 	
-	@GetMapping("/userfind")
-	public String findPage() {
-		return "/user/findPage" ;
+	@GetMapping("/userfindId")
+	public String findIdPage() {
+		return "/user/findID" ;
+	}
+	@GetMapping("/userfindPw")
+	public String findPwPage() {
+		return "/user/findPW" ;
 	}
 	
 	@GetMapping("/findID")
-	public String findid(String name,String phone,Model model,RedirectAttributes rttr) {
+	public String findid(String email,String phone,RedirectAttributes rttr) {
 		UserVO userinfo = new UserVO();
-		userinfo.setUsername(name);
+		userinfo.setUseremail(email);
 		userinfo.setUserphone(phone);
 		if(userservice.findid(userinfo) != null) {
 			System.out.println(userservice.findid(userinfo));
 			rttr.addFlashAttribute("id",userservice.findid(userinfo));
 		}
 		else {
-			rttr.addFlashAttribute("namecheck","¾ÆÀÌµğ Ã£±â ½ÇÆĞ");
+			rttr.addFlashAttribute("namecheck","ì•„ì´ë”” ì°¾ê¸° ì‹¤íŒ¨");
 		}
 		
 		
-		return "redirect:/user/userfind";
+		return "redirect:/dango/userfindId";
 	}
 	@GetMapping("/findPW")
 	public String findpw(String id,String phone,RedirectAttributes rttr) {
@@ -145,10 +170,10 @@ public class UserController {
 			rttr.addFlashAttribute("pw",userservice.findpw(userinfo));
 		}
 		else {
-			rttr.addFlashAttribute("idcheck","ºñ¹Ğ¹øÈ£ Ã£±â ½ÇÆĞ");
+			rttr.addFlashAttribute("idcheck","ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì‹¤íŒ¨");
 		}
 		
-		return "redirect:/user/userfind";
+		return "redirect:/user/userfindPw";
 	}
 	
 //	@GetMapping()
