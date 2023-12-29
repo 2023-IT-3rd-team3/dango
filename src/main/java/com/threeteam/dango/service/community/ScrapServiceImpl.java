@@ -17,8 +17,10 @@ public class ScrapServiceImpl implements ScrapService {
 		boolean isScrap = scrapDAO.isScrap(scrapVO);
 		if(!isScrap) {
 			scrapDAO.insertScrap(scrapVO);
+			isScrap = true;
 		}else {
 			scrapDAO.deleteScrap(scrapVO);
+			isScrap = false;
 		}
 		return !isScrap;
 	}

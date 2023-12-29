@@ -27,21 +27,17 @@
 	<select id="getBoardList" resultType="BoardVO">
 		SELECT * FROM T_BOARD 
 		ORDER BY BOARDID DESC
-	</select>	
-	
-	<select id="searchForTitle" resultType="BoardVO">
-		SELECT * FROM T_BOARD 
-		WHERE BOARDTITLE 
-		LIKE '%'||#{boardTitle}||'%' 
-		ORDER BY BOARDID DESC
-	</select>	
-	
-	<select id="searchForUser" resultType="BoardVO">
-		SELECT * FROM T_BOARD 
-		WHERE USERID 
-		LIKE '%'||#{userId}||'%' 
-		ORDER BY BOARDID DESC
 	</select>
 	
-	<select id="communitySearch"
+	<select id="communitySearch" resultType="BoardVO">
+		<where>
+			<if test="Title != null">
+				AND Title LIKE '%'||#{boardTitle}||'%' 
+			</if> 
+			<if test="userID != null">
+				AND userID LIKE '%'||#{userId}||'%'
+			</if>
+		</where>
+		ORDER BY BOARDID DESC
+	</select>
 </mapper>

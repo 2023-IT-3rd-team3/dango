@@ -35,11 +35,11 @@
            <c:forEach var="scrap" items="${scrapList}">
         	
         	<a class="textbox" href="/community/viewBoard?boardId=${scrap.scrapId}">
-		    	<div class="textbox_title">${board.boardTitle}</div>
+		    	<div class="textbox_title">${scrap.boardTitle}</div>
         	   	<div class="textbox_info">
-                <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
-                <div style="margin-left: 10px;">${board.views}</div>
-	            <div style="margin-left: 10px;">${board.likes}</div>
+                <div style="margin-left: 10px;">${scrap.boardRegisterDate}</div>
+                <div style="margin-left: 10px;">${scrap.views}</div>
+	            <div style="margin-left: 10px;">${scrap.likes}</div>
         	</a>
         	
     		</c:forEach>

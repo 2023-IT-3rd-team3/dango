@@ -1,6 +1,7 @@
 package com.threeteam.dango.mapper.community;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -18,7 +19,7 @@ public interface BoardMapper {
 	public void updateBoard(BoardVO boardVO);
 
 	/* ----------- 검색기능 ----------- */
-	public List<BoardVO> communitySearch(BoardVO boardVO);
+	public List<BoardVO> communitySearch(Map<String, String> pramas);
 	
 	/* --------- 관리자 관련 --------- */
 	public boolean adminCheck(BoardVO boardVO);

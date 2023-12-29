@@ -3,7 +3,9 @@ package com.threeteam.dango.controller.scrap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.threeteam.dango.service.community.ScrapService;
@@ -22,14 +24,26 @@ public class ScrapController {
 		return "/scrap/main";
 	}
 	
-	@GetMapping
-	public String insertScrap(ScrapVO scrapVO) {
-		return "/scrap/insertScrap";
+	@PostMapping("/insertScrap")
+	public String insertScrap(@RequestParam("boardId") Long boardId, @RequestParam("userId") String userId) {
+		try {
+	        scrapService.insertScrap(boardId, userId);
+	        return "success";
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "failure";
+	    }
 	}
 	
-	@GetMapping
-	public String deleteScrap(ScrapVO scrapVO) {
-		return "/scrap/deleteScrap";
+	@PostMapping("/deleteScrap")
+	public String deleteScrap(@RequestParam("boardId") Long boardId, @RequestParam("userId") String userId) {
+		try {
+	        scrapService.deleteScrap(boardId, userId);
+	        return "success";
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "failure";
+	    }
 	}
 	
 	@GetMapping
@@ -43,11 +57,5 @@ public class ScrapController {
 		return "ScrapList.jsp";
 	}
 	
-	/*
-	스크랩 버튼을 누르면
-	보드테이블에서 보드id, 유저id 받아서 scrap테이블에 저장
-	count 컬럼 추가해서 0이면 추가하고 1이면 추가 x (boolean?)
 	
-	view? -> boardid 추적?
-*/
 }

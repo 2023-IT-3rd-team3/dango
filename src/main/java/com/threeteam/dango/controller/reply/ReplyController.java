@@ -3,6 +3,8 @@ package com.threeteam.dango.controller.reply;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -24,19 +26,19 @@ public class ReplyController {
 	}
 	
 	@GetMapping("/insertReply")
-	public String insertReply(ReplyVO replyVO) {
+	public String insertReply(@RequestBody ReplyVO replyVO) {
 		replyService.insertReply(replyVO);
 		return "/reply/insertReply";
 	}
 	
-	@GetMapping("/deleteReply")
-	public String deleteReply(ReplyVO replyVO) {
+	@GetMapping("/deleteReply/{replyId}")
+	public String deleteReply(@RequestBody ReplyVO replyVO) {
 		replyService.deleteReply(replyVO);
 		return "/reply/deleteReply";
 	}
 	
-	@GetMapping("/updateReply")
-	public String updateReply(ReplyVO replyVO) {
+	@GetMapping("/updateReply/{replyId}")
+	public String updateReply(@PathVariable Long replyId, @RequestBody ReplyVO replyVO) {
 		replyService.updateReply(replyVO);
 		return "/reply/updateReply";
 	}
