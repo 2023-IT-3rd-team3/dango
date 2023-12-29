@@ -32,7 +32,7 @@ public class WordController {
 	
 	private UserVO getSessionUser(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		UserVO userInfo = (UserVO)session.getAttribute("userinfo");
+		UserVO userInfo = (UserVO)session.getAttribute("user");
 		
 		return userInfo;
 	}
