@@ -19,7 +19,7 @@ import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.service.check.CheckService;
 
 @Controller
-@RequestMapping("/dango/check/*")
+@RequestMapping("/check/*")
 public class CheckController {
 
 	@Autowired
@@ -40,6 +40,7 @@ public class CheckController {
 		
 		return isChecked;
 	}
+<<<<<<< HEAD
 	
 	@GetMapping(value="/getCheckList")
 	public String getCheckList(HttpServletRequest request, Model model) {
@@ -54,10 +55,17 @@ public class CheckController {
 	@GetMapping(value="/getCheckList", consumes = "application/json;")
 	public String getCheckList(@RequestBody WordVO wordVO, HttpServletRequest request, Model model) {
 		System.out.println("check 紐⑸줉 蹂닿린 泥섎━");
+=======
+
+	@GetMapping(value="/getCheckList")
+	public String getCheckList(HttpServletRequest request, Model model) {
+		System.out.println("check 목록 보기 처리");
+
+>>>>>>> 16bc88c6cb3c97a693c59e9c38d3ec1429c3554d
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO)session.getAttribute("user");
 
-		model.addAttribute("check", checkService.getCheckList(userVO));
-		return "/getCheckList";
+		model.addAttribute("checkList", checkService.getCheckList(userVO));
+		return "check/getCheckList";
 	}
 }

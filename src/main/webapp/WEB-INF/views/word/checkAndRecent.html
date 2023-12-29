@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
+    <link rel="stylesheet" href="../../../resources/static/css/common/header.css">
+    <link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
+    <link rel="stylesheet" href="../../../resources/static/css/common/search.css">
+    <link rel="stylesheet" href="../../../resources/static/css/dictionary/dictionaryFont.css">
+    <link rel="stylesheet" href="../../../resources/static/css/dictionary/dictionaryList.css">
+    <link rel="stylesheet" href="../../../resources/static/css/word/checkWord.css">
+    <link rel="stylesheet" href="../../../resources/static/css/word/main.css">
+</head>
+<body>
+    <section>
+        <div class="checkRecentMain">
+            <div id="dictionary_area">
+                <div class="announ_box">
+                    <div class="title">
+                        <h2 class="title_name">체크</h2>
+                        <a class="title_more" href="/dango/check/getCheckList">더보기</a>
+                    </div>
+                </div>
+                <c:forEach var="word" items="${checkList}" end="10">
+                    <div class="word">
+                        <a href="/dango/dictionary/{word.wordId}">N${word.wordLevel}&nbsp;${word.wordWord}</a>
+                        <p class="kanji">&nbsp;&nbsp;${word.wordFurigana}</p>
+                    </div>
+                    <p class="mean">${word.wordMean}</p>
+                </c:foreach>
+            </div>
+            <div id="dictionary_area">
+                <div class="announ_box">
+                    <div class="title">
+                        <h2 class="title_name">체크</h2>
+                        <a class="title_more" href="/dango/check/getCheckList">더보기</a>
+                    </div>
+                </div>
+                <c:forEach var="word" items="${recentList}" end="10">
+                    <div class="word">
+                        <a href="/dango/dictionary/{word.wordId}">N${word.wordLevel}&nbsp;${word.wordWord}</a>
+                        <p class="kanji">&nbsp;&nbsp;${word.wordFurigana}</p>
+                    </div>
+                    <p class="mean">${word.wordMean}</p>
+                </c:foreach>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

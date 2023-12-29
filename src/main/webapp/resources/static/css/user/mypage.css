@@ -33,7 +33,7 @@ section > form > div {
     border: 1px solid rgb(255, 23, 68);
 }
 
-#profile-div {
+#profile-label {
     background-color: #fff;
     width: 300px;
     height: 300px;
@@ -43,11 +43,24 @@ section > form > div {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
 }
-#profile-div:hover {
+#profile-label:hover {
     filter: brightness(70%);
     transition: all 0.1s ease-out;
 }
+#profile {
+    display: none;
+}
+.profile-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+
 #btn-group {
     display: flex;
     justify-content: center;
