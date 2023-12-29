@@ -1,4 +1,4 @@
-package com.threeteam.dango.impl.recent;
+package com.threeteam.dango.dao.recent;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.threeteam.dango.domain.recent.RecentVO;
+import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
 
 @Repository("recentDAO")
@@ -30,13 +31,8 @@ public class RecentDAO {
 		mybatis.update("RecentDAO.updateRecent", vo);
 	}
 	
-	public static WordVO getRecent(RecentVO vo) {
-		System.out.println("------>>> getRecent() 기능 처리");
-		return (WordVO)mybatis.selectOne("RecentDAO.getRecent", vo);
-	}
-	
-	public static List<WordVO> getRecentList(RecentVO vo){
+	public static List<WordVO> getRecentList(UserVO userVO){
 		System.out.println("------>>> getRecentList() 기능 처리");
-		return mybatis.selectList("RecentDAO.getRecentList", vo);
+		return mybatis.selectList("RecentDAO.getRecentList", userVO.getUserid());
 	}
 }

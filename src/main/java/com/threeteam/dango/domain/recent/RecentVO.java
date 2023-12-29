@@ -8,6 +8,6 @@ import lombok.Data;
 public class RecentVO {
 	
 	private String userId;
-	private Integer wordId;
+	private Long wordId;
 	private Date recentUpdateDate;
 }

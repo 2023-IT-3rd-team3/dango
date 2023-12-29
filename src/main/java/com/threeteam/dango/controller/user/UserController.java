@@ -30,6 +30,15 @@ import lombok.extern.log4j.Log4j;
  * o회占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙		/dango/usermodify	Post		占쏙옙占� 占쌓몌옙			占쌉뤄옙화占쏙옙 占십울옙  占싱듸옙(home)
  * o占쏙옙占쏙옙처占쏙옙			/dango/remove		Get			USER_ID			占쌉뤄옙화占쏙옙 占십울옙	占싱듸옙(userPage)
  * ID 찾占쏙옙,PW 占쏙옙占쏙옙	/dango/findPage 		Get			USER_ID,USER_PW	占쌉뤄옙화占쏙옙 占십울옙	占싱듸옙(findPage)
+ * Task(�۾�)		URL(���)			Method		Parameter(�Ӽ�)	Form		URL�̵�
+ * 
+ * o�α���������		/user/userPage		get			��� �׸�			�Է�ȭ�� �ʿ�	�̵�(home)
+ * o�α׾ƿ�			/user/logout		get			USER_PW						�̵�(home)
+ * o�α���Ȯ��			/user/userinfo		post		
+ * oȸ�����			/user/register		Post		��� �׸�			�Է�ȭ�� �ʿ�	�̵�(userPage)
+ * oȸ����������		/user/usermodify	Post		��� �׸�			�Է�ȭ�� �ʿ�  �̵�(home)
+ * o����ó��			/user/remove		Get			USER_ID			�Է�ȭ�� �ʿ�	�̵�(userPage)
+ * ID ã��,PW ����	/user/findPage 		Get			USER_ID,USER_PW	�Է�ȭ�� �ʿ�	�̵�(findPage)
  */
 
 @Controller

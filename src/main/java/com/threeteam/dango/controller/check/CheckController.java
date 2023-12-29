@@ -6,27 +6,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.user.UserVO;
-import com.threeteam.dango.domain.word.WordVO;
 import com.threeteam.dango.service.check.CheckService;
 
-@RestController
-@RequestMapping("/dango/*")
+@Controller
+@RequestMapping("/dango/check/*")
 public class CheckController {
 
 	@Autowired
 	private CheckService checkService;
 	
+	@ResponseBody
 	@PostMapping(value="/toggleCheck", consumes = "application/json")
 	public boolean checkWord(@RequestBody Long wordId, HttpServletRequest request, Model model) {
 		
@@ -42,6 +41,11 @@ public class CheckController {
 		return isChecked;
 	}
 	
+<<<<<<< HEAD
+	@GetMapping(value="/getCheckList")
+	public String getCheckList(HttpServletRequest request, Model model) {
+		System.out.println("check 목록 보기 처리");
+=======
 	@GetMapping(value="/getCheck", consumes = "application/json;")
 	public String getCheck(@RequestBody CheckVO vo, HttpServletRequest request, Model model) {
 		System.out.println("check �긽�꽭 蹂닿린 泥섎━");
@@ -52,13 +56,11 @@ public class CheckController {
 	@GetMapping(value="/getCheckList", consumes = "application/json;")
 	public String getCheckList(@RequestBody WordVO wordVO, HttpServletRequest request, Model model) {
 		System.out.println("check 紐⑸줉 蹂닿린 泥섎━");
+>>>>>>> db6ee24375c65cbf4756f63852754dc67259de3b
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO)session.getAttribute("user");
-		CheckVO vo = new CheckVO();
-		vo.setUserId(userVO.getUserid());
-		vo.setWordId(wordVO.getWordId());
 
-		model.addAttribute("check", checkService.getCheckList(vo));
-		return "getCheckList.jsp";
+		model.addAttribute("check", checkService.getCheckList(userVO));
+		return "/getCheckList";
 	}
 }
