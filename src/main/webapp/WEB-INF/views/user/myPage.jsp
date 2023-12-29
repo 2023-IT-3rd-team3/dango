@@ -52,18 +52,17 @@
 				</div>
 				<div id="profile-div">
 					<label id="profile-label" for="profile">
-						<img
-						class="profile-img" src="/img/account.png" alt=""
-						th:if="*{userProfile == null}">
-						<img class="profile-img"
-						th:src="@{/file/display(userProfile = *{userProfile})}" alt=""
-						th:unless="*{userProfile == null}">
-						<input type="hidden"
-						id="profile-path" th:field="*{userProfile}">
-						<p id="profile-text">Change</p>
-						<p>변경</p>
-					</label> <input id="profile" type="file" />
-					<p>변경</p>
+						<c:choose>
+							<c:when test="${not empty user.userProfile}">
+								<img class="profile-img" src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="" />
+							</c:when>
+							<c:otherwise>
+								<img class="profile-img" />
+							</c:otherwise>			
+						</c:choose>
+					</label>
+                    <input id="profile" type="file" />
+                    <input type="hidden" id="profile-path" name="profile" >
 				</div>
 			</div>
 			<div id="btn-group">
