@@ -1,12 +1,15 @@
 package com.threeteam.dango.service.community;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.community.BoardDAO;
 import com.threeteam.dango.vo.community.BoardVO;
+
+import lombok.extern.log4j.Log4j;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -56,7 +59,10 @@ public class BoardServiceImpl implements BoardService {
 	
 	/* ----------- 검색기능 ----------- */
 	@Override
-	public List<BoardVO> communitySearch(BoardVO boardVO) {
+	public List<BoardVO> communitySearch(String boardTitle, String userId){
+		BoardVO boardVO = new BoardVO();
+		boardVO.setBoardTitle(boardTitle);
+	    boardVO.setUserId(userId);
 		return boardDAO.communitySearch(boardVO);
 	}
 	

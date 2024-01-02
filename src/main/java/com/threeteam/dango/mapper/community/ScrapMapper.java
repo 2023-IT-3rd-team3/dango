@@ -13,4 +13,5 @@ public interface ScrapMapper {
 	public List<ScrapVO> getScrapList(ScrapVO scrapVO);
 	public void addScrap(ScrapVO scrapVO);
 	public void deleteScrap(ScrapVO scrapVO);
+	public boolean isScrap(ScrapVO scrapVO);
 }

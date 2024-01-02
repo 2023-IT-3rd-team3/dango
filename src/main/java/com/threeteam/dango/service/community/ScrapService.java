@@ -10,8 +10,10 @@ import com.threeteam.dango.vo.community.ScrapVO;
 @Service
 public interface ScrapService {
 
-	public void insertScrap(ScrapVO scrapVO);
-	public void deleteScrap(ScrapVO scarpVO);
+	public boolean isScrap(ScrapVO scrapVO);
+	public void insertScrap(ScrapVO boardId, ScrapVO userId);
+	public void deleteScrap(ScrapVO boardId, ScrapVO userId);
 	public List<ScrapVO> getScrapList(ScrapVO scrapId);
 	public ScrapVO getScrap(ScrapVO scrapVO);
+	
 }

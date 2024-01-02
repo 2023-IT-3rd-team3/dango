@@ -13,6 +13,19 @@ public class ScrapServiceImpl implements ScrapService {
 	ScrapDAO scrapDAO;
 	
 	@Override
+	public boolean isScrap(ScrapVO scrapVO) {
+		boolean isScrap = scrapDAO.isScrap(scrapVO);
+		if(!isScrap) {
+			scrapDAO.insertScrap(scrapVO);
+			isScrap = true;
+		}else {
+			scrapDAO.deleteScrap(scrapVO);
+			isScrap = false;
+		}
+		return !isScrap;
+	}
+	
+	@Override
 	public List<ScrapVO> getScrapList(ScrapVO scrapVO) {
 		return scrapDAO.getScrapList(scrapVO);
 	}

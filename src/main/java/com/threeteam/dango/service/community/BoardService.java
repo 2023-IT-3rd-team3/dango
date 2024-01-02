@@ -1,6 +1,7 @@
 package com.threeteam.dango.service.community;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public interface BoardService {
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO);
 	
 	/* ----------- 검색기능 ----------- */
-	public List<BoardVO> communitySearch(BoardVO boardVO);
+	public List<BoardVO> communitySearch(String boardTitle, String userId);
 	
 	/* ----------- 관리자 관련 ----------- */
 	// 관리자 체크

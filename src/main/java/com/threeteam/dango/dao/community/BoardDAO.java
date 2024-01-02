@@ -1,18 +1,18 @@
 package com.threeteam.dango.dao.community;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.threeteam.dango.mapper.community.BoardMapper;
-import com.threeteam.dango.mapper.community.BoardRowMapper;
 import com.threeteam.dango.vo.community.BoardVO;
 
 @Repository
 public class BoardDAO {
-
+	
 	@Autowired
 	BoardMapper boardMapper;
 	
@@ -39,12 +39,10 @@ public class BoardDAO {
 		return boardMapper.getBoardInfoList(boardVO);
 	}
 	
-	/* ----------- 寃��깋湲곕뒫 ----------- */
 	public List<BoardVO> communitySearch(BoardVO boardVO) {
-		return boardMapper.communitySearch(boardVO);
+		 return boardMapper.communitySearch(boardVO);
 	}
 	
-	/* ----------- 愿�由ъ옄 愿��젴 ----------- */
 	public boolean adminCheck(BoardVO boardVO) {
 		return boardMapper.adminCheck(boardVO);
 	}

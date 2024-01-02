@@ -135,10 +135,6 @@
 	margin: auto;
 }
 
-
-
-/* 추천, 스크랩 관련 */
-
 .scrapBox{
 	display: flex;
 	margin-top: 10px;
@@ -146,7 +142,7 @@
 }
 
 .scrapbuttonBox{
-	margin-left: 1055px;
+	margin-left: 1027px;
 	margin-right: 20px; 
 	 
 }
@@ -155,12 +151,26 @@
 	display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#e22938;
-    color: white;
-    border: none;
-    width: 50px;
+    background-color:white;
+    color: black;
+    border: 1px solid;
+    width: 90px;
     height: 32px;
     cursor: pointer;
+}
+
+.scrapbutton:hover,
+.scrapbutton.active {
+  background: green;
+  color: black;
+}
+.button:visited {
+  background: green;
+  color: white;
+}
+
+.scrapbutton:action{
+	background-color: yellow;
 }
 
 .recommendinfo{

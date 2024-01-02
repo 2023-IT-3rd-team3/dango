@@ -110,11 +110,11 @@
 			</div>
 			
 			<div class="postinfo">
-				<div>${board.userID }</div>
-				<div>${reply.replyRegisterDate }</div>
+				<div>${comment.userID }</div>
+				<div>${comment.commentRegisterDate }</div>
 			</div>
 			<div class="postcontent">
-				${reply.raplyMain }
+				${comment.commentMain }
 			</div>
 			</div>
 			<div style="margin: 10px;">
@@ -153,7 +153,16 @@
 		let userId = "${userId}";
 	</script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/static/js/community/CommunityPostPage.js"></script>
+		src="${pageContext.request.contextPath}/resources/static/js/community/CommunityPostPage.js">
+	</script>
+	
+	<script type="text/javascript" 
+		src="${pageContext.request.contextPath}/resources/static/js/community/scrap.js">
+	</script>
+	
+	<script type="text/javascript" 
+		src="${pageContext.request.contextPath}/resources/static/js/community/comment.js">
+	</script>
 </body>
 
 <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js" />

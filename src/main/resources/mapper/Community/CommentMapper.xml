@@ -14,7 +14,7 @@
 	</delete>	
 	
 	<update id="updateComment">
-		UPDATE T_COMMENT SET COMMENTMAIN=#{commentMain} 
+		UPDATE T_COMMENT SET COMMENTMAIN=#{commentMain}, commentUpdatedate=sysdate 
 		WHERE 
 		COMMENTID=#{commentId}
 	</update>

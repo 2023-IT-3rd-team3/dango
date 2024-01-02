@@ -21,6 +21,7 @@
 	
 	<select id="getScrapList" resultType="ScrapVO">
 		SELECT * FROM T_SCRAP 
-		ORDER BY SCRAPID DESC
+		ORDER BY SCRAPID 
+		WHERE USERID=#{userId} DESC
 	</select>
 </mapper>
