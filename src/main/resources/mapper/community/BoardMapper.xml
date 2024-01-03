@@ -19,17 +19,17 @@
 		WHERE BOARDID=#{boardId}
 	</update>
 	
-	<select id="getBoard" resultType="BoardVO">
+	<select id="getBoard" resultType="boardVO">
 		SELECT * FROM T_BOARD 
 		WHERE BOARDID=#{boardId}
 	</select>	
 	
-	<select id="getBoardList" resultType="BoardVO">
+	<select id="getBoardList" resultType="boardVO">
 		SELECT * FROM T_BOARD 
 		ORDER BY BOARDID DESC
 	</select>
 	
-	<select id="communitySearch" resultType="BoardVO">
+	<select id="communitySearch" resultType="boardVO">
 		<where>
 			<if test="Title != null">
 				AND Title LIKE '%'||#{boardTitle}||'%' 

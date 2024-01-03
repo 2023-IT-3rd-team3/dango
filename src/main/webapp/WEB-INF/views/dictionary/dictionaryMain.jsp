@@ -8,11 +8,11 @@
 <title>だんご 사전</title>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
-<link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-<link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-<link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
-<link rel="stylesheet" href="../../../resources/static/css/common/search.css">
-<link rel="stylesheet" href="../../../resources/static/css/dictionary/dictionaryMain.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/search.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/dictionary/dictionaryMain.css">
 </head>
 <body>
 
@@ -63,7 +63,7 @@
 	
 	<div id="community_view">
 		<div>
-			<h2>커뮤니티 <a href="#">▶</a></h2><br>
+			<h2>커뮤니티 <a href="/dango/community">▶</a></h2><br>
 			<div class="conversation_viewBox">
 				<h3>게시번호 &nbsp; &nbsp; &nbsp; &nbsp; 작성자 &nbsp; &nbsp; &nbsp; &nbsp; 글 제목 </h3>
 			</div>

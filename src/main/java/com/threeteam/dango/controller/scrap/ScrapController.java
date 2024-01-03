@@ -27,9 +27,9 @@ public class ScrapController {
 	}
 	
 	@PostMapping("/insertScrap")
-	public String insertScrap(@RequestParam("boardId") Long boardId, @RequestParam("userId") String userId) {
+	public String insertScrap(ScrapVO scrapVO) {
 		try {
-	        scrapService.insertScrap(boardId, userId);
+	        scrapService.insertScrap(scrapVO);
 	        return "success";
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -38,9 +38,9 @@ public class ScrapController {
 	}
 	
 	@PostMapping("/deleteScrap")
-	public String deleteScrap(@RequestParam("boardId") Long boardId, @RequestParam("userId") String userId) {
+	public String deleteScrap(ScrapVO scrapVO) {
 		try {
-	        scrapService.deleteScrap(boardId, userId);
+	        scrapService.deleteScrap(scrapVO);
 	        return "success";
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -48,11 +48,11 @@ public class ScrapController {
 	    }
 	}
 	
-	@GetMapping
-	public String getScrap(ScrapVO scrapVO, Model model) {
-		model.addAttribute("", scrapService.getScrap(scrapVO));
-		return ".jsp";
-	}
+//	@GetMapping
+//	public String getScrap(ScrapVO scrapVO, Model model) {
+//		model.addAttribute("", scrapService.getScrap(scrapVO));
+//		return ".jsp";
+//	}
 	
 	@GetMapping("/scrapList")
 	public String getScrapList() {

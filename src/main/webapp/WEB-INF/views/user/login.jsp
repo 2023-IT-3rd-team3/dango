@@ -22,7 +22,7 @@
                 <p>일본어를 향한 첫 걸음!</p>
                 <p>단고</p>
             </div>
-          <form action="/dango/login" method="post">
+          <form action="/dango/user/login" method="post">
             <div class="input">
                 <label for="id">아이디</label>
                 <input id="id" name="id" type="text" placeholder="아이디">
@@ -33,7 +33,7 @@
             </div>
             <div id="btn-group">
                 <button id="login-btn">로그인</button>
-                <a id="signup-btn" href="/dango/register">회원가입</a>
+                <a id="signup-btn" href="/dango/user/register">회원가입</a>
             </div>
           </form>
             <div id="find-link">

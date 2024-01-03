@@ -1,5 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/threeteam/dango/controller/check/CheckController.java=UTF-8
+encoding//src/main/java/com/threeteam/dango/controller/community/BoardController.java=UTF-8
 encoding//src/main/java/com/threeteam/dango/controller/community/getBoardController.java=UTF-8
 encoding//src/main/java/com/threeteam/dango/controller/user/UserController.java=UTF-8
+encoding//src/main/java/com/threeteam/dango/controller/word/WordController.java=UTF-8
 encoding//src/main/java/com/threeteam/dango/dao/community/BoardDAO.java=UTF-8
+encoding//src/main/java/com/threeteam/dango/mapper/community/BoardMapper.java=UTF-8
+encoding//src/main/java/com/threeteam/dango/service/community/BoardServiceImpl.java=UTF-8

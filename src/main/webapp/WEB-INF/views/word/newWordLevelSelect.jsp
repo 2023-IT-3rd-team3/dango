@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/newWordLevelSelect.css">
 </head>
 <body>
@@ -23,5 +24,6 @@
         </div>
         <p id="level-select-text">난이도를 골라주세요!</p>
     </section>
+    <jsp:include page="../common/footer.jsp" />
 </body>
 </html>

@@ -11,6 +11,7 @@ public class UserVO {
 	private String userphone;
 	private String useremail;
 	private String useradmin;
+	private String userprofile;
 	private String userregisterdate;
 	private String userupdatedate;
 	
@@ -49,6 +50,12 @@ public class UserVO {
 	}
 	public void setUseradmin(String useradmin) {
 		this.useradmin = useradmin;
+	}
+	public String getUserprofile() {
+		return userprofile;
+	}
+	public void setUserprofile(String userprofile) {
+		this.userprofile = userprofile;
 	}
 	public String getUserregisterdate() {
 		return userregisterdate;

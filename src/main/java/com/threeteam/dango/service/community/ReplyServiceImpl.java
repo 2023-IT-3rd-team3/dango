@@ -34,4 +34,9 @@ public class ReplyServiceImpl implements ReplyService {
 		return replyDAO.getReplyList(replyVO);
 	}
 
+	@Override
+	public void updateReply(ReplyVO replyVO) {
+		replyDAO.updateReply(replyVO);
+	}
+
 }

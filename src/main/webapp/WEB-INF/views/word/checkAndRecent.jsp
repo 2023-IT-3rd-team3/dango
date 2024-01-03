@@ -34,7 +34,7 @@
                     <p class="kanji">&nbsp;&nbsp;${word.wordFurigana}</p>
                 </div>
                 <p class="mean">${word.wordMean}</p>
-            </c:foreach>
+            </c:forEach>
         </div>
         <div id="dictionary_area">
             <div class="announ_box">
@@ -48,7 +48,7 @@
                     <p class="kanji">&nbsp;&nbsp;${word.wordFurigana}</p>
                 </div>
                 <p class="mean">${word.wordMean}</p>
-            </c:foreach>
+            </c:forEach>
         </div>
     </div>
 </section>

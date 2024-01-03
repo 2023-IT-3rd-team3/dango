@@ -19,23 +19,22 @@ import com.threeteam.dango.vo.community.BoardVO;
 
 import lombok.extern.log4j.Log4j;
 
-@RestController
-@SessionAttributes("board")
+@Controller
 @RequestMapping("/community/*")
 public class BoardController {
 
 	@Autowired
 	BoardService boardService;
 	
-	@GetMapping("/main")
+	@GetMapping("/")
 	public String boardMain(BoardVO boardVO, Model model) {
-		return "Community.jsp";
+		return "community/Community";
 	}
 	
 	@GetMapping("/boardInsert")
 	public String insertBoard(BoardVO boardVO) {
 		boardService.insertBoard(boardVO);
-		return "getBoardList";
+		return "community/CommunityNewPost";
 	}
 	
 	@GetMapping("/boardUpdate")
@@ -80,7 +79,7 @@ public class BoardController {
 	}
 	
 	
-	/* ----------- 검색기능 ----------- */
+	/* ----------- 寃��깋湲곕뒫 ----------- */
 	@GetMapping("/CommunitySearch")
 	public String communitySearch(@RequestParam("boardTitle") String boardTitle, @RequestParam("userId") String userId, Model model) {
 		List<BoardVO> boardList = boardService.communitySearch(boardTitle, userId);
@@ -88,8 +87,8 @@ public class BoardController {
         return "searchResult";
 	}
 	
-	/* ----------- 관리자 ----------- */
-	// 관리자 체크
+	/* ----------- 愿�由ъ옄 ----------- */
+	// 愿�由ъ옄 泥댄겕
 	@GetMapping("/admincheck")
 	public boolean adminCheck(BoardVO boardVO) {
 		boolean adminCheck = boardService.adminCheck(boardVO);

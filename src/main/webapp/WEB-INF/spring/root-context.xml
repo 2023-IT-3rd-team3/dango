@@ -22,5 +22,5 @@
 		<property name="configLocation" value="classpath:config/config.xml" />
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.threeteam.dango.mapper.word"/>
+	<mybatis-spring:scan base-package="com.threeteam.dango.mapper.*"/>
 </beans>

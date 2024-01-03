@@ -3,10 +3,12 @@ package com.threeteam.dango.service.community;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.community.ScrapDAO;
 import com.threeteam.dango.vo.community.ScrapVO;
 
+@Service
 public class ScrapServiceImpl implements ScrapService {
 
 	@Autowired

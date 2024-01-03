@@ -107,13 +107,13 @@ public class UserController {
 	public String updatepage(HttpServletRequest request, Model model) {
 		UserVO user = getSessionUser(request);
 		if(user == null)
-			return "/user/login";
+			return "redirect:/user/login";
 		model.addAttribute("userinfo", user);
 		
 		return "/user/myPage";
 	}
 	
-	@PostMapping("/infomodify")
+	@PostMapping("/myPage")
 	public String infomodify(UserVO user,HttpServletRequest request,Model model) {
 		//占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占승댐옙
 		UserVO usercheck = getSessionUser(request);

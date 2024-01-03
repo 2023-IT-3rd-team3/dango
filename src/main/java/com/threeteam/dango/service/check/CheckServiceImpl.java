@@ -10,7 +10,7 @@ import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
 
-@Service("checkService")
+@Service
 public class CheckServiceImpl implements CheckService {
 
 	@Autowired

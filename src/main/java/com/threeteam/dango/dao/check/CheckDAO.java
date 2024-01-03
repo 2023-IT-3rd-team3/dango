@@ -2,37 +2,33 @@ package com.threeteam.dango.dao.check;
 
 import java.util.List;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
+import com.threeteam.dango.mapper.check.CheckMapper;
 
-@Repository("checkDAO")
+@Repository
 public class CheckDAO {
 	
 	@Autowired
-	public SqlSessionTemplate mybatis;
+	private CheckMapper checkMapper;
 	
 	public boolean isCheck(CheckVO vo) {
-		System.out.println("------>>> isCheck() 기능 처리");
-		return mybatis.selectOne("CheckDAO.isCheck", vo);
+		return checkMapper.isCheck(vo);
 	}
 	
 	public void onCheck(CheckVO vo) {
-		System.out.println("------>>> onCheck() 기능 처리");
-		mybatis.insert("CheckDAO.onCheck", vo);
+		checkMapper.onCheck(vo);
 	}
 	
 	public void offCheck(CheckVO vo) {
-		System.out.println("------>>> offCheck() 기능 처리");
-		mybatis.delete("CheckDAO.offCheck", vo);
+		checkMapper.offCheck(vo);
 	}
 	
 	public List<WordVO> getCheckList(UserVO userVO){
-		System.out.println("------>>> getCheckList() 기능 처리");
-		return mybatis.selectList("CheckDAO.getCheckList", userVO.getUserid());
+		return checkMapper.getCheckList(userVO.getUserid());
 	}
 }

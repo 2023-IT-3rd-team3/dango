@@ -15,7 +15,7 @@ footer {
 	height: 250px;
 	width: 100%;
 	bottom: 0;
-	margin: auto;
+	margin: 100px auto 0;
 	background-color: #dcdcdc;
 	transform: translatY(-100%);
 	border-top: 1px solid rgb(200, 200, 200);

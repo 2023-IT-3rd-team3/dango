@@ -5,13 +5,12 @@
 		INSERT INTO T_SCRAP 
 		(SCRAPID, USERID, BOARDID, SCRAPREGISTERDATE, SCRAPUPDATEDATE) 
 		VALUES
-		({#scrapId}, #{userId}, #{boardId}, #{scrapRegisterdate}, #{scrapUpdatedate})
+		(S_SCRAP.NEXTVAL, #{userId}, #{boardId})
 	</insert>
 	
 	<delete id="deleteScrap">
-		SELETC * FROM T_SCRAP 
-		ORDER BY SCARPID 
-		DESC
+		DELETE FROM T_SCRAP
+		WHERE USERID = #{userId} AND BOARDID = #{boardId}
 	</delete>
 	
 	<select id="getScrap" resultType="ScrapVO">
@@ -22,6 +21,7 @@
 	<select id="getScrapList" resultType="ScrapVO">
 		SELECT * FROM T_SCRAP 
 		ORDER BY SCRAPID 
-		WHERE USERID=#{userId} DESC
+		WHERE USERID=#{userId}
+		ORDER BY SCRAPID DESC
 	</select>
 </mapper>

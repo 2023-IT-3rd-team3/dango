@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/wrongNote.css?b">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/wrongNote.css">
 </head>
 <body>
 <jsp:include page="../common/header.jsp" />
@@ -70,6 +71,7 @@
         </article>
         </c:forEach>
     </section>
+    <jsp:include page="../common/footer.jsp" />
 <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
 <script type="text/javascript">
     const userId = `${userId}`;

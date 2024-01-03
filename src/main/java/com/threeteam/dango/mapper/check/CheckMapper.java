@@ -13,5 +13,5 @@ public interface CheckMapper {
 	public boolean isCheck(CheckVO vo);
 	public void onCheck(CheckVO vo);
 	public void offCheck(CheckVO vo);
-	public List<WordVO> getCheckList(CheckVO vo);
+	public List<WordVO> getCheckList(String userId);
 }

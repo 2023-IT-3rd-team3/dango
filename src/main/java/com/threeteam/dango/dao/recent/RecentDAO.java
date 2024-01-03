@@ -9,30 +9,31 @@ import org.springframework.stereotype.Repository;
 import com.threeteam.dango.domain.recent.RecentVO;
 import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.domain.word.WordVO;
+import com.threeteam.dango.mapper.recent.RecentMapper;
 
 @Repository("recentDAO")
 public class RecentDAO {
 	
 	@Autowired
-	public static SqlSessionTemplate mybatis;
+	public RecentMapper recentMapper;
 	
-	public static boolean isRecent(RecentVO vo) {
+	public boolean isRecent(RecentVO vo) {
 		System.out.println("------>>> isCheck() 기능 처리");
-		return mybatis.selectOne("RecentDAO.isRecent", vo);
+		return recentMapper.isRecent(vo);
 	}
 	
-	public static void setRecent(RecentVO vo) {
+	public void setRecent(RecentVO vo) {
 		System.out.println("------>>> setRecent() 기능 처리");
-		mybatis.insert("RecentDAO.setRecent", vo);
+		recentMapper.setRecent(vo);
 	}
 	
-	public static void updateRecent(RecentVO vo) {
+	public void updateRecent(RecentVO vo) {
 		System.out.println("------>>> updateRecent() 기능 처리");
-		mybatis.update("RecentDAO.updateRecent", vo);
+		recentMapper.updateRecent(vo);
 	}
 	
-	public static List<WordVO> getRecentList(UserVO userVO){
+	public List<WordVO> getRecentList(UserVO userVO){
 		System.out.println("------>>> getRecentList() 기능 처리");
-		return mybatis.selectList("RecentDAO.getRecentList", userVO.getUserid());
+		return recentMapper.getRecentList(userVO.getUserid());
 	}
 }

@@ -14,5 +14,5 @@ public interface RecentMapper {
 	public void setRecent(RecentVO vo);
 	public void updateRecent(RecentVO vo);
 	public WordVO getRecent(RecentVO vo);
-	public List<WordVO> getRecentList(RecentVO vo);
+	public List<WordVO> getRecentList(String userId);
 }

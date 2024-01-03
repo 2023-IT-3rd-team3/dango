@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/static/css/common/header.css?after">
+	href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
 <link rel="stylesheet"
@@ -53,11 +53,11 @@
 				<div id="profile-div">
 					<label id="profile-label" for="profile">
 						<c:choose>
-							<c:when test="${not empty user.userProfile}">
-								<img class="profile-img" src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="" />
+							<c:when test="${not empty user.userprofile}">
+								<img class="profile-img" alt="" />
 							</c:when>
 							<c:otherwise>
-								<img class="profile-img" />
+								<img class="profile-img" src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" />
 							</c:otherwise>			
 						</c:choose>
 					</label>

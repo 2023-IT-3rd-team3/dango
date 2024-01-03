@@ -41,7 +41,7 @@ public class WordController {
 	public String list(@PathVariable("wordLevel") Integer wordLevel, Model model, HttpServletRequest request) {
 		UserVO userInfo = getSessionUser(request);
 		if(userInfo == null)
-			return "/user/login";
+			return "redirect:/user/login";
 		
 		model.addAttribute("sentenceList", wordService.getSentenceList(wordLevel, userInfo.getUserid()));
 		model.addAttribute("userId", userInfo.getUserid());
@@ -51,7 +51,7 @@ public class WordController {
 	public String selectLevel(HttpServletRequest request) {
 		UserVO userInfo = getSessionUser(request);
 		if(userInfo == null)
-			return "/user/login";
+			return "redirect:/user/login";
 		
 		return "word/newWordLevelSelect";
 	}
@@ -59,7 +59,7 @@ public class WordController {
 	public String wrongNote(Model model, HttpServletRequest request) {
 		UserVO userInfo = getSessionUser(request);
 		if(userInfo == null)
-			return "/user/login";
+			return "redirect:/user/login";
 		
 		model.addAttribute("sentenceList", wrongService.getWrongAllByUserId(userInfo.getUserid()));
 		return "word/wrongNote";
@@ -67,9 +67,12 @@ public class WordController {
 	
 	@GetMapping("/wordMain")
 	public String wordMain(HttpServletRequest request, Model model) {
-		System.out.println("단어장 main 화면");
+		System.out.println("�떒�뼱�옣 main �솕硫�");
 
 		UserVO userInfo = getSessionUser(request);
+		if(userInfo == null)
+			return "redirect:/user/login";
+		
 		model.addAttribute("checkList", checkService.getCheckList(userInfo));
 		model.addAttribute("recentList", recentService.getRecentList(userInfo));
 		

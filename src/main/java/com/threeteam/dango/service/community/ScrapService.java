@@ -11,9 +11,9 @@ import com.threeteam.dango.vo.community.ScrapVO;
 public interface ScrapService {
 
 	public boolean isScrap(ScrapVO scrapVO);
-	public void insertScrap(ScrapVO boardId, ScrapVO userId);
-	public void deleteScrap(ScrapVO boardId, ScrapVO userId);
-	public List<ScrapVO> getScrapList(ScrapVO scrapId);
+	public void insertScrap(ScrapVO scrapVO);
+	public void deleteScrap(ScrapVO scrapVO);
+	public List<ScrapVO> getScrapList(ScrapVO scrapVO);
 	public ScrapVO getScrap(ScrapVO scrapVO);
 	
 }

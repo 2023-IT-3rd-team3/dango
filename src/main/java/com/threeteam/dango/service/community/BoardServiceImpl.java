@@ -1,7 +1,6 @@
 package com.threeteam.dango.service.community;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.threeteam.dango.dao.community.BoardDAO;
 import com.threeteam.dango.vo.community.BoardVO;
 
-import lombok.extern.log4j.Log4j;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -17,25 +15,25 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	BoardDAO boardDAO;
 	
-	// 게시글 추가
+	// 寃뚯떆湲� 異붽�
 	@Override
 	public void insertBoard(BoardVO boardVO) {
 		boardDAO.insertBoard(boardVO);
 	}
 	
-	// 게시글 수정
+	// 寃뚯떆湲� �닔�젙
 	@Override
 	public void updateBoard(BoardVO boardVO) {
 		boardDAO.updateBoard(boardVO);
 	}
 	
-	// 게시글 삭제
+	// 寃뚯떆湲� �궘�젣
 	@Override
 	public void deleteBoard(BoardVO boardVO) {
 		boardDAO.deleteBoard(boardVO);
 	}
 	
-	// 게시글 보기
+	// 寃뚯떆湲� 蹂닿린
 	@Override
 	public BoardVO getBoard(BoardVO boardVO) {
 		return boardDAO.getBoard(boardVO);
@@ -46,7 +44,7 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getBoardInfo(boardVO);
 	}
 	
-	// 게시글 목록 보기
+	// 寃뚯떆湲� 紐⑸줉 蹂닿린
 	@Override
 	public List<BoardVO> getBoardList(BoardVO boardVO){
 		return boardDAO.getBoardList(boardVO);
@@ -57,7 +55,7 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getBoardInfoList(boardVO);
 	}
 	
-	/* ----------- 검색기능 ----------- */
+	/* ----------- 寃��깋湲곕뒫 ----------- */
 	@Override
 	public List<BoardVO> communitySearch(String boardTitle, String userId){
 		BoardVO boardVO = new BoardVO();
@@ -66,8 +64,8 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.communitySearch(boardVO);
 	}
 	
-	/* ----------- 관리자 관련 ----------- */
-	// 관리자 체크
+	/* ----------- 愿�由ъ옄 愿��젴 ----------- */
+	// 愿�由ъ옄 泥댄겕
 	@Override
 	public boolean adminCheck(BoardVO boardVO) {
 		boolean adminCheck = boardDAO.adminCheck(boardVO);

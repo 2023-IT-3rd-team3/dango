@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
 <mapper namespace="com.threeteam.dango.mapper.check.CheckMapper">
-	
 	<select id="isCheck" resultType="boolean">
 		SELECT * FROM T_CHECK WHERE USERID=#{userId} AND WORDID=#{wordId}
 	</select>
@@ -14,7 +12,7 @@
 		DELETE FROM T_CHECK WHERE CHECKID=#{checkId}
 	</delete>
 	<select id="getCheckList" resultType="wordVO">
-		SELECT WORDID, WORDWORD, WORDFURIGANA, WORDMEAN, WORDLEVEL AS WORD
+		SELECT WORDID, WORDWORD, WORDFURIGANA, WORDMEAN, WORDLEVEL
 		FROM T_CHECK WHERE USERID=#{userId} NATURAL JOIN T_WORD
 		ORDER BY CHECKREGISTERDATE DESC
 	</select>
