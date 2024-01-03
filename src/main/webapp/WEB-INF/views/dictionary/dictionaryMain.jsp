@@ -22,11 +22,11 @@
 	<div id="content">
 		<div>
 			<div>
-				<form id="search_box">
-				<fieldset id="search_area">
-				<input type="search" placeholder="일본어 검색" class="search_input">
-				<button type="submit" value="검색" class="search_button"><i class="fa fa-search"></i></button>
-				</fieldset>
+				<form id="search_box" action="/dango/dictionary/search" method="get">
+					<fieldset id="search_area">
+					<input type="search" placeholder="일본어 검색" class="search_input" name="keyword">
+					<button type="submit" value="검색" class="search_button"><i class="fa fa-search"></i></button>
+					</fieldset>
 				</form>
 			</div>
 		</div>

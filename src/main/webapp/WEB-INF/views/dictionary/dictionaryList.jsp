@@ -22,12 +22,12 @@
 <section id="container" class="wrapper">
 	<div id="content">
 		<div>
-			<form class="search_box">
-				<fieldset id="search_area">
-					<input type="search" placeholder="일본어 검색" class="search_input" value="${keyword}">
+			<form id="search_box" action="/dango/dictionary/search" method="get">
+					<fieldset id="search_area">
+					<input type="search" placeholder="일본어 검색" class="search_input" name="keyword">
 					<button type="submit" value="검색" class="search_button"><i class="fa fa-search"></i></button>
-				</fieldset>
-			</form>
+					</fieldset>
+				</form>
 		</div>
 			
 		<div id="dictionary_area">
@@ -35,46 +35,11 @@
 				<div class="voca">
 					<div class="word">
 						<a class="furigana" href="/dango/dictionary/${word.wordId}">${word.wordFurigana }</a>
-						<p class="kanji">${word.wordWord}</p>
+						<p class="kanji">【${word.wordWord}】</p>
 					</div>
 					<p class="mean">${word.wordMean}</p>
 				</div>
 			</c:forEach>
-			<div class="voca" href="">
-				<div class="word">
-					<a class="furigana">あそぶ</a>
-					<p class="kanji">【遊ぶ】</p>
-				</div>
-				<p class="mean">놀다</p>
-			</div>
-			<div class="voca" href="">
-				<div class="word">
-					<a class="furigana">あそぶ</a>
-					<p class="kanji">【遊ぶ】</p>
-				</div>
-				<p class="mean">놀다</p>
-			</div>
-			<div class="voca" href="">
-				<div class="word">
-					<a class="furigana">あそぶ</a>
-					<p class="kanji">【遊ぶ】</p>
-				</div>
-				<p class="mean">놀다</p>
-			</div>
-			<div class="voca" href="">
-				<div class="word">
-					<a class="furigana">あそぶ</a>
-					<p class="kanji">【遊ぶ】</p>
-				</div>
-				<p class="mean">놀다</p>
-			</div>
-			<div class="voca" href="">
-				<div class="word">
-					<a class="furigana">あそぶ</a>
-					<p class="kanji">【遊ぶ】</p>
-				</div>
-				<p class="mean">놀다</p>
-			</div>
 		</div>
 	</div>
 </section>
