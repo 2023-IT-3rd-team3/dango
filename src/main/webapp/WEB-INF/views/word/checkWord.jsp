@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Word</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/checkWord.css">
+</head>
+<body>
+    <jsp:include page="../common/header.jsp" />
+    <section>
+        <div id="intro">
+            <div id="intro-text-area">
+                <h1>체크 단어</h1>
+                <p>체크한 단어들이 리스트에 기록되어 있어요.</p>
+            </div>
+        </div>
+        <c:if test="${empty checkList}">
+		 	<div id="no-check-msg">
+	            <p>※ 체크한 단어가 없습니다! ※</p>
+	        </div>
+		</c:if>
+        <div id="article-list">
+        	<c:forEach items="wordVO" var="checkList">
+	        	<article>
+	                <button class="check-btn">
+	                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
+	                        <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+	                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+	                    </svg>
+	                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check-fill" viewBox="0 0 16 16">
+	                        <path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+	                    </svg>
+	                </button>
+	                <div class="word-hurigana">
+	                    <a class="furigana" href="#">${wordVO.wordFurigana}</a>
+	                    <p class="word">[${wordVO.wordWord}]</p>
+	                </div>
+	                <div class="mean-list">
+	                    <p class="mean">${wordVO.wordMean}</p>
+	                </div>
+	                <input class="word-id" type="hidden" value="${wordVO.wordId}">
+	            </article>
+        	</c:forEach>
+            <article>
+                <button class="check-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                      </svg>
+                </button>
+                <div class="word-hurigana">
+                    <a class="word" href="#">事実</a>
+                    <p class="hurigana">[じじつ]</p>
+                </div>
+                <div class="mean-list">
+                    <p class="mean">1. 사실</p>
+                    <p class="mean">2. 실제로 일어난 일</p>
+                    <p class="mean">3. 정말로;참말로</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    <jsp:include page="../common/footer.jsp" />
+</body>
+</html>

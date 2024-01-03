@@ -83,6 +83,23 @@ article.vibration {
     cursor: pointer;
     color: rgb(255, 23, 68);
 }
+.check-btn-on {
+    display: block;
+}
+.check-btn-off {
+    display: none;
+}
+.bi-bookmark-check {
+    display: block;
+    color: #BF3131;
+    width: 35px;
+}
+.bi-bookmark-check-fill {
+    display: block;
+    color: #BF3131;
+    width: 35px;
+}
+
 .korean {
     display: flex;
     justify-content: center;

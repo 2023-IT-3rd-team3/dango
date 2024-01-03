@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,30 +28,57 @@ public class CheckController {
 	@Autowired
 	private CheckService checkService;
 	
-	@ResponseBody
-	@PostMapping(value="/toggleCheck", consumes = "application/json")
-	public boolean checkWord(@RequestBody Long wordId, HttpServletRequest request, Model model) {
-		
+	private UserVO getSessionUser(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		UserVO userVO = (UserVO)session.getAttribute("user");
+		UserVO userInfo = (UserVO)session.getAttribute("user");
+		
+		return userInfo;
+	}
+	
+	@ResponseBody
+	@GetMapping(value="/toggleCheck", consumes = "application/json")
+	public ResponseEntity<Boolean> checkWord(@RequestBody Long wordId, HttpServletRequest request, Model model) {
+		UserVO userVO = getSessionUser(request);
 		
 		CheckVO vo = new CheckVO();
-		vo.setUserId(userVO.getUserid());
+		vo.setUserId(userVO.getUserId());
 		vo.setWordId(wordId);
 		
-		boolean isChecked = checkService.isCheck(vo);
+		Boolean isChecked = checkService.isCheck(vo);
 		
-		return isChecked;
+		return new ResponseEntity<>(isChecked, HttpStatus.OK);
+	}
+	
+	@ResponseBody
+	@PostMapping(value="/add", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public String addCheck(@RequestBody CheckVO vo, HttpServletRequest request, Model model) {
+		UserVO userVO = getSessionUser(request);
+		if(userVO == null) return "fail";
+		
+		vo.setUserId(userVO.getUserId());
+		checkService.onCheck(vo);
+		
+		return "success";
+	}
+	@ResponseBody
+	@PostMapping(value="/remove", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public String removeCheck(@RequestBody CheckVO vo, HttpServletRequest request, Model model) {
+		UserVO userVO = getSessionUser(request);
+		if(userVO == null) return "fail";
+		
+		vo.setUserId(userVO.getUserId());
+		checkService.offCheck(vo);
+		
+		return "success";
 	}
 
 	@GetMapping(value="/getCheckList")
 	public String getCheckList(HttpServletRequest request, Model model) {
-		System.out.println("check 목록 보기 처리");
-		
-		HttpSession session = request.getSession();
-		UserVO userVO = (UserVO)session.getAttribute("user");
+		UserVO userVO = getSessionUser(request);
+		if(userVO == null)
+			return "redirect:/user/login";
 
 		model.addAttribute("checkList", checkService.getCheckList(userVO));
-		return "check/getCheckList";
+		return "word/checkWord";
 	}
 }

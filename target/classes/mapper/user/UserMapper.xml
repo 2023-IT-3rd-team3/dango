@@ -4,27 +4,27 @@
 	<insert id="insert">
 	INSERT INTO T_USER
 	(USERID, USERPW, USERNAME, USERPHONE, USEREMAIL)
-	VALUES(#{userid},#{userpw},#{username},#{userphone},#{useremail})
+	VALUES(#{userId},#{userPw},#{userName},#{userPhone},#{userEmail})
 	</insert>
 	<select id="select" resultType="userVO">
 	SELECT *
-	FROM T_USER WHERE (USERID = #{userid}) AND (USERPW = #{userpw})
+	FROM T_USER WHERE (USERID = #{userId}) AND (USERPW = #{userPw})
 	</select>
 	<select id="selectid" resultType="string">
 	SELECT USERID
-	FROM T_USER WHERE USEREMAIL = #{useremail} AND USERPHONE = #{userphone}
+	FROM T_USER WHERE USEREMAIL = #{userEmail} AND USERPHONE = #{userPhone}
 	</select>
 	<select id="selectpw" resultType="string">
 	SELECT USERPW
-	FROM T_USER WHERE USERID = #{userid} AND USERPHONE = #{userphone}
+	FROM T_USER WHERE USERID = #{userId} AND USERPHONE = #{userPhone}
 	</select>
 	<delete id="delete">
 	DELETE FROM T_USER
-	WHERE USERID=#{userid}
+	WHERE USERID=#{userId}
 	</delete>
 	<update id="update">
 	UPDATE T_USER
-	SET USERNAME= #{username}, USERPHONE= #{userphone}, USEREMAIL= #{useremail}, USERUPDATEDATE=SYSDATE
-	WHERE USERID= #{userid}
+	SET USERNAME= #{userName}, USERPHONE= #{userPhone}, USEREMAIL= #{userEmail}, USERUPDATEDATE=SYSDATE
+	WHERE USERID= #{userId}
 	</update>
 </mapper>

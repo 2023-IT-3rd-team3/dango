@@ -5,11 +5,11 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
-<link rel="stylesheet" href="../../../resources/static/css/common/reset.css">
-<link rel="stylesheet" href="../../../resources/static/css/common/header.css">
-<link rel="stylesheet" href="../../../resources/static/css/common/footer.css">
-<link rel="stylesheet" href="../../../resources/static/css/word/recentword.css?ater">
-<link rel="stylesheet" href="../../../resources/static/css/dictionary/dictionaryFont.css?ater">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/recentword.css?ater">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/dictionary/dictionaryFont.css?ater">
 
 <meta charset="UTF-8">
 <title>최근 본 단어</title>
@@ -27,13 +27,17 @@
                 <p>최근 본 단어들이 리스트에 기록되어 있어요.</p>
             </div>
         </div>
+        <c:if test="${empty recentList}">
+			<p id="no-check-msg">체크한 단어가 없습니다.</p>
+		</c:if>
 		<div id="dictionary_area">
+			
 			<c:forEach var="word" items="${recentList}">
 				<div class="voca">
 					<div class="word">
-						<p class="level">${word.wordlevel}</p>
-						<p class="kanji">${word.wordWord}</p>
-						<a class="furigana" href="/dango/dictionary/${word.wordId}">${word.wordFurigana }</a>
+						<p class="level">N${word.wordLevel}</p>
+						<p class="kanji">【${word.wordWord}】</p>
+						<a class="furigana" href="/dango/dictionary/${word.wordId}">${word.wordFurigana}</a>
 						<p class="mean">${word.wordMean}</p>
 					</div>
 				</div>

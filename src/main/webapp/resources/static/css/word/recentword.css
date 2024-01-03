@@ -1,5 +1,6 @@
-@charset "UTF-8";
-
+nav > a:nth-child(3) {
+    color: rgb(255, 23, 68);
+}
 body {
     background-color: rgb(247, 247, 247);
 }
@@ -21,10 +22,18 @@ section {
     font-weight: bold;
     margin-bottom: 30px;
 }
-nav > a:nth-child(4) {
+#no-check-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 20px auto;
     color: rgb(255, 23, 68);
+    font-weight: bold;
 }
-
+#no-check-msg > svg {
+    margin-right: 10px;
+}
 #container {
     width: 1080px;
 	height: 100%;

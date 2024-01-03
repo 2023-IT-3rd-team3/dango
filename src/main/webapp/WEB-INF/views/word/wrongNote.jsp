@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/wrongNote.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/wrongNote.css?abcdde">
 </head>
 <body>
 <jsp:include page="../common/header.jsp" />
@@ -36,12 +36,16 @@
 				</svg>
             </div>
             <p class="correct-count">정답 횟수 : <span class="wrong-num">${sentence.wrongNum}</span></p>
-            <button class="check-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
-                    <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
-                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-                  </svg>
+            <button class="check-btn-on check-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                </svg>
+            </button>
+            <button class="check-btn-off check-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-check-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                </svg>
             </button>
             <div class="korean">
             	<c:if test="${not empty sentence.exFrontKr}">
@@ -74,10 +78,11 @@
     <jsp:include page="../common/footer.jsp" />
 <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
 <script type="text/javascript">
-    const userId = `${userId}`;
+    const userId = "${user.userId}";
 </script>
 <script src="${pageContext.request.contextPath}/resources/static/js/word/wrongNote.js"></script>
-<script>
+
+<script type="text/javascript">
 const okBtn = $(".ok-btn");
 const wordJp = $(".word-jp");
 const answer = $(".answer");
@@ -112,5 +117,56 @@ for(let i = 0; i < okBtn.length; i++) {
     })
 }
 </script>
+<script>
+    const checkBtnOn = $('.check-btn-on');
+    const checkBtnOff = $('.check-btn-off');
+    
+    for(let i = 0; i < checkBtnOn.length; i++) {
+        
+        checkBtnOn[i].addEventListener("click", () => {
+            let data = {
+                userId: userId,
+                wordId: Number(wordId[i].value)
+            };
+            $.ajax({
+                type: "post",
+                url: "/dango/check/add",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: (result) => {
+                    if(result === "success") {
+                        checkBtnOff[i].style.display = "block";
+                        checkBtnOn[i].style.display = "none";
+                    }
+                },
+                error: () =>{
+                    console.log("에러");
+                }
+            })
+        })
+        checkBtnOff[i].addEventListener("click", () => {
+            let data = {
+                userId: userId,
+                wordId: Number(wordId[i].value)
+            };
+            $.ajax({
+                type: "post",
+                url: "/dango/check/remove",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: (result) => {
+                    if(result === "success") {
+                        checkBtnOff[i].style.display = "none";
+                        checkBtnOn[i].style.display = "block";
+                    }
+                },
+                error: () =>{
+                    console.log("에러");
+                }
+            })
+        })
+    }
+</script>
+
 </body>
 </html>

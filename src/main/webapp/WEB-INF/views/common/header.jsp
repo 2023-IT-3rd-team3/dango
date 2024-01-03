@@ -5,7 +5,6 @@
     <div>
         <div>
             <a id="logo" href="/dango/">
-                <img src="" alt="">
                 だんご🍡
             </a>
             <nav>

@@ -34,6 +34,6 @@ public class RecentDAO {
 	
 	public List<WordVO> getRecentList(UserVO userVO){
 		System.out.println("------>>> getRecentList() 기능 처리");
-		return recentMapper.getRecentList(userVO.getUserid());
+		return recentMapper.getRecentList(userVO.getUserId());
 	}
 }

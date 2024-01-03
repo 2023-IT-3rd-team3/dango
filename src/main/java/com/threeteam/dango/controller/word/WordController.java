@@ -22,9 +22,9 @@ import com.threeteam.dango.service.word.WrongService;
 @RequestMapping("/word/*")
 public class WordController {
 	@Autowired
-	WordService wordService;
+	private WordService wordService;
 	@Autowired
-	WrongService wrongService;
+	private WrongService wrongService;
 	@Autowired
 	private CheckService checkService;
 	@Autowired
@@ -43,8 +43,8 @@ public class WordController {
 		if(userInfo == null)
 			return "redirect:/user/login";
 		
-		model.addAttribute("sentenceList", wordService.getSentenceList(wordLevel, userInfo.getUserid()));
-		model.addAttribute("userId", userInfo.getUserid());
+		model.addAttribute("sentenceList", wordService.getSentenceList(wordLevel, userInfo.getUserId()));
+		model.addAttribute("userId", userInfo.getUserId());
 		return "word/newWord";
 	}
 	@GetMapping("/new")
@@ -61,7 +61,8 @@ public class WordController {
 		if(userInfo == null)
 			return "redirect:/user/login";
 		
-		model.addAttribute("sentenceList", wrongService.getWrongAllByUserId(userInfo.getUserid()));
+		model.addAttribute("sentenceList", wrongService.getWrongAllByUserId(userInfo.getUserId()));
+		model.addAttribute("user", userInfo);
 		return "word/wrongNote";
 	}
 	
@@ -76,6 +77,6 @@ public class WordController {
 		model.addAttribute("checkList", checkService.getCheckList(userInfo));
 		model.addAttribute("recentList", recentService.getRecentList(userInfo));
 		
-		return "word/main";
+		return "word/checkAndRecent";
 	}
 }

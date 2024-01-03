@@ -76,7 +76,7 @@ public class UserController {
 		}
 		//model.addAttribute("userinfo",user);
 		HttpSession session = request.getSession();
-		session.setAttribute("user",user);
+		session.setAttribute("user", user);
 		
 		return "redirect:/";
 	}
@@ -119,10 +119,10 @@ public class UserController {
 		UserVO usercheck = getSessionUser(request);
 		
 		//usercheck占쏙옙 占쏙옙占쏙옙 占쏙옙 占쏙옙占싸뤄옙 占쏙옙占쏙옙 占쏙옙占쏙옙占�.
-		usercheck.setUsername(user.getUsername());
-		usercheck.setUserphone(user.getUserphone());
-		usercheck.setUseremail(user.getUseremail());
-		usercheck.setUserpw(user.getUserpw());
+		usercheck.setUserName(user.getUserName());
+		usercheck.setUserPhone(user.getUserPhone());
+		usercheck.setUserEmail(user.getUserEmail());
+		usercheck.setUserPw(user.getUserPw());
 		
 		System.out.println(usercheck.toString());
 		
@@ -137,7 +137,7 @@ public class UserController {
 	public String userregout(HttpServletRequest request,RedirectAttributes rttr) {
 		UserVO id = getSessionUser(request);
 		
-		if(userservice.remove(id.getUserid())) {
+		if(userservice.remove(id.getUserId())) {
 			rttr.addFlashAttribute("message","회원 탈퇴 완료");
 		}
 		
@@ -156,8 +156,8 @@ public class UserController {
 	@GetMapping("/findID")
 	public String findid(String email,String phone,RedirectAttributes rttr) {
 		UserVO userinfo = new UserVO();
-		userinfo.setUseremail(email);
-		userinfo.setUserphone(phone);
+		userinfo.setUserEmail(email);
+		userinfo.setUserPhone(phone);
 		if(userservice.findid(userinfo) != null) {
 			System.out.println(userservice.findid(userinfo));
 			rttr.addFlashAttribute("id",userservice.findid(userinfo));
@@ -172,8 +172,8 @@ public class UserController {
 	@GetMapping("/findPW")
 	public String findpw(String id,String phone,RedirectAttributes rttr) {
 		UserVO userinfo = new UserVO();
-		userinfo.setUserid(id);
-		userinfo.setUserphone(phone);
+		userinfo.setUserId(id);
+		userinfo.setUserPhone(phone);
 		if(userservice.findpw(userinfo) != null) {
 			System.out.println(userservice.findpw(userinfo));
 			rttr.addFlashAttribute("pw",userservice.findpw(userinfo));

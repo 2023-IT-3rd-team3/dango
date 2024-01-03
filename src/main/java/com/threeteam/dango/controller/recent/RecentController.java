@@ -23,6 +23,13 @@ public class RecentController {
 	@Autowired
 	private RecentService recentService;
 	
+	private UserVO getSessionUser(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		UserVO userInfo = (UserVO)session.getAttribute("user");
+		
+		return userInfo;
+	}
+	
 	@ResponseBody
 	@PostMapping(value = "/", consumes = "application/json")
 	public boolean insertRecent(@RequestBody Long wordId, HttpServletRequest request, Model model) {
@@ -31,7 +38,7 @@ public class RecentController {
 		UserVO userVO = (UserVO)session.getAttribute("user");
 		
 		RecentVO vo = new RecentVO();
-		vo.setUserId(userVO.getUserid());
+		vo.setUserId(userVO.getUserId());
 		vo.setWordId(wordId);
 		boolean recent = recentService.isRecent(vo);
 		
@@ -40,12 +47,11 @@ public class RecentController {
 	
 	@GetMapping(value = "/getRecentList")
 	public String getRecentList(HttpServletRequest request, Model model) {
-		System.out.println("recent 목록 보기 처리");
-		
-		HttpSession session = request.getSession();
-		UserVO userVO = (UserVO)session.getAttribute("user");
+		UserVO userVO = getSessionUser(request);
+		if(userVO == null)
+			return "redirect:/user/login";
 		
 		model.addAttribute("recentList", recentService.getRecentList(userVO));
-		return "recent/getRecentList";
+		return "word/recentWord";
 	}
 }

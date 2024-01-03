@@ -29,6 +29,6 @@ public class CheckDAO {
 	}
 	
 	public List<WordVO> getCheckList(UserVO userVO){
-		return checkMapper.getCheckList(userVO.getUserid());
+		return checkMapper.getCheckList(userVO.getUserId());
 	}
 }

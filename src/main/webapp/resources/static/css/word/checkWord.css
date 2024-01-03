@@ -1,3 +1,6 @@
+nav > a:nth-child(3) {
+    color: rgb(255, 23, 68);
+}
 section {
     margin: 100px auto;
     width: 1080px;
@@ -15,6 +18,22 @@ section {
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 30px;
+}
+.bi-plus-circle-fill {
+    width: 30px;
+    color: rgb(255, 23, 68);
+}
+#no-check-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 20px auto;
+    color: rgb(255, 23, 68);
+    font-weight: bold;
+}
+#no-check-msg > svg {
+    margin-right: 10px;
 }
 #article-list {
     display: flex;
@@ -34,30 +53,27 @@ article {
     align-content: space-between;
 }
 .check-btn {
-    background: url(../image/star_on.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 1px solid transparent;
     width: 15px;
     height: 15px;
     cursor: pointer;
     z-index: 999;
     position: absolute;
-    right: 30px;
+    right: 15%;
 }
-.check-btn.action {
-	background: url(../image/star_off.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    z-index: 999;
-    position: absolute;
-    right: 30px;
+.check-btn > svg {
+    width: 35px;
 }
+.bi-bookmark-check {
+    display: block;
+    color: rgb(255, 23, 68);
+}
+.bi-bookmark-check-fill {
+    display: none;
+    color: rgb(255, 23, 68);
+}
+
 .word-hurigana {
     display: flex;
     flex-direction: column;
