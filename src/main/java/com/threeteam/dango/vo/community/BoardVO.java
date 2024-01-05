@@ -10,12 +10,13 @@ import lombok.Data;
 @Data
 public class BoardVO {
 
-	private int boardId;
+	private Long boardId;
 	private String boardTitle;
 	private String userId;
 	private String boardMain;
-	private String boardNotice;
-	private Date boardRegisterdate;
+	private int boardNotice;
+	private int boardViews;
+	private Date boardRegisterDate;
 	private Date boardUpdateDate;
 	private String searchCondition;
 	private String searchKeyword;

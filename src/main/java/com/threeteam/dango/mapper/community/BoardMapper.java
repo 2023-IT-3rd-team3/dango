@@ -9,7 +9,7 @@ import com.threeteam.dango.vo.community.BoardVO;
 @Mapper
 public interface BoardMapper {
 
-	public BoardVO getBoard(BoardVO boardVO);
+	public BoardVO getBoard(Long board);
 	public BoardVO getBoardInfo(BoardVO boardVO);
 	public List<BoardVO> getBoardList(BoardVO boardVO);
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO);

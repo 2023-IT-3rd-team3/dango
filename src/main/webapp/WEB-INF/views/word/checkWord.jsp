@@ -56,7 +56,7 @@
     <jsp:include page="../common/footer.jsp" />
     <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
     <script>
-    	const userId = "${userVO.userId}";
+    	const userId = "${user.userId}";
         const wordId = $(".word-id");
         const checkBtnOn = $('.check-btn-on');
         const checkBtnOff = $('.check-btn-off');

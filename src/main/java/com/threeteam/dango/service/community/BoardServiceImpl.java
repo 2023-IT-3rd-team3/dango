@@ -35,8 +35,8 @@ public class BoardServiceImpl implements BoardService {
 	
 	// 寃뚯떆湲� 蹂닿린
 	@Override
-	public BoardVO getBoard(BoardVO boardVO) {
-		return boardDAO.getBoard(boardVO);
+	public BoardVO getBoard(Long boardId) {
+		return boardDAO.getBoard(boardId);
 	}
 	
 	@Override

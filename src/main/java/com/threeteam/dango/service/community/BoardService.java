@@ -13,19 +13,19 @@ public interface BoardService {
 	public void insertBoard(BoardVO boardVO);
 	public void updateBoard(BoardVO boardVO);
 	public void deleteBoard(BoardVO boardVO);
-	public BoardVO getBoard(BoardVO boardVO);
+	public BoardVO getBoard(Long boardId);
 	public BoardVO getBoardInfo(BoardVO boardVO);
 	public List<BoardVO> getBoardList(BoardVO boardVO);
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO);
 	
-	/* ----------- 검색기능 ----------- */
+	/* ----------- 寃��깋湲곕뒫 ----------- */
 	public List<BoardVO> communitySearch(String boardTitle, String userId);
 	
-	/* ----------- 관리자 관련 ----------- */
-	// 관리자 체크
+	/* ----------- 愿�由ъ옄 愿��젴 ----------- */
+	// 愿�由ъ옄 泥댄겕
 	public boolean adminCheck(BoardVO boardVO);
-	// 관리자O
+	// 愿�由ъ옄O
 	public void adminY(BoardVO boardVO);
-	// 관리자X
+	// 愿�由ъ옄X
 	public void adminN(BoardVO boardVO);
 }

@@ -63,7 +63,11 @@ public class UserController {
 	
 	//占싸깍옙占쏙옙 占쏙옙占쏙옙占쏙옙
 	@GetMapping("/login")
-	public String gologinPage() {
+	public String gologinPage(HttpServletRequest request) {
+		UserVO userVO = getSessionUser(request);
+		if(userVO != null)
+			return "redirect:/";
+		
 		return "/user/login" ;
 	}
 	
@@ -91,7 +95,11 @@ public class UserController {
 	
 	//회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 	@GetMapping("/register")
-	public String register() {
+	public String register(HttpServletRequest request) {
+		UserVO userVO = getSessionUser(request);
+		if(userVO != null)
+			return "redirect:/";
+		
 		return "/user/signup" ;
 	}
 	
@@ -145,11 +153,19 @@ public class UserController {
 	}
 	
 	@GetMapping("/userfindId")
-	public String findIdPage() {
+	public String findIdPage(HttpServletRequest request) {
+		UserVO userVO = getSessionUser(request);
+		if(userVO != null)
+			return "redirect:/";
+		
 		return "/user/findID" ;
 	}
 	@GetMapping("/userfindPw")
-	public String findPwPage() {
+	public String findPwPage(HttpServletRequest request) {
+		UserVO userVO = getSessionUser(request);
+		if(userVO != null)
+			return "redirect:/";
+		
 		return "/user/findPW" ;
 	}
 	

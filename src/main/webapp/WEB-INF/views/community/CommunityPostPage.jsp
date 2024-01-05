@@ -53,15 +53,15 @@
 				${board.boardTitle }
 			</div>
 			<div class="postinfo">
-				<div class="postinfo_user">${board.userId }</div>
-				<div class="postinfo_date">${board.boardRegDate }</div>
+				<div class="postinfo_user">${board.userId}</div>
+				<div class="postinfo_date">${board.boardRegisterDate}</div>
 			</div>
 			<hr style="margin: 10px;">
 			<div class="commentbox">
 			
 			<!-- 유저가 작성한 댓글 -->
 			<div class="postcontent">
-				${board.boardMain }
+				${board.boardMain}
 			</div>
 			
 			<!-- 추천버튼 -->
@@ -104,14 +104,14 @@
 			<div class="postcomment">
 				<form action="/reply/insertComment" method="get">
 					<textarea placeholder="댓글을 입력해주세요." id="comment" class="postcomment_c"></textarea>
-					<input type="hidden" name="boardId" value="${board.boardId }">
+					<input type="hidden" name="boardId" value="${board.boardId}">
 					<input class="postcomment_b" type="button" value="등록">
 				</form>
 			</div>
 			
 			<div class="postinfo">
-				<div>${comment.userID }</div>
-				<div>${comment.commentRegisterDate }</div>
+				<div>${comment.userID}</div>
+				<div>${comment.commentRegisterDate}</div>
 			</div>
 			<div class="postcontent">
 				${comment.commentMain }
@@ -121,28 +121,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="Postmain">
-		<div class="subpost">
-			<div class="announ_box">
-				<div class="title">
-					<h2 class="title_name">자유게시판</h2>
-					<a class="title_more">더보기</a>
-				</div>
-				
-		<c:forEach var="board" items="${boardList}">
-		<a class="textbox" href="/community/viewBoard?boardId=${board.boardId}">
-			<div class="textbox_title">${board.boardTitle}</div>
-			<div class="textbox_info">
-			<div style="margin-left: 10px;">${board.boardRegisterDate}</div>
-			<div style="margin-left: 10px;">${board.views}</div>
-			<div style="margin-left: 10px;">${board.likes}</div>
-		</a>
-		</c:forEach>
-		
-				<div style="width: 100%; height: 50px;"></div>
-			</div>
-		</div>
-	</div>
+	
 </div>
 
 	<jsp:include page="../common/footer.jsp" />

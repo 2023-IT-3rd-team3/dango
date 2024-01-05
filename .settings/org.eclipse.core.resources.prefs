@@ -7,5 +7,6 @@ encoding//src/main/java/com/threeteam/dango/controller/word/WordController.java=
 encoding//src/main/java/com/threeteam/dango/dao/community/BoardDAO.java=UTF-8
 encoding//src/main/java/com/threeteam/dango/mapper/community/BoardMapper.java=UTF-8
 encoding//src/main/java/com/threeteam/dango/service/check/CheckService.java=UTF-8
+encoding//src/main/java/com/threeteam/dango/service/community/BoardService.java=UTF-8
 encoding//src/main/java/com/threeteam/dango/service/community/BoardServiceImpl.java=UTF-8
 encoding//src/main/webapp/resources/static/css/slide.css=UTF-8

@@ -22,16 +22,16 @@
 <jsp:include page="../common/header.jsp" />
 
     <div class="Commu_box">
-        <form>
+        <form action="/dango/community/CommunitySearch" method="get">
         	<div class="search_banner">
                 <input class="search_bar" type="text" value="게시글 검색하기"><input class="search_button" type="submit">
-                <a class="new_text">글쓰기</a>
+                <a class="new_text" href="/dango/community/boardInsert">글쓰기</a>
         	</div>
     	</form>
         	<div class="announ_box">
             	<div class="title">
                 <h2 class="title_name">공지사항</h2>
-                <a class="title_more" href="/community/getBoardInfoList">더보기</a>
+                <a class="title_more" href="/dango/community/notice">더보기</a>
             </div>
             
             <c:forEach var="boardinfo" items="${boardinfoList}">
@@ -51,11 +51,11 @@
         <div class="announ_box">
             <div class="title">
                 <h2 class="title_name">자유게시판</h2>
-                <a class="title_more" href="/community/getBoardList">더보기</a>
+                <a class="title_more" href="/dango/community/free">더보기</a>
             </div>
             
             <c:forEach var="board" items="${boardList}">
-        	<a class="textbox" href="/community/viewBoard?boardId=${board.boardId}">
+        	<a class="textbox" href="/dango/community/viewBoard?boardId=${board.boardId}">
 		    	<div class="textbox_title">${board.boardTitle}</div>
         	   	<div class="textbox_info">
                 <div style="margin-left: 10px;">${board.boardRegisterDate}</div>

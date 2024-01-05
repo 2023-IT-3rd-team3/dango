@@ -26,19 +26,27 @@
 
    <div class="NewPostbox">
         <div class="NewPostmain">
-            <form action="" method="post">
-            <div class="NewPostTitle">
-                <input class="NewPostTitleText" type="text" placeholder="제목을 입력해 주세요.">
-            </div>
-            <div class="NewPostContent">
-                <textarea placeholder="내용을 입력해 주세요." rows="1" class="NewPostContentText" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'></textarea>
-            </div>
+            <form action="/dango/community/boardInsert" method="post">
+            	<p>공지사항</p>
+	            <label for="notice-on">ON</label>
+	            <input id="notice-on" type="radio" name="boardNotice" value="1">
+	            <label for="notice-off">OFF</label>
+		        <input id="notice-off" type="radio" name="boardNotice" value="0" checked>
+	            <div class="NewPostTitle">
+	                <input name="boardTitle" class="NewPostTitleText" type="text" placeholder="제목을 입력해 주세요.">
+	            </div>
+	            <div class="NewPostContent">
+	                <textarea name="boardMain" placeholder="내용을 입력해 주세요." rows="1" class="NewPostContentText" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'></textarea>
+	            </div>
+            
+	            <div style="height: 30px;">
+	            </div>
+	            <div class="newPost">
+	                <input class="newPostbutton" type="submit" value="작성완료">
+	            </div>
+	            <input type="hidden" name="userId" value="${user.userId}">
+	            
             </form>
-            <div style="height: 30px;">
-            </div>
-            <div class="newPost">
-                <input class="newPostbutton" type="submit" value="작성완료">
-            </div>
         </div>
     </div>
 

@@ -23,8 +23,8 @@ public class BoardDAO {
 	public void deleteBoard(BoardVO boardVO) {
 		boardMapper.deleteBoard(boardVO);
 	}
-	public BoardVO getBoard(BoardVO boardVO) {
-		return boardMapper.getBoard(boardVO);
+	public BoardVO getBoard(Long boardId) {
+		return boardMapper.getBoard(boardId);
 	}
 	public BoardVO getBoardInfo(BoardVO boardVO) {
 		return boardMapper.getBoardInfo(boardVO);
