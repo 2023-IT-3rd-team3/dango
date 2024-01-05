@@ -12,12 +12,35 @@
     <link rel="stylesheet" href="../../resources/static/css/mainpage.css">
     <link rel="stylesheet" href="../../resources/static/css/word/checkWord.css">
     <link rel="stylesheet" href="../../resources/static/css/community/community.css">
+    <link rel="stylesheet" href="../../resources/static/css/slide.css">
 </head>
 <body>
-    <jsp:include page="common/header.jsp" />
-    <section class="mainpagearea">
-        <div class="mainbannerarea">
+    <header>
+        <div>
+            <div>
+                <a id="logo" href="/dango/">
+                    だんご🍡
+                </a>
+                <nav>
+                    <a href="/dango/word/new">새 단어</a>
+                    <a href="/dango/word/wrong">오답노트</a>
+                    <a href="/dango/word/wordMain">단어장</a>
+                    <a href="/dango/dictionary/">사전</a>
+                    <a href="/dango/community/">커뮤니티</a>
+                </nav>
+            </div>
             
+            <a id="login" href="/dango/user/login">로그인 / 회원가입</a>
+        </div>
+    </header>
+    <section class="mainpagearea">
+        <div class="slide slide_wrap">
+              <div class="slide_item"><a href="/dango/word/new"><img class="slide_img" alt="" src="../../resources/static/image/banner1.png"></a></div>
+              <div class="slide_item"><a href="/dango/community"><img class="slide_img" alt="" src="../../resources/static/image/banner2.png"></a></div>
+              <div class="slide_item"><a href="/dango/dictionary"><img class="slide_img" alt="" src="../../resources/static/image/banner3.png"></a></div>
+              <div class="slide_prev_button slide_button">◀</div>
+              <div class="slide_next_button slide_button">▶</div>
+              <ul class="slide_pagination"></ul>
         </div>
         <div class="mainpagetitlearea">
             <h1 class="mainpagetitle">
@@ -80,11 +103,6 @@
             </div>
             <div class="mainwordarea">
                 <article>
-                    <button class="check-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-                        </svg>
-                    </button>
                     <div class="word-hurigana">
                         <a class="word" href="#">事実</a>
                         <p class="hurigana">[じじつ]</p>
@@ -96,11 +114,6 @@
                     </div>
                 </article>
                 <article>
-                    <button class="check-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-                          </svg>
-                    </button>
                     <div class="word-hurigana">
                         <a class="word" href="#">事実</a>
                         <p class="hurigana">[じじつ]</p>
@@ -112,11 +125,6 @@
                     </div>
                 </article>
                 <article>
-                    <button class="check-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-                          </svg>
-                    </button>
                     <div class="word-hurigana">
                         <a class="word" href="#">事実</a>
                         <p class="hurigana">[じじつ]</p>
@@ -130,6 +138,6 @@
             </div>
         </div>
     </section>
-    <jsp:include page="common/footer.jsp" />
+<script src="../../resources/static/js/slide.js"></script>
 </body>
 </html>

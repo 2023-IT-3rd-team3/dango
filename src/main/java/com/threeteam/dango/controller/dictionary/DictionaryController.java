@@ -17,7 +17,7 @@ import com.threeteam.dango.service.recent.RecentService;
 import com.threeteam.dango.service.word.WordService;
 
 @Controller
-@RequestMapping("/dictionary/*")
+@RequestMapping("/dictionary*")
 public class DictionaryController {
 	@Autowired
 	private WordService wordService;
@@ -31,7 +31,7 @@ public class DictionaryController {
 		return userInfo;
 	}
 	
-	@GetMapping("/")
+	@GetMapping("")
 	public String main() {
 		return "/dictionary/dictionaryMain";
 	}
@@ -42,7 +42,10 @@ public class DictionaryController {
 			RecentVO recentVO = new RecentVO();
 			recentVO.setUserId(userInfo.getUserId());
 			recentVO.setWordId(wordId);
-			recentService.setRecent(recentVO);
+			if(recentService.isRecent(recentVO) == null) 
+				recentService.setRecent(recentVO);
+			else
+				recentService.updateRecent(recentVO);
 		}
 		
 		model.addAttribute("sentence", wordService.getSentenceByWordId(wordId));

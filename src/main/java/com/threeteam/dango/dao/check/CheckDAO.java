@@ -16,7 +16,7 @@ public class CheckDAO {
 	@Autowired
 	private CheckMapper checkMapper;
 	
-	public boolean isCheck(CheckVO vo) {
+	public CheckVO isCheck(CheckVO vo) {
 		return checkMapper.isCheck(vo);
 	}
 	

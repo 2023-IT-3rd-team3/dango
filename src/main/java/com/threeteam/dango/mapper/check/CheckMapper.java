@@ -10,7 +10,7 @@ import com.threeteam.dango.domain.word.WordVO;
 @Mapper
 public interface CheckMapper {
 	
-	public boolean isCheck(CheckVO vo);
+	public CheckVO isCheck(CheckVO vo);
 	public void onCheck(CheckVO vo);
 	public void offCheck(CheckVO vo);
 	public List<WordVO> getCheckList(String userId);

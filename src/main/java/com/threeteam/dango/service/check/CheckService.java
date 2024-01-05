@@ -8,12 +8,12 @@ import com.threeteam.dango.domain.word.WordVO;
 
 public interface CheckService {
 	
-	// 체크가 되어있는지 확인
-	public boolean isCheck(CheckVO vo);
-	// 체크 버튼을 클릭했을 때
+	// 泥댄겕媛� �릺�뼱�엳�뒗吏� �솗�씤
+	public CheckVO isCheck(CheckVO vo);
+	// 泥댄겕 踰꾪듉�쓣 �겢由��뻽�쓣 �븣
 	public void onCheck(CheckVO vo);
-	// 체크 되어있는 단어의 체크 버튼을 클릭했을 때
+	// 泥댄겕 �릺�뼱�엳�뒗 �떒�뼱�쓽 泥댄겕 踰꾪듉�쓣 �겢由��뻽�쓣 �븣
 	public void offCheck(CheckVO vo);
-	// 체크된 단어 리스트를 가져오기
+	// 泥댄겕�맂 �떒�뼱 由ъ뒪�듃瑜� 媛��졇�삤湲�
 	public List<WordVO> getCheckList(UserVO userVO);
 }

@@ -17,7 +17,7 @@ public class RecentDAO {
 	@Autowired
 	public RecentMapper recentMapper;
 	
-	public boolean isRecent(RecentVO vo) {
+	public RecentVO isRecent(RecentVO vo) {
 		System.out.println("------>>> isCheck() 기능 처리");
 		return recentMapper.isRecent(vo);
 	}

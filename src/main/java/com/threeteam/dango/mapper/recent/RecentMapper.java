@@ -10,7 +10,7 @@ import com.threeteam.dango.domain.word.WordVO;
 @Mapper
 public interface RecentMapper {
 	
-	public boolean isRecent(RecentVO vo);
+	public RecentVO isRecent(RecentVO vo);
 	public void setRecent(RecentVO vo);
 	public void updateRecent(RecentVO vo);
 	public WordVO getRecent(RecentVO vo);

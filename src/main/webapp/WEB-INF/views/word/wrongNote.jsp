@@ -122,6 +122,24 @@ for(let i = 0; i < okBtn.length; i++) {
     const checkBtnOff = $('.check-btn-off');
     
     for(let i = 0; i < checkBtnOn.length; i++) {
+		console.log(wordId[i].value);
+        $.ajax({
+            type: "post",
+            url: "/dango/check/toggleCheck",
+            data: JSON.stringify({
+                wordId: Number(wordId[i].value)
+            }),
+            contentType: "application/json; charset=utf-8",
+            success: (result) => {
+                if(result === "success") {
+                    checkBtnOff[i].style.display = "block";
+                    checkBtnOn[i].style.display = "none";
+                }
+            },
+            error: () =>{
+                console.log("에러");
+            }
+        })
         
         checkBtnOn[i].addEventListener("click", () => {
             let data = {

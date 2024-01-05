@@ -27,23 +27,23 @@
 				<div id="text-div">
 					<div class="input-div">
 						<label for="name">이름</label> <input id="name" type="text"
-							name="username" placeholder="이름" value="${user.username}"
+							name="username" placeholder="이름" value="${user.userName}"
 							required>
 					</div>
 					<div class="input-div">
 						<label for="email">이메일</label> <input id="email" type="email"
-							name="useremail" placeholder="이메일" value="${user.useremail}"
+							name="useremail" placeholder="이메일" value="${user.userEmail}"
 							required>
 					</div>
 					<div class="input-div">
 						<label for="phone">전화번호</label> <input id="phone" type="tel"
-							name="userphone" placeholder="전화번호" value="${user.userphone}"
+							name="userphone" placeholder="전화번호" value="${user.userPhone}"
 							required>
 					</div>
 					<div class="input-div">
 						<label for="password">비밀번호</label> <input id="password"
 							type="password" name="userpw" placeholder="비밀번호"
-							value="${user.userpw}" required>
+							value="${user.userPw}" required>
 					</div>
 					<div class="input-div">
 						<label for="password2">비밀번호 확인</label> <input id="password2"
@@ -53,7 +53,7 @@
 				<div id="profile-div">
 					<label id="profile-label" for="profile">
 						<c:choose>
-							<c:when test="${not empty user.userprofile}">
+							<c:when test="${not empty user.userProfile}">
 								<img class="profile-img" alt="" />
 							</c:when>
 							<c:otherwise>

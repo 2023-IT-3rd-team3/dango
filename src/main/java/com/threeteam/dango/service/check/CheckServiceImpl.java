@@ -17,14 +17,9 @@ public class CheckServiceImpl implements CheckService {
 	private CheckDAO checkDAO;
 	
 	@Override
-	public boolean isCheck(CheckVO vo) {
-		boolean isChecked = checkDAO.isCheck(vo);
-		if(!isChecked) {
-			checkDAO.onCheck(vo);
-		}else {
-			checkDAO.offCheck(vo);
-		}
-		return !isChecked;
+	public CheckVO isCheck(CheckVO vo) {
+		
+		return checkDAO.isCheck(vo);
 	}
 
 	@Override

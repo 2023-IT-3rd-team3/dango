@@ -68,7 +68,6 @@ public class WordController {
 	
 	@GetMapping("/wordMain")
 	public String wordMain(HttpServletRequest request, Model model) {
-		System.out.println("�떒�뼱�옣 main �솕硫�");
 
 		UserVO userInfo = getSessionUser(request);
 		if(userInfo == null)

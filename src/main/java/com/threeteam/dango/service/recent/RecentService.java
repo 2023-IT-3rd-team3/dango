@@ -8,7 +8,7 @@ import com.threeteam.dango.domain.word.WordVO;
 
 public interface RecentService {
 	
-	public boolean isRecent(RecentVO vo);
+	public RecentVO isRecent(RecentVO vo);
 	public void setRecent(RecentVO vo);
 	public void updateRecent(RecentVO vo);
 	public List<WordVO> getRecentList(UserVO userVO);

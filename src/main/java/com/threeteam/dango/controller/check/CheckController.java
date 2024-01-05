@@ -36,17 +36,18 @@ public class CheckController {
 	}
 	
 	@ResponseBody
-	@GetMapping(value="/toggleCheck", consumes = "application/json")
-	public ResponseEntity<Boolean> checkWord(@RequestBody Long wordId, HttpServletRequest request, Model model) {
+	@PostMapping(value="/toggleCheck", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public String checkWord(@RequestBody CheckVO vo, HttpServletRequest request, Model model) {
 		UserVO userVO = getSessionUser(request);
+		if(userVO == null)
+			return "fail";
 		
-		CheckVO vo = new CheckVO();
 		vo.setUserId(userVO.getUserId());
-		vo.setWordId(wordId);
 		
-		Boolean isChecked = checkService.isCheck(vo);
+		if(checkService.isCheck(vo) != null)
+			return "success";
 		
-		return new ResponseEntity<>(isChecked, HttpStatus.OK);
+		return "fail";
 	}
 	
 	@ResponseBody
@@ -78,6 +79,7 @@ public class CheckController {
 		if(userVO == null)
 			return "redirect:/user/login";
 
+		model.addAttribute("user", userVO);
 		model.addAttribute("checkList", checkService.getCheckList(userVO));
 		return "word/checkWord";
 	}

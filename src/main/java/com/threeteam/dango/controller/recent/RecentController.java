@@ -30,20 +30,20 @@ public class RecentController {
 		return userInfo;
 	}
 	
-	@ResponseBody
-	@PostMapping(value = "/", consumes = "application/json")
-	public boolean insertRecent(@RequestBody Long wordId, HttpServletRequest request, Model model) {
-		
-		HttpSession session = request.getSession();
-		UserVO userVO = (UserVO)session.getAttribute("user");
-		
-		RecentVO vo = new RecentVO();
-		vo.setUserId(userVO.getUserId());
-		vo.setWordId(wordId);
-		boolean recent = recentService.isRecent(vo);
-		
-		return recent;
-	}
+//	@ResponseBody
+//	@PostMapping(value = "/", consumes = "application/json")
+//	public boolean insertRecent(@RequestBody Long wordId, HttpServletRequest request, Model model) {
+//		
+//		HttpSession session = request.getSession();
+//		UserVO userVO = (UserVO)session.getAttribute("user");
+//		
+//		RecentVO vo = new RecentVO();
+//		vo.setUserId(userVO.getUserId());
+//		vo.setWordId(wordId);
+//		boolean recent = recentService.isRecent(vo);
+//		
+//		return recent;
+//	}
 	
 	@GetMapping(value = "/getRecentList")
 	public String getRecentList(HttpServletRequest request, Model model) {

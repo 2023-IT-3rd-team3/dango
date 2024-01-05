@@ -20,13 +20,13 @@ import com.threeteam.dango.vo.community.BoardVO;
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@RequestMapping("/community/*")
+@RequestMapping("/community*")
 public class BoardController {
 
 	@Autowired
 	BoardService boardService;
 	
-	@GetMapping("/")
+	@GetMapping("")
 	public String boardMain(BoardVO boardVO, Model model) {
 		return "community/Community";
 	}

@@ -108,6 +108,24 @@
     const wordId = document.getElementById("word-id");
     
     console.log(wordId.value);
+
+	$.ajax({
+		type: "post",
+		url: "/dango/check/toggleCheck",
+		data: JSON.stringify({
+			wordId: Number(wordId.value)
+		}),
+		contentType: "application/json; charset=utf-8",
+		success: (result) => {
+			if(result === "success") {
+				checkBtnOff.style.display = "block";
+				checkBtnOn.style.display = "none";
+			}
+		},
+		error: () =>{
+			console.log("에러");
+		}
+	})
     
     checkBtnOn.addEventListener("click", () => {
 		console.log(wordId.value);

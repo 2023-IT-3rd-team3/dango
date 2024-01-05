@@ -17,14 +17,8 @@ public class RecentServiceImpl implements RecentService {
 	private RecentDAO recentDAO;
 
 	@Override
-	public boolean isRecent(RecentVO vo) {
-		boolean isRecent = recentDAO.isRecent(vo);
-		if(!isRecent) {
-			recentDAO.setRecent(vo);
-		}else {
-			recentDAO.updateRecent(vo);
-		}
-		return !isRecent;
+	public RecentVO isRecent(RecentVO vo) {
+		return recentDAO.isRecent(vo);
 	}
 
 	@Override

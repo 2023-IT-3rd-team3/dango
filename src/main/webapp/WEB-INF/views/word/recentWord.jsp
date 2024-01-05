@@ -36,28 +36,12 @@
 				<div class="voca">
 					<div class="word">
 						<p class="level">N${word.wordLevel}</p>
-						<p class="kanji">【${word.wordWord}】</p>
 						<a class="furigana" href="/dango/dictionary/${word.wordId}">${word.wordFurigana}</a>
+						<p class="kanji">【${word.wordWord}】</p>
 						<p class="mean">${word.wordMean}</p>
 					</div>
 				</div>
 			</c:forEach>
-			<div class="voca" href="">
-				<div class="word">
-					<p class="level">N3</p>
-					<p class="kanji">【遊ぶ】</p>
-					<a class="furigana">あそぶ</a>
-					<p class="mean">놀다</p>
-				</div>
-			</div>
-			<div class="voca" href="">
-				<div class="word">
-					<p class="level">N3</p>
-					<p class="kanji">【遊ぶ】</p>
-					<a class="furigana">あそぶ</a>
-					<p class="mean">놀다</p>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>

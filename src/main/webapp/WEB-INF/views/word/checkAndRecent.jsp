@@ -25,8 +25,9 @@
         <div id="dictionary_area">
             <div class="announ_box">
             	<div class="title">
-                <h2 class="title_name">체크</h2>
-                <a class="title_more" href="/dango/check/getCheckList">더보기</a>
+	                <h2 class="title_name">체크</h2>
+	                <a class="title_more" href="/dango/check/getCheckList">더보기</a>
+                </div>
             </div>
             <c:forEach var="word" items="${checkList}" end="10">
                 <div class="word">
@@ -39,8 +40,9 @@
         <div id="dictionary_area">
             <div class="announ_box">
             	<div class="title">
-                <h2 class="title_name">최근 본 단어</h2>
-                <a class="title_more" href="/dango/recent/getRecentList">더보기</a>
+	                <h2 class="title_name">최근 본 단어</h2>
+	                <a class="title_more" href="/dango/recent/getRecentList">더보기</a>
+                </div>
             </div>
             <c:forEach var="word" items="${recentList}" end="10">
                 <div class="word">
