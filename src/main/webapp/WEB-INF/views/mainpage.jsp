@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/mainpage.css?afterb">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/slide.css?a" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/mainpage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/slide.css" />
     
 </head>
 <body>

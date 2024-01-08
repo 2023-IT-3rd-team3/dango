@@ -40,12 +40,6 @@ public class RecommendController {
 	
 	@PostMapping(value = "/count", consumes = "application/json;", produces = {MediaType.TEXT_PLAIN_VALUE})
 	public String findCountByBoardId(@RequestBody RecommendVO recommendVO) {
-		System.out.println("================================");
-		System.out.println(recommendVO.getBoardId());
-		System.out.println("================================");
-		System.out.println("================================");
-		System.out.println(recommendService.findCountByBoardId(recommendVO.getBoardId()));
-		System.out.println("================================");
 		String result = "" + recommendService.findCountByBoardId(recommendVO.getBoardId());
 		return result;
 	}

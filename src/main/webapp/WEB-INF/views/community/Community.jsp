@@ -24,7 +24,8 @@
     <div class="Commu_box">
         <form action="/dango/community/CommunitySearch" method="get">
         	<div class="search_banner">
-                <input class="search_bar" type="text" value="게시글 검색하기"><input class="search_button" type="submit">
+                <input class="search_bar" name="keyword" type="text" placeholder="게시글 검색하기">
+                <input class="search_button" type="submit">
                 <a class="new_text" href="/dango/community/boardInsert">글쓰기</a>
         	</div>
     	</form>
@@ -39,8 +40,14 @@
                         <div class="textbox_title">${boardInfo.boardTitle}</div>
                         <div class="textbox_info">
                             <div style="margin-left: 10px;">${boardInfo.boardRegisterDate}</div>
-                            <div style="margin-left: 10px;">${boardInfo.boardViews}</div>
-                            <div style="margin-left: 10px;">2</div>
+                            <div style="margin-left: 10px;">
+                                <svg viewBox="64 64 896 896" focusable="false" data-icon="eye" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M396 512a112 112 0 10224 0 112 112 0 10-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg>
+                                ${boardInfo.boardViews}
+                            </div>
+                            <div style="margin-left: 10px;">
+                                <svg viewBox="64 64 896 896" focusable="false" data-icon="like" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M885.9 533.7c16.8-22.2 26.1-49.4 26.1-77.7 0-44.9-25.1-87.4-65.5-111.1a67.67 67.67 0 00-34.3-9.3H572.4l6-122.9c1.4-29.7-9.1-57.9-29.5-79.4A106.62 106.62 0 00471 99.9c-52 0-98 35-111.8 85.1l-85.9 311h-.3v428h472.3c9.2 0 18.2-1.8 26.5-5.4 47.6-20.3 78.3-66.8 78.3-118.4 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7-.2-12.6-2-25.1-5.6-37.1zM112 528v364c0 17.7 14.3 32 32 32h65V496h-65c-17.7 0-32 14.3-32 32z"></path></svg>
+                                ${boardInfo.recommends}
+                            </div>
                         </div>
                     </a>
                 </c:forEach>
@@ -59,8 +66,14 @@
                     <div class="textbox_title">${board.boardTitle}</div>
                     <div class="textbox_info">
                         <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
-                        <div style="margin-left: 10px;">${board.boardViews}</div>
-                        <div style="margin-left: 10px;">2</div>
+                        <div style="margin-left: 10px;">
+                            <svg viewBox="64 64 896 896" focusable="false" data-icon="eye" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M396 512a112 112 0 10224 0 112 112 0 10-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg>
+                            ${board.boardViews}
+                        </div>
+                        <div style="margin-left: 10px;">
+                            <svg viewBox="64 64 896 896" focusable="false" data-icon="like" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M885.9 533.7c16.8-22.2 26.1-49.4 26.1-77.7 0-44.9-25.1-87.4-65.5-111.1a67.67 67.67 0 00-34.3-9.3H572.4l6-122.9c1.4-29.7-9.1-57.9-29.5-79.4A106.62 106.62 0 00471 99.9c-52 0-98 35-111.8 85.1l-85.9 311h-.3v428h472.3c9.2 0 18.2-1.8 26.5-5.4 47.6-20.3 78.3-66.8 78.3-118.4 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7-.2-12.6-2-25.1-5.6-37.1zM112 528v364c0 17.7 14.3 32 32 32h65V496h-65c-17.7 0-32 14.3-32 32z"></path></svg>
+                            ${board.recommends}
+                        </div>
                     </div>
                 </a>
             </c:forEach>

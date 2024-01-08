@@ -18,27 +18,28 @@
 		BOARDTITLE=#{boardTitle}, BOARDMAIN=#{boardMain} 
 		WHERE BOARDID=#{boardId}
 	</update>
+	<update id="viewsUpdate">
+		UPDATE T_BOARD SET 
+		BOARDVIEWS=#{boardViews}
+		WHERE BOARDID=#{boardId}
+	</update>
 	
 	<select id="getBoard" resultType="boardVO">
 		SELECT * FROM T_BOARD 
 		WHERE BOARDID=#{boardId}
 	</select>	
 	
-	<select id="getBoardList" resultType="boardVO">
-		SELECT * FROM T_BOARD
-		WHERE BOARDNOTICE=#{boardNotice}
-		ORDER BY BOARDID DESC
+	<select id="getBoardList" resultType="boardDTO">
+		SELECT B.BOARDID, BOARDTITLE, B.USERID, BOARDMAIN, BOARDNOTICE, BOARDVIEWS, BOARDREGISTERDATE, BOARDUPDATEDATE, J.RECOMMENDS
+		FROM T_BOARD B JOIN (SELECT O.BOARDID, COUNT(R.BOARDID) AS RECOMMENDS FROM T_RECOMMEND R RIGHT JOIN T_BOARD O ON R.BOARDID = O.BOARDID GROUP BY O.BOARDID) J ON B.BOARDID = J.BOARDID
+		WHERE BOARDNOTICE = #{boardNotice}
+		ORDER BY J.BOARDID DESC
 	</select>
 	
-	<select id="communitySearch" resultType="boardVO">
-		<where>
-			<if test="Title != null">
-				AND Title LIKE '%'||#{boardTitle}||'%' 
-			</if> 
-			<if test="userID != null">
-				AND userID LIKE '%'||#{userId}||'%'
-			</if>
-		</where>
-		ORDER BY BOARDID DESC
+	<select id="communitySearch" resultType="boardDTO">
+		SELECT B.BOARDID, BOARDTITLE, B.USERID, BOARDMAIN, BOARDNOTICE, BOARDVIEWS, BOARDREGISTERDATE, BOARDUPDATEDATE, J.RECOMMENDS
+		FROM T_BOARD B JOIN (SELECT O.BOARDID, COUNT(R.BOARDID) AS RECOMMENDS FROM T_RECOMMEND R RIGHT JOIN T_BOARD O ON R.BOARDID = O.BOARDID GROUP BY O.BOARDID) J ON B.BOARDID = J.BOARDID
+		WHERE BOARDTITLE LIKE '%' || #{keyword} || '%'
+		ORDER BY J.BOARDID DESC
 	</select>
 </mapper>

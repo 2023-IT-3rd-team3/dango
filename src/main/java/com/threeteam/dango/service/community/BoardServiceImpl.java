@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.community.BoardDAO;
+import com.threeteam.dango.vo.community.BoardDTO;
 import com.threeteam.dango.vo.community.BoardVO;
 
 
@@ -27,6 +28,11 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.updateBoard(boardVO);
 	}
 	
+	@Override
+	public void viewsUpdate(BoardVO boardVO) {
+		boardDAO.viewsUpdate(boardVO);
+	}
+	
 	// 寃뚯떆湲� �궘�젣
 	@Override
 	public void deleteBoard(BoardVO boardVO) {
@@ -46,7 +52,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	// 寃뚯떆湲� 紐⑸줉 蹂닿린
 	@Override
-	public List<BoardVO> getBoardList(BoardVO boardVO){
+	public List<BoardDTO> getBoardList(BoardDTO boardVO){
 		return boardDAO.getBoardList(boardVO);
 	}
 	
@@ -57,11 +63,8 @@ public class BoardServiceImpl implements BoardService {
 	
 	/* ----------- 寃��깋湲곕뒫 ----------- */
 	@Override
-	public List<BoardVO> communitySearch(String boardTitle, String userId){
-		BoardVO boardVO = new BoardVO();
-		boardVO.setBoardTitle(boardTitle);
-	    boardVO.setUserId(userId);
-		return boardDAO.communitySearch(boardVO);
+	public List<BoardDTO> communitySearch(String keyword){
+		return boardDAO.communitySearch(keyword);
 	}
 	
 	/* ----------- 愿�由ъ옄 愿��젴 ----------- */

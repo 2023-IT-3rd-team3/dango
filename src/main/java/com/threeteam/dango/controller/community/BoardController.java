@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.service.community.BoardService;
+import com.threeteam.dango.vo.community.BoardDTO;
 import com.threeteam.dango.vo.community.BoardVO;
 
 import lombok.extern.log4j.Log4j;
@@ -40,7 +41,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("")
-	public String boardMain(BoardVO boardVO, Model model) {
+	public String boardMain(BoardDTO boardVO, Model model) {
 		boardVO.setBoardNotice(1);
 		model.addAttribute("boardInfoList", boardService.getBoardList(boardVO));
 		boardVO.setBoardNotice(0);
@@ -83,13 +84,15 @@ public class BoardController {
 	@GetMapping("/boardView/{boardId}")
 	public String BoardView(@PathVariable("boardId") Long boardId, BoardVO boardVO, Model model) {
 		boardVO = boardService.getBoard(boardId);
+		boardVO.setBoardViews(boardVO.getBoardViews() + 1);
+		boardService.viewsUpdate(boardVO);
 		model.addAttribute("board", boardVO);
 		
 		return "community/CommunityPostPage";
 	}
 	
 	@GetMapping("/{boardCategory}")
-	public String getBoardList(@PathVariable("boardCategory") String boardCategory, BoardVO boardVO, Model model) {
+	public String getBoardList(@PathVariable("boardCategory") String boardCategory, BoardDTO boardVO, Model model) {
 		if(boardCategory.equals("free")) 			
 			boardVO.setBoardNotice(0);
 		else if(boardCategory.equals("notice"))		
@@ -105,9 +108,11 @@ public class BoardController {
 	
 	/* ----------- 寃��깋湲곕뒫 ----------- */
 	@GetMapping("/CommunitySearch")
-	public String communitySearch(@RequestParam("boardTitle") String boardTitle, @RequestParam("userId") String userId, Model model) {
-		List<BoardVO> boardList = boardService.communitySearch(boardTitle, userId);
-        model.addAttribute("communitySearch", boardList);
+	public String communitySearch(@RequestParam("keyword") String keyword, Model model) {
+		List<BoardDTO> boardList = boardService.communitySearch(keyword);
+        model.addAttribute("boardList", boardList);
+        model.addAttribute("keyword", keyword);
+        
         return "community/CommunityList";
 	}
 	
