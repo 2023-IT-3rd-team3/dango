@@ -70,11 +70,21 @@ nav > a:nth-child(5) {
     font-weight:bold;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.postinfo{margin:15px;
+.postinfo{
+    margin:15px;
     margin-bottom:8px;
     display:flex;
     justify-content:space-between;
     color:#727272;
+}
+.postinfo_user {
+    display: flex;
+    align-items: center;
+}
+.postinfo_user > img {
+    width: 40px;
+    border-radius: 100%;
+    margin-right: 10px;
 }
 .postcontent{
     margin:25px;
@@ -172,7 +182,7 @@ nav > a:nth-child(5) {
   color: white;
 }
 
-.scrapbutton:action{
+.scrapbutton:active{
 	background-color: yellow;
 }
 
@@ -206,4 +216,29 @@ nav > a:nth-child(5) {
 #recommendbutton:hover{
 	box-shadow: -3px -3px 3px rgb(172, 172, 172), 3px 3px 3px rgb(237, 237, 237);
 	transition: 0.3s;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+.comment-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.comment-info > div {
+    display: flex;
+    align-items: center;
+}
+.comment-info img {
+    border-radius: 100%;
+    width: 40px;
+    margin-right: 10px;
+}
+.comment-text {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding: 0 0 40px 0;
 }

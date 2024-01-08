@@ -15,13 +15,13 @@ public class CommentServiceImpl implements CommentService {
 	CommentDAO commentDAO;
 	
 	@Override
-	public void insertComment(CommentVO commentVO) {
-		commentDAO.insertComment(commentVO);
+	public int insertComment(CommentVO commentVO) {
+		return commentDAO.insertComment(commentVO);
 	}
 
 	@Override
-	public void deleteComment(CommentVO commentVO) {
-		commentDAO.deleteComment(commentVO);
+	public int deleteComment(CommentVO commentVO) {
+		return commentDAO.deleteComment(commentVO);
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void updateComment(CommentVO commentVO) {
-		commentDAO.updateComment(commentVO);
+	public int updateComment(CommentVO commentVO) {
+		return commentDAO.updateComment(commentVO);
 	}
 
 }

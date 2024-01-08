@@ -114,11 +114,8 @@
 			
 			<!-- 댓글추가 -->
 			<div class="postcomment">
-				<form action="/reply/insertComment" method="get">
-					<textarea placeholder="댓글을 입력해주세요." id="comment" class="postcomment_c"></textarea>
-					<input type="hidden" name="boardId" value="${board.boardId}">
-					<input class="postcomment_b" type="button" value="등록">
-				</form>
+				<textarea placeholder="댓글을 입력해주세요." id="comment-main" class="postcomment_c"></textarea>
+				<button id="comment-btn" class="postcomment_b" type="button">등록</button>
 			</div>
 			
 			<div class="postinfo">
@@ -128,6 +125,9 @@
 			<div class="postcontent">
 				${comment.commentMain }
 			</div>
+			</div>
+			<div id="comment-list">
+				
 			</div>
 			<div style="margin: 10px;">
 			</div>
@@ -154,12 +154,73 @@
 	<script type="text/javascript" 
 		src="${pageContext.request.contextPath}/resources/static/js/community/comment.js">
 	</script>
+	<script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
+	<script>
+		const commentList = document.getElementById("comment-list");
+        const commentMain = document.getElementById("comment-main");
+
+		$.ajax({
+			type: "post",
+			url: "/dango/comment/getCommentList",
+			data: JSON.stringify({
+				boardId: boardId
+			}),
+			dataType:'json',
+			contentType: "application/json; charset=utf-8",
+			success: (result) => {
+				for(let i = 0; i < result.length; i++) {
+					let text = `<div class="comment-info">
+									<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result[i].userId + `</div>
+									<div>` + result[i].commentRegisterDate + `</div>
+								</div>
+								<div class="comment-text">
+									` + result[i].commentMain + `
+								</div>`
+					let commentDiv = document.createElement("div");
+					commentDiv.classList.add("comment");
+					commentDiv.innerHTML = text;
+					commentList.appendChild(commentDiv);
+				}
+			}
+		})
+		console.log(5);
+
+        $("#comment-btn").click(() => {
+        	data = {
+        			userId: userId,
+					boardId: boardId,
+					commentMain: commentMain.value,
+        	};
+			$.ajax ({
+				type: "post",
+				url: "/dango/comment/insertComment",
+				data: JSON.stringify(data),
+				dataType:'json',
+				contentType: "application/json; charset=utf-8",
+				success: (result) => {
+					console.log(result);
+					if(result !== null) {
+						let text = `<div class="comment-info">
+										<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result.userId + `</div>
+										<div>` + result.commentRegisterDate + `</div>
+									</div>
+									<div class="comment-text">
+										` + result.commentMain + `
+									</div>`
+						let commentDiv = document.createElement("div");
+						commentDiv.classList.add("comment");
+						commentDiv.innerHTML = text;
+						commentList.appendChild(commentDiv);
+						commentMain.value = "";
+					}
+				},
+				error: () => {
+					console.log("error");
+				}
+			})
+        })
+	</script>
 </body>
 
-<script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js" />
-<script>
-
-
-</script>
 
 </html>

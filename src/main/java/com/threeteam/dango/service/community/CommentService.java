@@ -11,7 +11,7 @@ public interface CommentService {
 
 	public CommentVO getComment(CommentVO commentVO);
 	public List<CommentVO> getCommentList(CommentVO commentVO);
-	public void insertComment(CommentVO commentVO);
-	public void deleteComment(CommentVO commentVO);
-	public void updateComment(CommentVO commentVO);
+	public int insertComment(CommentVO commentVO);
+	public int deleteComment(CommentVO commentVO);
+	public int updateComment(CommentVO commentVO);
 }

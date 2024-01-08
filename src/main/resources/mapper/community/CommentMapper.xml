@@ -2,11 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.threeteam.dango.mapper.community.CommentMapper">
 	<insert id="addComment">
+		<selectKey keyProperty="commentId" resultType="long" order="BEFORE">
+			SELECT S_COMMENT.NEXTVAL FROM DUAL
+        </selectKey>
 		INSERT INTO T_COMMENT 
-		(COMMENTID, COMMENTMAIN, USERID, BOARDID, COMMENTREGISTERDATE, COMMENTUPDATEDATE) 
-		VLAUES 
-		(#{commentId}, #{commentMain}, #{userId}, #{boardId}, #[commentRegisterdate}, #{commentUpdatedate}])
-	</insert>	
+		(COMMENTID, COMMENTMAIN, USERID, BOARDID) 
+		VALUES 
+		(#{commentId}, #{commentMain}, #{userId}, #{boardId})
+	</insert>
 	
 	<delete id="deleteComment">
 		DELETE FROM T_COMMENT 
@@ -14,9 +17,8 @@
 	</delete>	
 	
 	<update id="updateComment">
-		UPDATE T_COMMENT SET COMMENTMAIN=#{commentMain}, commentUpdatedate=sysdate 
-		WHERE 
-		COMMENTID=#{commentId}
+		UPDATE T_COMMENT SET COMMENTMAIN=#{commentMain}, COMMENTUPDATEDATE=SYSDATE
+		WHERE COMMENTID=#{commentId}
 	</update>
 	
 	<select id="getComment" resultType="CommentVO">
@@ -26,6 +28,7 @@
 	
 	<select id="getCommentList" resultType="CommentVO">
 		SELECT * FROM T_COMMENT 
+		WHERE BOARDID = #{boardId}
 		ORDER BY COMMENTID DESC
 	</select>
 </mapper>

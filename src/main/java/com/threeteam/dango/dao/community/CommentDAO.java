@@ -15,23 +15,23 @@ public class CommentDAO {
 	@Autowired
 	CommentMapper commentMapper;
 	
-	public void insertComment(CommentVO commentVO) {
-		commentMapper.addComment(commentVO);
+	public int insertComment(CommentVO commentVO) {
+		return commentMapper.addComment(commentVO);
 	}
 	
-	public void deleteComment(CommentVO commentVO) {
-		commentMapper.deleteComment(commentVO);
+	public int deleteComment(CommentVO commentVO) {
+		return commentMapper.deleteComment(commentVO);
 	}
 	
-	public void updateComment(CommentVO commentVO) {
-		commentMapper.updateComment(commentVO);
+	public int updateComment(CommentVO commentVO) {
+		return commentMapper.updateComment(commentVO);
 	}
 	
 	public CommentVO getComment(CommentVO commentVO) {
 	    return commentMapper.getComment(commentVO);
 	}
 	
-	public List<CommentVO> getCommentList(CommentVO commentId){
-		return commentMapper.getCommentList(commentId);
+	public List<CommentVO> getCommentList(CommentVO commentVO){
+		return commentMapper.getCommentList(commentVO);
 	}
 }
