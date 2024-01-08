@@ -41,6 +41,11 @@ public class BoardController {
 	
 	@GetMapping("")
 	public String boardMain(BoardVO boardVO, Model model) {
+		boardVO.setBoardNotice(1);
+		model.addAttribute("boardInfoList", boardService.getBoardList(boardVO));
+		boardVO.setBoardNotice(0);
+		model.addAttribute("boardList", boardService.getBoardList(boardVO));
+		
 		return "community/Community";
 	}
 	
@@ -59,7 +64,8 @@ public class BoardController {
 	}
 	
 	@PostMapping("/boardUpdatePage")
-	public String getUpdatePage(BoardVO boardVO) {
+	public String getUpdatePage(BoardVO boardVO, Model model) {
+		model.addAttribute("board", boardService.getBoard(boardVO.getBoardId()));
 		return "community/CommunityEditPost";
 	}
 	@PostMapping("/boardUpdate")
@@ -71,7 +77,7 @@ public class BoardController {
 	@PostMapping("/boardDelete")
 	public String deleteBoard(BoardVO boardVO) {
 		boardService.deleteBoard(boardVO);
-		return "redirect:/community";
+		return "redirect:/community/free";
 	}
 	
 	@GetMapping("/boardView/{boardId}")

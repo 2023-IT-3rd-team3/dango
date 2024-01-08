@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="./style.css" rel="stylesheet">
-<title>${boardTitle }</title>
+<title>${board.boardTitle} : だんご 커뮤니티</title>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
 	rel="stylesheet">
 <link
@@ -35,22 +34,35 @@
 	<div class="Postmain">
 		<div class="Post">
 			<div class="PostHeader">
-				<div class="Posttype">자유게시판</div>
+				<c:if test="${board.boardNotice eq 1}">
+					<div class="Posttype">공지사항</div>
+				</c:if>
+				<c:if test="${board.boardNotice eq 0}">
+					<div class="Posttype">자유게시판</div>
+				</c:if>
 				<div class="PostHeaderButtonGroup">
-					<a class="PostHeaderButtonRemove">삭제</a>
-					<a class="PostHeaderButtonEdit">수정</a>
+					<c:if test="${board.userId eq user.userId}">
+						<form action="/dango/community/boardDelete" method="post">
+							<input type="hidden" name="boardId" value="${board.boardId}">
+							<button type="submit" class="PostHeaderButtonRemove">삭제</button>
+						</form>
+						<form action="/dango/community/boardUpdatePage" method="post">
+							<input type="hidden" name="boardId" value="${board.boardId}">
+							<button type="submit" class="PostHeaderButtonEdit">수정</button>
+						</form>
+					</c:if>
 				</div>
 			</div>
 			
 			<!-- 스크랩 버튼 -->
 			<div class="scrapBox">
 				<div class="scrapbuttonBox">
-				<a class="scrapbutton">스크랩</a>
+					<a class="scrapbutton">스크랩</a>
 				</div>
 			</div>
 			
 			<div class="Posttitle">
-				${board.boardTitle }
+				${board.boardTitle}
 			</div>
 			<div class="postinfo">
 				<div class="postinfo_user">${board.userId}</div>
@@ -129,7 +141,7 @@
 		src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
 	<script type="text/javascript">
 		let boardId = "${board.boardId}";
-		let userId = "${userId}";
+		let userId = "${user.userId}";
 	</script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/static/js/community/CommunityPostPage.js">

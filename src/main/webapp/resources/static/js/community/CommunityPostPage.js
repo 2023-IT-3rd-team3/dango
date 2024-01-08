@@ -1,7 +1,9 @@
 let recommendCheck = false;
+
 $.ajax({
-    type: "get",
+    type: "post",
     url: "/dango/recommend",
+    
     data: JSON.stringify({
         userId: userId,
         boardId: boardId
@@ -19,8 +21,8 @@ $.ajax({
     }
 })
 $.ajax({
-    type: "get",
-    url: "/dango/count",
+    type: "post",
+    url: "/dango/recommend/count",
     data: JSON.stringify({
         boardId: boardId
     }),
@@ -49,6 +51,7 @@ $('#recommendbutton').click(() => {
                 if(result === "success") {
                     $('#recommend-img').css("color", "#000");
                     $('#recommend-count').html(recommendCount - 1);
+                    recommendCheck = false;
                 }
             },
             error: () =>{
@@ -69,6 +72,7 @@ $('#recommendbutton').click(() => {
                 if(result === "success") {
                     $('#recommend-img').css("color", "#e94754");
                     $('#recommend-count').html(recommendCount + 1);
+                    recommendCheck = true;
                 }
             },
             error: () =>{

@@ -4,17 +4,17 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Component
-@Getter
-@Setter
+@Data
 public class RecommendVO {
 
-	private String recommendId;
-	private String boardId;
-	private String userid;
+	private Long recommendId;
+	private Long boardId;
+	private String userId;
 	private Date recommendRegisterdate;
 	private Date recommendUpdatedate;
 }

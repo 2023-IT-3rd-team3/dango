@@ -23,12 +23,12 @@
             </div>
             <div class="input">
                 <label for="id">아이디</label>
-                <input id="id" type="text" name="userid" placeholder="아이디" required>
+                <input id="id" type="text" name="userId" placeholder="아이디" required>
                 <p id="id-p">아이디를 6자 이상으로 설정해주세요.</p>
             </div>
             <div class="input">
                 <label for="password">비밀번호</label>
-                <input id="password" type="password" name="userpw" placeholder="비밀번호" required>
+                <input id="password" type="password" name="userPw" placeholder="비밀번호" required>
                 <p id="password-p">비밀번호를 8자 이상으로 설정해주세요.</p>
             </div>
             <div class="input">
@@ -38,16 +38,16 @@
             </div>
             <div class="input">
                 <label for="name">이름</label>
-                <input id="name" type="text" name="username" placeholder="이름" required>
+                <input id="name" type="text" name="userName" placeholder="이름" required>
             </div>
             <div class="input">
                 <label for="eamil">이메일</label>
-                <input id="email" type="email" name="useremail" placeholder="이메일" required>
+                <input id="email" type="email" name="userEmail" placeholder="이메일" required>
                 <p>올바른 형식이 아닙니다.</p>
             </div>
             <div class="input">
                 <label for="phone">전화번호</label>
-                <input id="phone" type="text" name="userphone" placeholder="전화번호" required>
+                <input id="phone" type="text" name="userPhone" placeholder="전화번호" required>
                 <p>올바른 형식이 아닙니다.</p>
             </div>
             <div id="btn-group">
@@ -56,6 +56,6 @@
             </div>
         </form>
     </section>
-    <script src="../../../resources/static/js/user/signup.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/static/js/user/signup.js"></script>
 </body>
 </html>

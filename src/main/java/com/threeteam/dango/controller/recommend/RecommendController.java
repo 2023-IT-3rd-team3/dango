@@ -12,7 +12,7 @@ import com.threeteam.dango.service.community.RecommendService;
 import com.threeteam.dango.vo.community.RecommendVO;
 
 @RestController
-@RequestMapping("/recommend/*")
+@RequestMapping("/recommend*")
 public class RecommendController {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class RecommendController {
 		return "success";
 	}
 	
-	@GetMapping(value = "/", consumes = "application/json;", produces = {MediaType.TEXT_PLAIN_VALUE})
+	@PostMapping(value = "", consumes = "application/json;", produces = {MediaType.TEXT_PLAIN_VALUE})
 	public String findByUserIdBoardId(@RequestBody RecommendVO recommendVO) {
 		if(recommendService.findByUserIdBoardId(recommendVO) != 0)
 			return "success";
@@ -38,9 +38,15 @@ public class RecommendController {
 			return "fail";
 	}
 	
-	@GetMapping(value = "/count", consumes = "application/json;", produces = {MediaType.TEXT_PLAIN_VALUE})
-	public Integer findCountByBoardId(@RequestBody Long boardId) {
-		
-		return recommendService.findCountByBoardId(boardId);
+	@PostMapping(value = "/count", consumes = "application/json;", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public String findCountByBoardId(@RequestBody RecommendVO recommendVO) {
+		System.out.println("================================");
+		System.out.println(recommendVO.getBoardId());
+		System.out.println("================================");
+		System.out.println("================================");
+		System.out.println(recommendService.findCountByBoardId(recommendVO.getBoardId()));
+		System.out.println("================================");
+		String result = "" + recommendService.findCountByBoardId(recommendVO.getBoardId());
+		return result;
 	}
 }

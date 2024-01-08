@@ -21,13 +21,13 @@
     
     <div class="NewPostbox">
         <div class="NewPostmain">
-            <form action="boardInsert" method="post">
-            <div class="NewPostTitle">
-                <input class="NewPostTitleText" type="text" placeholder="제목을 수정해 주세요.">
-            </div>
-            <div class="NewPostContent">
-                <textarea placeholder="내용을 수정해 주세요." rows="1" class="NewPostContentText" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'></textarea>
-            </div>
+            <form action="/dango/community/boardInsert" method="post">
+	            <div class="NewPostTitle">
+	                <input class="NewPostTitleText" type="text" placeholder="제목을 수정해 주세요." value="${board.boardTitle}">
+	            </div>
+	            <div class="NewPostContent">
+	                <textarea placeholder="내용을 수정해 주세요." rows="1" class="NewPostContentText" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>${board.boardMain}</textarea>
+	            </div>
             </form>
             <div style="height: 30px;">
             </div>

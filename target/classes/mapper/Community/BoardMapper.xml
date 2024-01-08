@@ -8,7 +8,7 @@
 		(S_BOARD.NEXTVAL, #{boardTitle}, #{userId}, #{boardMain}, #{boardNotice})
 	</insert>
 	
-	<delete id="boardDelete">
+	<delete id="deleteBoard">
 		DELETE FROM T_BOARD 
 		WHERE BOARDID=#{boardId}
 	</delete>

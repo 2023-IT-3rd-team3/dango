@@ -30,23 +30,23 @@
     	</form>
         	<div class="announ_box">
             	<div class="title">
-                <h2 class="title_name">공지사항</h2>
-                <a class="title_more" href="/dango/community/notice">더보기</a>
-            </div>
+                    <h2 class="title_name">공지사항</h2>
+                    <a class="title_more" href="/dango/community/notice">더보기</a>
+                </div>
             
-            <c:forEach var="boardinfo" items="${boardinfoList}">
-        	<a class="textbox" href="/community/viewBoard?boardId=${board.boardId}">
-	            <div class="textbox_title">${board.boardTitle}</div>
-    	        <div class="textbox_info">
-                <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
-                <div style="margin-left: 10px;">${board.views}</div>
-                <div style="margin-left: 10px;">${board.likes}</div>
-            </div>
-        	</a>
-    		</c:forEach>
+                <c:forEach var="boardInfo" items="${boardInfoList}">
+                    <a class="textbox" href="/dango/community/boardView/${boardInfo.boardId}">
+                        <div class="textbox_title">${boardInfo.boardTitle}</div>
+                        <div class="textbox_info">
+                            <div style="margin-left: 10px;">${boardInfo.boardRegisterDate}</div>
+                            <div style="margin-left: 10px;">${boardInfo.boardViews}</div>
+                            <div style="margin-left: 10px;">2</div>
+                        </div>
+                    </a>
+                </c:forEach>
     	
-            <div style="width: 100%; height: 50px;"></div>
-        </div>
+                <div style="width: 100%; height: 50px;"></div>
+            </div>
         
         <div class="announ_box">
             <div class="title">
@@ -55,14 +55,15 @@
             </div>
             
             <c:forEach var="board" items="${boardList}">
-        	<a class="textbox" href="/dango/community/viewBoard?boardId=${board.boardId}">
-		    	<div class="textbox_title">${board.boardTitle}</div>
-        	   	<div class="textbox_info">
-                <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
-                <div style="margin-left: 10px;">${board.views}</div>
-	            <div style="margin-left: 10px;">${board.likes}</div>
-        	</a>
-    		</c:forEach>
+                <a class="textbox" href="/dango/community/boardView/${board.boardId}">
+                    <div class="textbox_title">${board.boardTitle}</div>
+                    <div class="textbox_info">
+                        <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
+                        <div style="margin-left: 10px;">${board.boardViews}</div>
+                        <div style="margin-left: 10px;">2</div>
+                    </div>
+                </a>
+            </c:forEach>
     		</div>
     	
             <div style="width: 100%; height: 50px;"></div>
