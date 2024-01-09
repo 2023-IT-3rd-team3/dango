@@ -44,8 +44,8 @@ public class CommentController {
 		return "fail";
 	}
 	
-	@PostMapping(value="/updateComment", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-	public CommentVO updateComment(@PathVariable Long commentId, @RequestBody CommentVO commentVO) {
+	@PostMapping(value="/updateComment", consumes = "application/json", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public CommentVO updateComment(@RequestBody CommentVO commentVO) {
 		if(commentService.updateComment(commentVO) == 1)
 			return commentService.getComment(commentVO);
 		return null;
@@ -53,9 +53,6 @@ public class CommentController {
 	
 	@PostMapping(value="/getCommentList", consumes = "application/json", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<List<CommentVO>> getCommentList(@RequestBody CommentVO commentVO) {
-		System.out.println("================================");
-		System.out.println(commentVO.getBoardId());
-		System.out.println("================================");
 		return new ResponseEntity<>(commentService.getCommentList(commentVO), HttpStatus.OK);
 	}
 	

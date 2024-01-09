@@ -222,6 +222,8 @@ nav > a:nth-child(5) {
     display: flex;
     flex-direction: column;
     padding: 30px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding: 0 0 40px 0;
 }
 .comment-info {
     display: flex;
@@ -238,7 +240,24 @@ nav > a:nth-child(5) {
     width: 40px;
     margin-right: 10px;
 }
-.comment-text {
-    border-bottom: 1px solid rgb(200, 200, 200);
-    padding: 0 0 40px 0;
+.comment-second-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button-div > button {
+    background-color: transparent;
+    border: 1px solid rgb(200, 200, 200);
+    color: #d83b3b;
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+    transition: 0.2s all;
+}
+.button-div > button:hover {
+    background-color: #d83b3b;
+    color: #fff;
+}
+.comment-modify-div {
+    display: none;
 }

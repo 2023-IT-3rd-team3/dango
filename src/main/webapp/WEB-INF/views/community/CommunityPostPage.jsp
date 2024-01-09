@@ -24,7 +24,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/static/css/community/community.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/static/css/community/community_post.css">
+	href="${pageContext.request.contextPath}/resources/static/css/community/community_post.css?ab">
 </head>
 <body>
 
@@ -157,7 +157,8 @@
 	<script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
 	<script>
 		const commentList = document.getElementById("comment-list");
-        const commentMain = document.getElementById("comment-main");
+	    const commentMain = document.getElementById("comment-main");
+	    
 
 		$.ajax({
 			type: "post",
@@ -169,21 +170,52 @@
 			contentType: "application/json; charset=utf-8",
 			success: (result) => {
 				for(let i = 0; i < result.length; i++) {
-					let text = `<div class="comment-info">
-									<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result[i].userId + `</div>
-									<div>` + result[i].commentRegisterDate + `</div>
+					let text1 = `
+								<div class="comment-normal-div">
+									<div class="comment-info">
+										<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result[i].userId + `</div>
+										<div>` + result[i].commentRegisterDate + `</div>
+									</div>
+									<div class="comment-second-line">
+										<div class="comment-text">
+											` + result[i].commentMain + `
+										</div>
+								`;
+					let text2 = "";
+					if(userId === result[i].userId)
+						text2 = `
+									<div class="button-div">
+			                            <button type="button" class="modify-btn">수정</button>
+			                            <button type="button" class="delete-btn">삭제</button>
+			                        </div>
+			                        `;
+					else
+						text2 = `
+								<div class="button-div">
+									<input type="hidden" class="modify-btn">
+									<input type="hidden" class="delete-btn">
 								</div>
-								<div class="comment-text">
-									` + result[i].commentMain + `
-								</div>`
+								`
+					let text3 = `
+									</div>
+								</div>
+								<div class="comment-modify-div">
+		                            <div class="postcomment">
+		                                <textarea placeholder="댓글을 입력해주세요." class="postcomment_c comment-main">` + result[i].commentMain + `</textarea>
+		                                <button class="postcomment_b comment-modify-btn" type="button">등록</button>
+		                            </div>
+		                        </div>
+								<input type="hidden" class="comment-id" value="` + result[i].commentId + `" />
+								`;
+					let text = text1 + text2 + text3;
 					let commentDiv = document.createElement("div");
 					commentDiv.classList.add("comment");
 					commentDiv.innerHTML = text;
 					commentList.appendChild(commentDiv);
 				}
+				onloadFunction();
 			}
 		})
-		console.log(5);
 
         $("#comment-btn").click(() => {
         	data = {
@@ -200,18 +232,51 @@
 				success: (result) => {
 					console.log(result);
 					if(result !== null) {
-						let text = `<div class="comment-info">
-										<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result.userId + `</div>
-										<div>` + result.commentRegisterDate + `</div>
-									</div>
-									<div class="comment-text">
-										` + result.commentMain + `
-									</div>`
+						let text1 = `
+									<div class="comment-normal-div">
+										<div class="comment-info">
+											<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result.userId + `</div>
+											<div>` + result.commentRegisterDate + `</div>
+										</div>
+										<div class="comment-second-line">
+											<div class="comment-text">
+												` + result.commentMain + `
+											</div>
+									`
+										
+						let text2 = "";	
+						if(result.userId === userId)
+							text2 = `
+										<div class="button-div">
+			                                <button type="button" class="modify-btn">수정</button>
+			                                <button type="button" class="delete-btn">삭제</button>
+			                            </div>
+										`;
+						else
+							text2 = `
+										<div class="button-div">
+			                                <input type="hidden" class="modify-btn">
+			                                <input type="hidden" class="delete-btn">
+			                            </div>
+							`
+						let text3 = `
+			                        	</div>
+			                        </div>
+									<div class="comment-modify-div">
+			                            <div class="postcomment">
+			                                <textarea placeholder="댓글을 입력해주세요." class="postcomment_c comment-main">` + result.commentMain + `</textarea>
+			                                <button class="postcomment_b comment-modify-btn" type="button">등록</button>
+			                            </div>
+			                        </div>
+									<input type="hidden" class="comment-id" value="` + result.commentId + `" />
+									`
+						let text = text1 + text2 + text3;
 						let commentDiv = document.createElement("div");
 						commentDiv.classList.add("comment");
 						commentDiv.innerHTML = text;
 						commentList.appendChild(commentDiv);
 						commentMain.value = "";
+						onloadFunction();
 					}
 				},
 				error: () => {
@@ -219,6 +284,73 @@
 				}
 			})
         })
+        
+		
+		function onloadFunction() {
+			const comment = $(".comment");
+		    const deleteBtn = $(".delete-btn");
+		    const modifyBtn = $(".modify-btn");
+		    const commentNormal = $(".comment-normal-div");
+		    const commentModify = $(".comment-modify-div");
+		    const commentModifyBtn = $(".comment-modify-btn");
+		    const commentsMain = $(".comment-main");
+		    const commentText = $(".comment-text");
+		    const commentId = $(".comment-id");
+		    
+		    for(let i = 0; i < deleteBtn.length; i++) {
+	            deleteBtn[i].addEventListener("click", () => {
+	            	$.ajax({
+						type: "post",
+						url: "/dango/comment/deleteComment",
+						data: JSON.stringify({
+							commentId: commentId[i].value
+						}),
+						contentType: "application/json; charset=utf-8",
+						success: (result) => {
+							console.log(result);
+							if(result === "success") {
+								comment[i].style.display = "none";
+							}
+						},
+						error: () => {
+							console.log("error");
+						}
+					})
+	            })
+	            modifyBtn[i].addEventListener("click", () =>{
+					commentsMain[i].value = commentText[i].innerText;
+	                commentNormal[i].style.display = "none";
+	                commentModify[i].style.display = "block";
+	            })
+	            commentModifyBtn[i].addEventListener("click", () => {
+	            	console.log(commentId[i])
+	            	console.log(commentsMain[i])
+					$.ajax({
+						type: "post",
+						url: "/dango/comment/updateComment",
+						data: JSON.stringify({
+							commentId: commentId[i].value,
+							commentMain: commentsMain[i].value,
+						}),
+						contentType: "application/json; charset=utf-8",
+						success: (result) => {
+							console.log(result);
+							if(result !== null) {
+								commentNormal[i].style.display = "block";
+								commentModify[i].style.display = "none";
+								commentText[i].innerText = result.commentMain;
+							}
+						},
+						error: () => {
+							console.log("error");
+						}
+					})
+	                
+	            })
+	        }
+	        
+		}
+        
 	</script>
 </body>
 

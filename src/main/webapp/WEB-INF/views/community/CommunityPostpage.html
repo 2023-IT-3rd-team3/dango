@@ -95,16 +95,68 @@
                 </div>
                 <div id="comment-list">
                     <div class="comment">
-                        <div class="comment-info">
-                            <div><img src="../../../resources/static/image/profileDefault.jpg" alt="">유저이름</div>
-                            <div>2023/11/15</div>
+                        <div class="comment-normal-div">
+                            <div class="comment-info">
+                                <div><img src="../../../resources/static/image/profileDefault.jpg" alt="">유저이름</div>
+                                <div>2023/11/15</div>
+                            </div>
+                            <div class="comment-text">
+                                답글 내용
+                            </div>
+                            <div class="button-div">
+                                <button type="button" class="modify-btn">수정</button>
+                                <button type="button" class="delete-btn">삭제</button>
+                            </div>
                         </div>
-                        <div class="comment-text">
-                            답글 내용
+                        <div class="comment-modify-div">
+                            <div class="postcomment">
+                                <textarea placeholder="댓글을 입력해주세요." class="postcomment_c comment-main"></textarea>
+                                <button class="postcomment_b comment-modify-btn" type="button">등록</button>
+                            </div>
                         </div>
-                        <div class="button-div">
-                            <button type="button">수정</button>
-                            <button type="button">삭제</button>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-normal-div">
+                            <div class="comment-info">
+                                <div><img src="../../../resources/static/image/profileDefault.jpg" alt="">유저이름</div>
+                                <div>2023/11/15</div>
+                            </div>
+                            <div class="comment-text">
+                                답글 내용
+                            </div>
+                            <div class="button-div">
+                                <button type="button" class="modify-btn">수정</button>
+                                <button type="button" class="delete-btn">삭제</button>
+                            </div>
+                        </div>
+                        <div class="comment-modify-div">
+                            <div class="postcomment">
+                                <textarea placeholder="댓글을 입력해주세요." class="postcomment_c comment-main"></textarea>
+                                <button class="postcomment_b comment-modify-btn" type="button">등록</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-normal-div">
+                            <div class="comment-info">
+                                <div><img src="../../../resources/static/image/profileDefault.jpg" alt="">유저이름</div>
+                                <div>2023/11/15</div>
+                            </div>
+                            <div class="comment-second-line">
+                                <div class="comment-text">
+                                    답글 내용
+                                </div>
+                                <div class="button-div">
+                                    <button type="button" class="modify-btn">수정</button>
+                                    <button type="button" class="delete-btn">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-modify-div">
+                            <div class="postcomment">
+                                <textarea placeholder="댓글을 입력해주세요." class="postcomment_c comment-main"></textarea>
+                                <button class="postcomment_b comment-modify-btn" type="button">등록</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,7 +197,15 @@
 
         const commentList = document.getElementById("comment-list");
         const commentMain = document.getElementById("comment-main");
+        const comment = $(".comment");
         const userId = "user";
+        const deleteBtn = $(".delete-btn");
+        const modifyBtn = $(".modify-btn");
+        const commentNormal = $(".comment-normal-div");
+        const commentModify = $(".comment-modify-div");
+        const commentModifyBtn = $(".comment-modify-btn");
+        const commentsMain = $(".comment-main");
+        const commentText = $(".comment-text");
 
         $("#comment-btn").click(() => {
             let text = `<div class="comment-info">
@@ -161,6 +221,28 @@
             commentList.appendChild(commentDiv);
             commentMain.value = "";
         })
+        for(let i = 0; i < deleteBtn.length; i++) {
+            deleteBtn[i].addEventListener("click", () => {
+                comment[i].style.display = "none";
+            })
+            modifyBtn[i].addEventListener("click", () =>{
+                commentsMain[i].value = commentText[i].innerText;
+                commentNormal[i].style.display = "none";
+                commentModify[i].style.display = "block";
+            })
+            commentModifyBtn[i].addEventListener("click", () => {
+                commentNormal[i].style.display = "block";
+                commentModify[i].style.display = "none";
+                commentText[i].innerText = commentsMain[i].value;
+            })
+        }
+        function changCommentModifyMode(i) {
+            $(".comment-normal-div")[i].style.display = "none";
+            $(".comment-modify-div")[i].style.display = "block";
+        }
+        function deleteComment(i) {
+            comment[i].style.display = "none";
+        }
     </script>
 </body>
 </html>
