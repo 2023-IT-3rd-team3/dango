@@ -57,7 +57,16 @@
 			<!-- 스크랩 버튼 -->
 			<div class="scrapBox">
 				<div class="scrapbuttonBox">
-					<a class="scrapbutton">스크랩</a>
+					<button id="scrap-btn-on">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+						  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+						</svg>
+					</button>
+					<button id="scrap-btn-off">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+						  <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+						</svg>
+					</button>
 				</div>
 			</div>
 			
@@ -101,14 +110,6 @@
 						<path
 							d="M396 512a112 112 0 10224 0 112 112 0 10-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg>
 					<span>${board.boardViews}</span>
-				</p>
-				<p>
-					<svg viewBox="64 64 896 896" focusable="false"
-						data-icon="message" width="1em" height="1em" fill="currentColor"
-						aria-hidden="true">
-						<path
-							d="M924.3 338.4a447.57 447.57 0 00-96.1-143.3 443.09 443.09 0 00-143-96.3A443.91 443.91 0 00512 64h-2c-60.5.3-119 12.3-174.1 35.9a444.08 444.08 0 00-141.7 96.5 445 445 0 00-95 142.8A449.89 449.89 0 0065 514.1c.3 69.4 16.9 138.3 47.9 199.9v152c0 25.4 20.6 46 45.9 46h151.8a447.72 447.72 0 00199.5 48h2.1c59.8 0 117.7-11.6 172.3-34.3A443.2 443.2 0 00827 830.5c41.2-40.9 73.6-88.7 96.3-142 23.5-55.2 35.5-113.9 35.8-174.5.2-60.9-11.6-120-34.8-175.6zM312.4 560c-26.4 0-47.9-21.5-47.9-48s21.5-48 47.9-48 47.9 21.5 47.9 48-21.4 48-47.9 48zm199.6 0c-26.4 0-47.9-21.5-47.9-48s21.5-48 47.9-48 47.9 21.5 47.9 48-21.5 48-47.9 48zm199.6 0c-26.4 0-47.9-21.5-47.9-48s21.5-48 47.9-48 47.9 21.5 47.9 48-21.5 48-47.9 48z"></path></svg>
-					<span>0</span>
 				</p>
 			</div>
 			
@@ -350,6 +351,69 @@
 	        }
 	        
 		}
+
+		const scrapBtnOn = document.getElementById("scrap-btn-on");
+		const scrapBtnOff = document.getElementById("scrap-btn-off");
+		
+		$.ajax({
+			type: "post",
+			url: "/dango/scrap/getScrap",
+			data: JSON.stringify({
+				boardId: Number(boardId)
+			}),
+			contentType: "application/json; charset=utf-8",
+			success: (result) => {
+				if(result === "success") {
+					scrapBtnOff.style.display = "block";
+					scrapBtnOn.style.display = "none";
+				}
+			},
+			error: () =>{
+				console.log("에러");
+			}
+		})
+	    
+	    scrapBtnOn.addEventListener("click", () => {
+	        let data = {
+	        	boardId: Number(boardId)
+	        };
+	        $.ajax({
+	            type: "post",
+	            url: "/dango/scrap/insertScrap",
+	            data: JSON.stringify(data),
+	            contentType: "application/json; charset=utf-8",
+	            success: (result) => {
+	                if(result === "success") {
+	                    scrapBtnOff.style.display = "block";
+	                    scrapBtnOn.style.display = "none";
+	                }
+	            },
+	            error: () =>{
+	                console.log("에러");
+	            }
+	        })
+	    })
+
+		scrapBtnOff.addEventListener("click", () => {
+	            let data = {
+	            	boardId: Number(boardId)
+	            };
+	            $.ajax({
+	                type: "post",
+	                url: "/dango/scrap/deleteScrap",
+	                data: JSON.stringify(data),
+	                contentType: "application/json; charset=utf-8",
+	                success: (result) => {
+	                    if(result === "success") {
+	                        scrapBtnOff.style.display = "none";
+	                        scrapBtnOn.style.display = "block";
+	                    }
+	                },
+	                error: () =>{
+	                    console.log("에러");
+	                }
+	            })
+	        })
         
 	</script>
 </body>

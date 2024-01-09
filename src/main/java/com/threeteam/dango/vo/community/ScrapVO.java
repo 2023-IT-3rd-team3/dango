@@ -12,8 +12,8 @@ import lombok.Setter;
 @Data
 public class ScrapVO {
 
-	private String scrapId;
-	private String boardId;
+	private Long scrapId;
+	private Long boardId;
 	private String userId;
 	private Date scrapRegisterdate;
 	private Date scrapUpdatedate;

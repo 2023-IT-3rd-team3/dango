@@ -13,6 +13,9 @@
     <c:if test="${category eq 'free'}">
     	<title>자유 게시판 목록</title>
     </c:if>
+    <c:if test="${category eq 'scrap'}">
+    	<title>스크랩 목록</title>
+    </c:if>
     <c:if test="${empty category}">
     	<title>${keyword} : だんご 검색결과</title>
     </c:if>
@@ -54,6 +57,12 @@
 	                	<div class="CoummnityClasshead">
 		                    <h1 class="CoummnityClassTitle">자유게시판</h1>
 		                    <h3 class="CoummnityClassText">자유게시판은 회원 여러분의 자유로운 생각을 나누고 토론하는 공간입니다.</h3>
+		                </div>
+	                </c:when>
+	                <c:when test="${category eq 'scrap'}">
+	                	<div class="CoummnityClasshead">
+		                    <h1 class="CoummnityClassTitle">스크랩</h1>
+		                    <h3 class="CoummnityClassText">자신이 스크랩한 게시글들을 확인할 수 있는 공간입니다.</h3>
 		                </div>
 	                </c:when>
 	            	<c:otherwise>

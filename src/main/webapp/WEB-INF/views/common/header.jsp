@@ -24,6 +24,7 @@
 				    <div class="dropdown-content">
 				        <a href="/dango/user/modify">마이페이지</a>
 				        <a href="/dango/word/wordMain">단어장</a>
+				        <a href="/dango/scrap">스크랩</a>
 				        <a href="/dango/user/logout">로그아웃</a>
 				    </div>
 				</div>

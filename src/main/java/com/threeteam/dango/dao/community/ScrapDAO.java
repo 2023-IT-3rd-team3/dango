@@ -28,7 +28,7 @@ public class ScrapDAO {
 	}
 	
 	public ScrapVO getScrap(ScrapVO scrapVO) {
-		return scrapMapper.getScarp(scrapVO);
+		return scrapMapper.getScrap(scrapVO);
 	}
 	
 	public List<ScrapVO> getScrapList(ScrapVO scrapVO){

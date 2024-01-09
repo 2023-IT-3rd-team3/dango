@@ -261,3 +261,18 @@ nav > a:nth-child(5) {
 .comment-modify-div {
     display: none;
 }
+.scrapbuttonBox svg {
+    width: 40px;
+    color: #d83b3b;
+}
+.scrapbuttonBox > button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+#scrap-btn-on {
+    display: block;
+}
+#scrap-btn-off {
+    display: none;
+}
