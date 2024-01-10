@@ -29,7 +29,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public void viewsUpdate(BoardVO boardVO) {
+	public void viewsUpdate(BoardDTO boardVO) {
 		boardDAO.viewsUpdate(boardVO);
 	}
 	
@@ -41,7 +41,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	// 寃뚯떆湲� 蹂닿린
 	@Override
-	public BoardVO getBoard(Long boardId) {
+	public BoardDTO getBoard(Long boardId) {
 		return boardDAO.getBoard(boardId);
 	}
 	

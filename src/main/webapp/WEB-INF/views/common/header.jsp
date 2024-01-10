@@ -19,7 +19,14 @@
         	<c:when test="${not empty user}">
         		<div class="dropdown">
         			<button id="my-page" type="button">
-				    	<img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">
+				    	<c:choose>
+							<c:when test="${not empty user.userProfile}">
+								<img class="profile-img" src="/dango/user/display?userProfile=${user.userProfile}" alt="" />
+							</c:when>
+							<c:otherwise>
+								<img class="profile-img" src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" />
+							</c:otherwise>			
+						</c:choose>
 				    </button>
 				    <div class="dropdown-content">
 				        <a href="/dango/user/modify">마이페이지</a>

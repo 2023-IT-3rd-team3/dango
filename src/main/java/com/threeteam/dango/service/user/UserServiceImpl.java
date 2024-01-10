@@ -22,6 +22,16 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public UserVO findByUserId(String userId) {
+		return userDAO.findByUserId(userId);
+	}
+	
+	@Override
+	public Long countUserId(String userId) {
+		return userDAO.countUserId(userId);
+	}
+	
+	@Override
 	public void register(UserVO user) {
 		userDAO.register(user);
 	}

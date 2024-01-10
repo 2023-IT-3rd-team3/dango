@@ -9,6 +9,8 @@ import com.threeteam.dango.domain.user.UserVO;
 public interface UserDAO {
 
 	public UserVO login(UserVO user);
+	public UserVO findByUserId(String userId);
+	public Long countUserId(String userId);
 	public void register(UserVO user);
 	public boolean update(UserVO user);
 	public boolean remove(String id);

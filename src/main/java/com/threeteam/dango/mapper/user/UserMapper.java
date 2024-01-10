@@ -11,6 +11,8 @@ public interface UserMapper {
 
 	public void insert(UserVO login);
 	public UserVO select(UserVO login);
+	public UserVO selectByUserId(String userId);
+	public Long selectCountByUserId(String userId);
 	public int delete(String id);
 	public int update(UserVO user);
 	public String selectid(UserVO user);

@@ -10,6 +10,16 @@
 	SELECT *
 	FROM T_USER WHERE (USERID = #{userId}) AND (USERPW = #{userPw})
 	</select>
+	<select id="selectByUserId" resultType="userVO">
+	SELECT USERID, USERPW, USERNAME, USERPHONE, USEREMAIL, USERADMIN, USERREGISTERDATE, USERUPDATEDATE
+	FROM T_USER
+	WHERE USERID = #{userId}
+	</select>
+	<select id="selectCountByUserId" resultType="long">
+	SELECT COUNT(USERID)
+	FROM T_USER
+	WHERE USERID = #{userId}
+	</select>
 	<select id="selectid" resultType="string">
 	SELECT USERID
 	FROM T_USER WHERE USEREMAIL = #{userEmail} AND USERPHONE = #{userPhone}
@@ -24,7 +34,7 @@
 	</delete>
 	<update id="update">
 	UPDATE T_USER
-	SET USERNAME= #{userName}, USERPHONE= #{userPhone}, USEREMAIL= #{userEmail}, USERUPDATEDATE=SYSDATE
+	SET USERNAME= #{userName}, USERPHONE= #{userPhone}, USEREMAIL= #{userEmail}, USERPROFILE = #{userProfile}, USERUPDATEDATE=SYSDATE
 	WHERE USERID= #{userId}
 	</update>
 </mapper>

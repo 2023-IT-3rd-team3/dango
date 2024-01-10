@@ -74,7 +74,17 @@
 				${board.boardTitle}
 			</div>
 			<div class="postinfo">
-				<div class="postinfo_user">${board.userId}</div>
+				<div class="postinfo_user">
+					<c:choose>
+						<c:when test="${not empty board.userProfile}">
+							<img class="profile-img" src="/dango/user/display?userProfile=${board.userProfile}" alt="" />
+						</c:when>
+						<c:otherwise>
+							<img class="profile-img" src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" />
+						</c:otherwise>
+					</c:choose>
+					${board.userId}
+				</div>
 				<div class="postinfo_date">${board.boardRegisterDate}</div>
 			</div>
 			<hr style="margin: 10px;">
@@ -170,11 +180,14 @@
 			dataType:'json',
 			contentType: "application/json; charset=utf-8",
 			success: (result) => {
+				let userProfile = "${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg";
+				if(result.userProfile !== "")
+					userProfile = "/dango/user/display?userProfile=${board.userProfile}";
 				for(let i = 0; i < result.length; i++) {
 					let text1 = `
 								<div class="comment-normal-div">
 									<div class="comment-info">
-										<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result[i].userId + `</div>
+										<div><img src="` + userProfile + `" alt="">` + result[i].userId + `</div>
 										<div>` + result[i].commentRegisterDate + `</div>
 									</div>
 									<div class="comment-second-line">
@@ -233,10 +246,13 @@
 				success: (result) => {
 					console.log(result);
 					if(result !== null) {
+						let userProfile = "${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg";
+						if(result.userProfile !== "")
+							userProfile = "/dango/user/display?userProfile=${board.userProfile}";
 						let text1 = `
 									<div class="comment-normal-div">
 										<div class="comment-info">
-											<div><img src="${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg" alt="">` + result.userId + `</div>
+											<div><img src="` + userProfile + `" alt="">` + result.userId + `</div>
 											<div>` + result.commentRegisterDate + `</div>
 										</div>
 										<div class="comment-second-line">

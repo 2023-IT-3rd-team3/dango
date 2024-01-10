@@ -24,9 +24,10 @@
 		WHERE BOARDID=#{boardId}
 	</update>
 	
-	<select id="getBoard" resultType="boardVO">
-		SELECT * FROM T_BOARD 
-		WHERE BOARDID=#{boardId}
+	<select id="getBoard" resultType="boardDTO">
+		SELECT BOARDID, BOARDTITLE, b.USERID, BOARDMAIN, BOARDNOTICE, BOARDVIEWS, BOARDREGISTERDATE, BOARDUPDATEDATE, USERPROFILE
+		FROM T_BOARD b JOIN T_USER u ON b.USERID = u.USERID
+		WHERE BOARDID = #{boardId}
 	</select>	
 	
 	<select id="getBoardList" resultType="boardDTO">

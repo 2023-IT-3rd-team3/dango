@@ -20,4 +20,5 @@ public class BoardDTO {
 	private String searchCondition;
 	private String searchKeyword;
 	private int recommends;
+	private String userProfile;
 }

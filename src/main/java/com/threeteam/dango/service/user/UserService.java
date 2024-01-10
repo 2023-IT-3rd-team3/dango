@@ -10,6 +10,8 @@ import com.threeteam.dango.domain.user.UserVO;
 public interface UserService {
 
 	public UserVO login(String id,String pw);
+	public UserVO findByUserId(String userId);
+	public Long countUserId(String userId);
 	public void register(UserVO user);
 	public boolean update(UserVO user);
 	public boolean remove(String id);

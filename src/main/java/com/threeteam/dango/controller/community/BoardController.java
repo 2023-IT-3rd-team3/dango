@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.threeteam.dango.domain.check.CheckVO;
 import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.service.community.BoardService;
+import com.threeteam.dango.service.community.CommentService;
 import com.threeteam.dango.vo.community.BoardDTO;
 import com.threeteam.dango.vo.community.BoardVO;
 
@@ -32,6 +33,8 @@ public class BoardController {
 
 	@Autowired
 	BoardService boardService;
+	@Autowired
+	CommentService commentService;
 	
 	private UserVO getSessionUser(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -77,16 +80,18 @@ public class BoardController {
 	
 	@PostMapping("/boardDelete")
 	public String deleteBoard(BoardVO boardVO) {
+		commentService.deleteCommentAllByBoardId(boardVO.getBoardId());
 		boardService.deleteBoard(boardVO);
+		
 		return "redirect:/community/free";
 	}
 	
 	@GetMapping("/boardView/{boardId}")
-	public String BoardView(@PathVariable("boardId") Long boardId, BoardVO boardVO, Model model) {
-		boardVO = boardService.getBoard(boardId);
-		boardVO.setBoardViews(boardVO.getBoardViews() + 1);
-		boardService.viewsUpdate(boardVO);
-		model.addAttribute("board", boardVO);
+	public String BoardView(@PathVariable("boardId") Long boardId, BoardDTO boardDTO, Model model) {
+		boardDTO = boardService.getBoard(boardId);
+		boardDTO.setBoardViews(boardDTO.getBoardViews() + 1);
+		boardService.viewsUpdate(boardDTO);
+		model.addAttribute("board", boardDTO);
 		
 		return "community/CommunityPostPage";
 	}

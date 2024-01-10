@@ -122,23 +122,21 @@ public class UserController {
 	}
 	
 	@PostMapping("/myPage")
-	public String infomodify(UserVO user,HttpServletRequest request,Model model) {
+	public String infomodify(UserVO user,HttpServletRequest request,Model model, RedirectAttributes redirectAttributes) {
 		//占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占승댐옙
-		UserVO usercheck = getSessionUser(request);
 		
 		//usercheck占쏙옙 占쏙옙占쏙옙 占쏙옙 占쏙옙占싸뤄옙 占쏙옙占쏙옙 占쏙옙占쏙옙占�.
-		usercheck.setUserName(user.getUserName());
-		usercheck.setUserPhone(user.getUserPhone());
-		usercheck.setUserEmail(user.getUserEmail());
-		usercheck.setUserPw(user.getUserPw());
+		String message = "정보 수정을 실패하였습니다.";
 		
-		System.out.println(usercheck.toString());
-		
-		if(userservice.update(usercheck)) {
-			model.addAttribute("message","회원 정보 수정 완료");
+		if(userservice.update(user)) {
+			message = "정보 수정 완료!";
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 		}
 		
-		return "/user/myPage";
+		redirectAttributes.addFlashAttribute("message", message);
+		
+		return "redirect:/user/modify";
 	}
 	
 	@PostMapping("/regout")

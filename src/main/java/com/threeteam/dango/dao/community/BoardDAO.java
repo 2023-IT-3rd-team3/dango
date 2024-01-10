@@ -21,13 +21,13 @@ public class BoardDAO {
 	public void updateBoard(BoardVO boardVO) {
 		boardMapper.updateBoard(boardVO);
 	}
-	public void viewsUpdate(BoardVO boardVO) {
+	public void viewsUpdate(BoardDTO boardVO) {
 		boardMapper.viewsUpdate(boardVO);
 	}
 	public void deleteBoard(BoardVO boardVO) {
 		boardMapper.deleteBoard(boardVO);
 	}
-	public BoardVO getBoard(Long boardId) {
+	public BoardDTO getBoard(Long boardId) {
 		return boardMapper.getBoard(boardId);
 	}
 	public BoardVO getBoardInfo(BoardVO boardVO) {

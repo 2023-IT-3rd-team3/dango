@@ -36,14 +36,14 @@
         <form action="/dango/community/CommunitySearch" method="get">
         	<div class="search_banner">
         		<input class="search_bar" name="keyword" type="text" placeholder="게시글 검색하기" value="${keyword}"><input class="search_button" type="submit" value="🔍">
-                <a class="new_text">글쓰기</a>
+                <a class="new_text" href="/dango/community/boardInsert">글쓰기</a>
 	        </div>
 	    </form>
         <div class="announ_box">
             <div class="Postmenu">
                 <a class="Postmenu_m" href="/dango/community/notice">공지사항</a>
                 <a class="Postmenu_m" href="/dango/community/free">자유게시판</a>
-                <a class="Postmenu_m">스크랩</a>
+                <a class="Postmenu_m" href="/dango/scrap">스크랩</a>
             </div>
             <div class="CoummnityClass">
             	<c:choose>

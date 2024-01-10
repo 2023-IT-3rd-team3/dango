@@ -10,14 +10,14 @@ import com.threeteam.dango.vo.community.BoardVO;
 @Mapper
 public interface BoardMapper {
 
-	public BoardVO getBoard(Long board);
+	public BoardDTO getBoard(Long board);
 	public BoardVO getBoardInfo(BoardVO boardVO);
 	public List<BoardDTO> getBoardList(BoardDTO boardDTO);
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO);
 	public void insertBoard(BoardVO boardVO);
 	public void deleteBoard(BoardVO boardVO);
 	public void updateBoard(BoardVO boardVO);
-	public void viewsUpdate(BoardVO boardVO);
+	public void viewsUpdate(BoardDTO boardVO);
 
 	/* ----------- 寃��깋湲곕뒫 ----------- */
 	public List<BoardDTO> communitySearch(String keyword);

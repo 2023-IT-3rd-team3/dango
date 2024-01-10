@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.threeteam.dango.dao.community.CommentDAO;
+import com.threeteam.dango.vo.community.CommentDTO;
 import com.threeteam.dango.vo.community.CommentVO;
 
 @Service
@@ -23,6 +24,11 @@ public class CommentServiceImpl implements CommentService {
 	public int deleteComment(CommentVO commentVO) {
 		return commentDAO.deleteComment(commentVO);
 	}
+	
+	@Override
+	public void deleteCommentAllByBoardId(Long boardId) {
+		commentDAO.deleteCommentAllByBoardId(boardId);
+	}
 
 	@Override
 	public CommentVO getComment(CommentVO commentVO) {
@@ -30,7 +36,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public List<CommentVO> getCommentList(CommentVO commentVO) {
+	public List<CommentDTO> getCommentList(CommentVO commentVO) {
 		return commentDAO.getCommentList(commentVO);
 	}
 

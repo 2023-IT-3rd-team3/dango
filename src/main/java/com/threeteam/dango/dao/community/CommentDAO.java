@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.threeteam.dango.mapper.community.CommentMapper;
+import com.threeteam.dango.vo.community.CommentDTO;
 import com.threeteam.dango.vo.community.CommentVO;
 
 @Repository
@@ -23,6 +24,10 @@ public class CommentDAO {
 		return commentMapper.deleteComment(commentVO);
 	}
 	
+	public void deleteCommentAllByBoardId(Long boardId) {
+		commentMapper.deleteCommentAllByBoardId(boardId);
+	}
+	
 	public int updateComment(CommentVO commentVO) {
 		return commentMapper.updateComment(commentVO);
 	}
@@ -31,7 +36,7 @@ public class CommentDAO {
 	    return commentMapper.getComment(commentVO);
 	}
 	
-	public List<CommentVO> getCommentList(CommentVO commentVO){
+	public List<CommentDTO> getCommentList(CommentVO commentVO){
 		return commentMapper.getCommentList(commentVO);
 	}
 }

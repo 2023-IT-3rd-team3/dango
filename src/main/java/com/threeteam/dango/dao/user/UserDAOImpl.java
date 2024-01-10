@@ -19,6 +19,16 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	public UserVO findByUserId(String userId) {
+		return usermapper.selectByUserId(userId);
+	}
+	
+	@Override
+	public Long countUserId(String userId) {
+		return usermapper.selectCountByUserId(userId);
+	}
+	
+	@Override
 	public void register(UserVO user) {
 		usermapper.insert(user);
 	}

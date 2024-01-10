@@ -14,7 +14,7 @@
 </head>
 <body>
     <section>
-        <form action="/dango/user/register" method="post">
+        <form id="signup-form" action="/dango/user/register" method="post">
             <div id="logo-text">
                 <a id="logo" href="/dango/">
                     だんご🍡
@@ -25,6 +25,8 @@
                 <label for="id">아이디</label>
                 <input id="id" type="text" name="userId" placeholder="아이디" required>
                 <p id="id-p">아이디를 6자 이상으로 설정해주세요.</p>
+                <p id="id-no">사용 중인 아이디 입니다.</p>
+                <p id="id-yes">사용 가능한 아이디 입니다.</p>
             </div>
             <div class="input">
                 <label for="password">비밀번호</label>
@@ -56,6 +58,11 @@
             </div>
         </form>
     </section>
+    <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/static/js/user/signup.js"></script>
+    <script>
+        
+        
+    </script>
 </body>
 </html>

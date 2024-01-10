@@ -12,6 +12,7 @@
 		<typeAlias type="com.threeteam.dango.vo.community.BoardVO" alias="boardVO" />
 		<typeAlias type="com.threeteam.dango.vo.community.BoardDTO" alias="boardDTO" />
 		<typeAlias type="com.threeteam.dango.vo.community.CommentVO" alias="CommentVO" />
+		<typeAlias type="com.threeteam.dango.vo.community.CommentVO" alias="CommentDTO" />
 		<typeAlias type="com.threeteam.dango.vo.community.RecommendVO" alias="RecommendVO" />
 		<typeAlias type="com.threeteam.dango.vo.community.ReplyVO" alias="ReplyVO" />
 		<typeAlias type="com.threeteam.dango.vo.community.ScrapVO" alias="ScrapVO" />

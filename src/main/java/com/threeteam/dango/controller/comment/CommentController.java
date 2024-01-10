@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.threeteam.dango.service.community.BoardService;
 import com.threeteam.dango.service.community.CommentService;
+import com.threeteam.dango.vo.community.CommentDTO;
 import com.threeteam.dango.vo.community.CommentVO;
 
 @RestController
@@ -52,7 +53,7 @@ public class CommentController {
 	}
 	
 	@PostMapping(value="/getCommentList", consumes = "application/json", produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<List<CommentVO>> getCommentList(@RequestBody CommentVO commentVO) {
+	public ResponseEntity<List<CommentDTO>> getCommentList(@RequestBody CommentVO commentVO) {
 		return new ResponseEntity<>(commentService.getCommentList(commentVO), HttpStatus.OK);
 	}
 	

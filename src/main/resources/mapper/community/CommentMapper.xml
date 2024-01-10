@@ -14,7 +14,11 @@
 	<delete id="deleteComment">
 		DELETE FROM T_COMMENT 
 		WHERE COMMENTID=#{commentId}
-	</delete>	
+	</delete>
+	<delete id="deleteCommentAllByBoardId">
+		DELETE FROM T_COMMENT
+		WHERE BOARDID=#{boardId}
+	</delete>
 	
 	<update id="updateComment">
 		UPDATE T_COMMENT SET COMMENTMAIN=#{commentMain}, COMMENTUPDATEDATE=SYSDATE
@@ -26,8 +30,9 @@
 		WHERE COMMENTID=#{commentId}
 	</select>	
 	
-	<select id="getCommentList" resultType="CommentVO">
-		SELECT * FROM T_COMMENT 
+	<select id="getCommentList" resultType="CommentDTO">
+		SELECT COMMENTID, c.USERID, BOARDID, COMMENTMAIN, COMMENTREGISTERDATE, COMMENTUPDATEDATE, USERPROFILE
+		FROM T_COMMENT c JOIN T_USER u ON c.USERID = u.USERID
 		WHERE BOARDID = #{boardId}
 		ORDER BY COMMENTID DESC
 	</select>
