@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/search.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/dictionary/dictionaryFont.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/dictionary/dictionaryList.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/word/checkWord.css">
 </head>
@@ -30,11 +29,17 @@
                 </div>
             </div>
             <c:forEach var="word" items="${checkList}" end="10">
+            	<hr>
                 <div class="word">
-                    <a href="/dango/dictionary/{word.wordId}">N${word.wordLevel}&nbsp;${word.wordWord}</a>
-                    <p class="kanji">&nbsp;&nbsp;${word.wordFurigana}</p>
+                    <a class="wordgroup1" href="/dango/dictionary/${word.wordId}">
+                    	<p class="word-level">N${word.wordLevel}</p>
+                    	<p class="word-word">${word.wordWord}</p>
+                    </a>
+                    <div class="wordgroup2">
+                    	<p class="kanji">${word.wordFurigana}</p>
+                    	<p class="mean">${word.wordMean}</p>
+                    </div>
                 </div>
-                <p class="mean">${word.wordMean}</p>
             </c:forEach>
         </div>
         <div id="dictionary_area">
@@ -45,11 +50,17 @@
                 </div>
             </div>
             <c:forEach var="word" items="${recentList}" end="10">
+                <hr>
                 <div class="word">
-                    <a href="/dango/dictionary/{word.wordId}">N${word.wordLevel}&nbsp;${word.wordWord}</a>
-                    <p class="kanji">&nbsp;&nbsp;${word.wordFurigana}</p>
+                    <a class="wordgroup1" href="/dango/dictionary/${word.wordId}">
+                    	<p class="word-level">N${word.wordLevel}</p>
+                    	<p class="word-word">${word.wordWord}</p>
+                    </a>
+                    <div class="wordgroup2">
+                    	<p class="kanji">${word.wordFurigana}</p>
+                    	<p class="mean">${word.wordMean}</p>
+                    </div>
                 </div>
-                <p class="mean">${word.wordMean}</p>
             </c:forEach>
         </div>
     </div>

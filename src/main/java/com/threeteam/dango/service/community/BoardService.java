@@ -11,6 +11,9 @@ import com.threeteam.dango.vo.community.BoardVO;
 @Service
 public interface BoardService {
 
+	public Integer countAllByBoardNotice(BoardDTO boardDTO);
+	public Integer countBoardSearchResult(BoardDTO boardDTO);
+	
 	public void insertBoard(BoardVO boardVO);
 	public void updateBoard(BoardVO boardVO);
 	public void viewsUpdate(BoardDTO boardVO);
@@ -18,10 +21,11 @@ public interface BoardService {
 	public BoardDTO getBoard(Long boardId);
 	public BoardVO getBoardInfo(BoardVO boardVO);
 	public List<BoardDTO> getBoardList(BoardDTO boardVO);
+	public List<BoardDTO> getBoardFivePost(BoardDTO boardDTO);
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO);
 	
 	/* ----------- 寃��깋湲곕뒫 ----------- */
-	public List<BoardDTO> communitySearch(String keyword);
+	public List<BoardDTO> communitySearch(BoardDTO boardDTO);
 	
 	/* ----------- 愿�由ъ옄 愿��젴 ----------- */
 	// 愿�由ъ옄 泥댄겕

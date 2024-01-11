@@ -3,11 +3,11 @@
 <footer>
 	<div class="footer_Box">
 		<div id="footer-first-line">
-			<a id="footer-logo" href="">
+			<a id="footer-logo" href="/dango">
 				だんご🍡
 			</a>
 			<div id="service-link">
-				<a href="">공지사항</a>
+				<a href="/dango/community/notice">공지사항</a>
 				<a href="">서비스 소개</a>
 				<a href="">개인정보처리방침 및 이용약관</a>
 			</div>

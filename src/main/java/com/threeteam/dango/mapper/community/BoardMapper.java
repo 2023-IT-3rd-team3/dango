@@ -10,9 +10,13 @@ import com.threeteam.dango.vo.community.BoardVO;
 @Mapper
 public interface BoardMapper {
 
+	public Integer countBoardAll(BoardDTO boardDTO);
+	public Integer countBoardSearchResult(BoardDTO boardDTO);
+	
 	public BoardDTO getBoard(Long board);
 	public BoardVO getBoardInfo(BoardVO boardVO);
 	public List<BoardDTO> getBoardList(BoardDTO boardDTO);
+	public List<BoardDTO> getBoardFivePost(BoardDTO boardDTO);
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO);
 	public void insertBoard(BoardVO boardVO);
 	public void deleteBoard(BoardVO boardVO);
@@ -20,7 +24,7 @@ public interface BoardMapper {
 	public void viewsUpdate(BoardDTO boardVO);
 
 	/* ----------- 寃��깋湲곕뒫 ----------- */
-	public List<BoardDTO> communitySearch(String keyword);
+	public List<BoardDTO> communitySearch(BoardDTO boardDTO);
 	
 	/* --------- 愿�由ъ옄 愿��젴 --------- */
 	public boolean adminCheck(BoardVO boardVO);

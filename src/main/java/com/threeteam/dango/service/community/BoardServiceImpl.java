@@ -16,6 +16,15 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	BoardDAO boardDAO;
 	
+	@Override
+	public Integer countAllByBoardNotice(BoardDTO boardDTO) {
+		return boardDAO.countAllByBoardNotice(boardDTO);
+	}
+	@Override
+	public Integer countBoardSearchResult(BoardDTO boardDTO) {
+		return boardDAO.countAllByBoardNotice(boardDTO);
+	}
+	
 	// 寃뚯떆湲� 異붽�
 	@Override
 	public void insertBoard(BoardVO boardVO) {
@@ -57,14 +66,19 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
+	public List<BoardDTO> getBoardFivePost(BoardDTO boardDTO) {
+		return boardDAO.getBoardFivePost(boardDTO);
+	}
+	
+	@Override
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO){
 		return boardDAO.getBoardInfoList(boardVO);
 	}
 	
 	/* ----------- 寃��깋湲곕뒫 ----------- */
 	@Override
-	public List<BoardDTO> communitySearch(String keyword){
-		return boardDAO.communitySearch(keyword);
+	public List<BoardDTO> communitySearch(BoardDTO boardDTO){
+		return boardDAO.communitySearch(boardDTO);
 	}
 	
 	/* ----------- 愿�由ъ옄 愿��젴 ----------- */

@@ -33,46 +33,42 @@
 		<div id="conversation_view">
 			<h3>오늘의 회화</h3>
 			<div class="conversation_viewBox">
-				<h3>안녕하세요</h3>
+				<p>こんにちは</p>
 				<h3>뜻 : 안녕하세요</h3>
 			</div>
 		</div>
 		
 		<div id="jlptword_view">
-		<h2>오늘의 단어 <a href="#">▶</a></h2>
+			<div class="title-group">
+				<h2>오늘의 단어</h2>
+			</div>
 			<div class="jlptword_viewBox">
 				<div class="jlptword_viewBox1">
 					<h2>N1급</h2><br>
-					<div>
-						<h3>創立</h3>
-						<h3>そうりつ</h3>
-						<h3>창립</h3>
+					<div class="jlptword_group">
+						<p>創立</p>
+						<div>
+							<h3>そうりつ</h3>
+							<h3>창립</h3>
+						</div>
 					</div>
 				</div>
 				<div class="line"></div>
 				<div class="jlptword_viewBox2">
 					<h2>N2급</h2><br>
-					<div>
-						<h3>液体</h3>
-						<h3>えきたい</h3>
-						<h3>액체</h3>
+					<div class="jlptword_group">
+						<p>液体</p>
+						<div>
+							<h3>えきたい</h3>
+							<h3>액체</h3>
+						</div>
 					</div>
 				</div>
 		</div>
 	</div>
-	
-	<div id="community_view">
-		<div>
-			<h2>커뮤니티 <a href="/dango/community">▶</a></h2><br>
-			<div class="conversation_viewBox">
-				<h3>게시번호 &nbsp; &nbsp; &nbsp; &nbsp; 작성자 &nbsp; &nbsp; &nbsp; &nbsp; 글 제목 </h3>
-			</div>
-		</div>
-	</div>
-	
 	</div>
 </div>
-
+<div class="space"></div>
 <jsp:include page="../common/footer.jsp" />
 
 </body>

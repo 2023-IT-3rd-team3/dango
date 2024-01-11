@@ -28,21 +28,23 @@
             </div>
         </div>
         <c:if test="${empty recentList}">
-			<p id="no-check-msg">체크한 단어가 없습니다.</p>
+			<p id="no-check-msg">※ 최근 본 단어가 없습니다! ※</p>
 		</c:if>
-		<div id="dictionary_area">
-			
-			<c:forEach var="word" items="${recentList}">
-				<div class="voca">
-					<div class="word">
-						<p class="level">N${word.wordLevel}</p>
-						<a class="furigana" href="/dango/dictionary/${word.wordId}">${word.wordFurigana}</a>
-						<p class="kanji">【${word.wordWord}】</p>
-						<p class="mean">${word.wordMean}</p>
+		<c:if test="${not empty recentList}">
+			<div id="dictionary_area">
+				
+				<c:forEach var="word" items="${recentList}">
+					<div class="voca">
+						<div class="word">
+							<p class="level">N${word.wordLevel}</p>
+							<a class="furigana" href="/dango/dictionary/${word.wordId}">${word.wordFurigana}</a>
+							<p class="kanji">【${word.wordWord}】</p>
+							<p class="mean">${word.wordMean}</p>
+						</div>
 					</div>
-				</div>
-			</c:forEach>
-		</div>
+				</c:forEach>
+			</div>
+		</c:if>
 	</div>
 </section>
 <jsp:include page="../common/footer.jsp" />

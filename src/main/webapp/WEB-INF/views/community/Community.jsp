@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/footer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/search.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/community/community.css?after">
     
     <title>커뮤니티</title>
 </head>
@@ -22,10 +22,14 @@
 <jsp:include page="../common/header.jsp" />
 
     <div class="Commu_box">
-        <form action="/dango/community/CommunitySearch" method="get">
+        <form action="/dango/community/free" method="get">
         	<div class="search_banner">
                 <input class="search_bar" name="keyword" type="text" placeholder="게시글 검색하기">
-                <input class="search_button" type="submit">
+                <button class="search_button" type="submit">
+        			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+					  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+					</svg>
+        		</button>
                 <a class="new_text" href="/dango/community/boardInsert">글쓰기</a>
         	</div>
     	</form>

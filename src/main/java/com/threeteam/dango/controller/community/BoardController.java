@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.threeteam.dango.domain.check.CheckVO;
+import com.threeteam.dango.domain.common.PageDTO;
 import com.threeteam.dango.domain.user.UserVO;
 import com.threeteam.dango.service.community.BoardService;
 import com.threeteam.dango.service.community.CommentService;
@@ -46,9 +47,9 @@ public class BoardController {
 	@GetMapping("")
 	public String boardMain(BoardDTO boardVO, Model model) {
 		boardVO.setBoardNotice(1);
-		model.addAttribute("boardInfoList", boardService.getBoardList(boardVO));
+		model.addAttribute("boardInfoList", boardService.getBoardFivePost(boardVO));
 		boardVO.setBoardNotice(0);
-		model.addAttribute("boardList", boardService.getBoardList(boardVO));
+		model.addAttribute("boardList", boardService.getBoardFivePost(boardVO));
 		
 		return "community/Community";
 	}
@@ -104,22 +105,34 @@ public class BoardController {
 			boardVO.setBoardNotice(1);
 		else
 			return "redirect:/community";
+		Integer pageTotal = 0;
+		if(boardVO.getKeyword() != null) {
+			List<BoardDTO> boardList = boardService.communitySearch(boardVO);
+	        model.addAttribute("boardList", boardList);
+	        model.addAttribute("keyword", boardVO.getKeyword());
+	        pageTotal = boardService.countBoardSearchResult(boardVO);
+		} else {
+			model.addAttribute("category", boardCategory);
+			model.addAttribute("boardList", boardService.getBoardList(boardVO));
+			pageTotal = boardService.countAllByBoardNotice(boardVO);
+		}
 		
-		model.addAttribute("category", boardCategory);
-		model.addAttribute("boardList", boardService.getBoardList(boardVO));
+		
+		
+		model.addAttribute("pagination", new PageDTO().createPageDTO(boardVO.getPage(), pageTotal));
 		return "community/CommunityList";
 	}
 	
 	
 	/* ----------- 寃��깋湲곕뒫 ----------- */
-	@GetMapping("/CommunitySearch")
-	public String communitySearch(@RequestParam("keyword") String keyword, Model model) {
-		List<BoardDTO> boardList = boardService.communitySearch(keyword);
-        model.addAttribute("boardList", boardList);
-        model.addAttribute("keyword", keyword);
-        
-        return "community/CommunityList";
-	}
+//	@GetMapping("/CommunitySearch")
+//	public String communitySearch(@RequestParam("keyword") String keyword, Model model) {
+//		List<BoardDTO> boardList = boardService.communitySearch(keyword);
+//        model.addAttribute("boardList", boardList);
+//        model.addAttribute("keyword", keyword);
+//        
+//        return "community/CommunityList";
+//	}
 	
 	/* ----------- 愿�由ъ옄 ----------- */
 	// 愿�由ъ옄 泥댄겕

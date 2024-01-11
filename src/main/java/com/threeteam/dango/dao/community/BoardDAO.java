@@ -15,6 +15,13 @@ public class BoardDAO {
 	@Autowired
 	BoardMapper boardMapper;
 	
+	public Integer countAllByBoardNotice(BoardDTO boardDTO) {
+		return boardMapper.countBoardAll(boardDTO);
+	}
+	public Integer countBoardSearchResult(BoardDTO boardDTO) {
+		return boardMapper.countBoardSearchResult(boardDTO);
+	}
+	
 	public void insertBoard(BoardVO boardVO) {
 		boardMapper.insertBoard(boardVO);
 	}
@@ -36,13 +43,16 @@ public class BoardDAO {
 	public List<BoardDTO> getBoardList(BoardDTO boardVO) {
 		return boardMapper.getBoardList(boardVO);
 	}
+	public List<BoardDTO> getBoardFivePost(BoardDTO boardDTO) {
+		return boardMapper.getBoardFivePost(boardDTO);
+	}
 
 	public List<BoardVO> getBoardInfoList(BoardVO boardVO) {
 		return boardMapper.getBoardInfoList(boardVO);
 	}
 	
-	public List<BoardDTO> communitySearch(String keyword) {
-		 return boardMapper.communitySearch(keyword);
+	public List<BoardDTO> communitySearch(BoardDTO boardDTO) {
+		 return boardMapper.communitySearch(boardDTO);
 	}
 	
 	public boolean adminCheck(BoardVO boardVO) {

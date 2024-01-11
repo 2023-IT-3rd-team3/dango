@@ -1,6 +1,45 @@
 nav > a:nth-child(5) {
     color: rgb(255, 23, 68);
 }
+.notice-title {
+	display:flex;
+	flex-direction:row;
+	justify-content: space-between;
+	align-content: center;
+}
+.notice-title > p {
+	font-size: 15px ;
+	font-weight:bold ;
+	margin: auto 0 auto 70px;
+}
+.notice-check {
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-end;
+	padding: 15px 10px;
+}
+.notice-check input[type=radio]{
+    display: none;
+}
+.notice-check input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 36px;
+    border: 1px solid #d83b3b;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.notice-check input[type=radio]+label{
+    background-color: #fff;
+    color: #d83b3b;
+}
+.notice-check input[type=radio]:checked+label{
+    background-color: #d83b3b;
+    color: #fff;
+}
 .NewPostbox{
     margin:auto;
     margin-top:120px;

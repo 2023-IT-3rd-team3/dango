@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.threeteam.dango.domain.common.Criteria;
+
 import lombok.Data;
 
 @Component
@@ -21,4 +23,6 @@ public class BoardDTO {
 	private String searchKeyword;
 	private int recommends;
 	private String userProfile;
+	private Integer page = 1;
+	private String keyword;
 }

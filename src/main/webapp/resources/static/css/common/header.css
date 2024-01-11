@@ -62,6 +62,7 @@ nav > a:hover {
 #my-page > img {
 	width: 40px;
     border-radius: 100%;
+    border: 2px solid rgb(200, 200, 200);
 }
 .dropdown {
     position: relative;
