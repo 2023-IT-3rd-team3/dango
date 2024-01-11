@@ -27,13 +27,15 @@
    <div class="NewPostbox">
         <div class="NewPostmain">
             <form action="/dango/community/boardInsert" method="post">
-            	<div class="notice-title">
-            		<p>공지사항</p>
-            		<div class="notice-check">
-		           		<input type="radio" id="notice-on" name="boardNotice" value="1"><label for="notice-on">ON</label>
-		            	<input type="radio" id="notice-off" name="boardNotice" value="0" checked><label for="notice-off">OFF</label>
-		        	</div>
-            	</div>
+            	<c:if test="${user.userAdmin eq 'Y'}">
+	            	<div class="notice-title">
+	            		<p>공지사항</p>
+	            		<div class="notice-check">
+			           		<input type="radio" id="notice-on" name="boardNotice" value="1"><label for="notice-on">ON</label>
+			            	<input type="radio" id="notice-off" name="boardNotice" value="0" checked><label for="notice-off">OFF</label>
+			        	</div>
+	            	</div>
+            	</c:if>
 	            
 	            <div class="NewPostTitle">
 	                <input name="boardTitle" class="NewPostTitleText" type="text" placeholder="제목을 입력해 주세요.">

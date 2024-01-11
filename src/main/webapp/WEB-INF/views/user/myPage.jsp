@@ -96,9 +96,11 @@
 		})
 
 		function showUploadResult(userProfile) {
-			$($(".profile-img")[0]).attr("src",
+			let profileImg = $(".profile-img");
+			for(let i = 0; i < profileImg.length; i++) {
+			$($(".profile-img")[i]).attr("src",
 					"/dango/user/display?userProfile=" + userProfile);
-
+			}
 			$("#profile-path").val(userProfile);
 		}
 	</script>

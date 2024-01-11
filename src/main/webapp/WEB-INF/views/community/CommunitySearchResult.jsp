@@ -33,7 +33,7 @@
 <jsp:include page="../common/header.jsp" />
 
     <div class="Commu_box">
-        <form action="/dango/community/free" method="get">
+        <form action="/dango/community/CommunitySearch" method="get">
         	<div class="search_banner">
         		<input class="search_bar" name="keyword" type="text" placeholder="게시글 검색하기" value="${keyword}">
         		<button class="search_button" type="submit">
@@ -100,12 +100,12 @@
         </div>
     </div>
     <div id="paging">
-        <a class="start-page" href="/dango/community/${category}">
+        <a class="start-page" href="/dango/community/${category}?keyword=${keyword}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
             </svg>
         </a>
-        <a th:href="/dango/community/${category}?page=${pagination.prevNo}" class="prev">
+        <a th:href="/dango/community/${category}?page=${pagination.prevNo}&keyword=${keyword}" class="prev">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
             </svg>
@@ -114,55 +114,55 @@
         <c:if test="${pagination.page < 5}">
             <c:forEach var="i" begin="1" end="5">
             	<c:if test="${i < pagination.endPage}">            	
-                	<a class="change-page" href="/dango/community/${category}?page=${i}">${i}</a>
+                	<a class="change-page" href="/dango/community/${category}?page=${i}&keyword=${keyword}">${i}</a>
             	</c:if>
             </c:forEach>
             <c:if test="${pagination.endPage > 5}">
-	            <a href="/dango/community/${category}?page=${pagination.page + 3}">
+	            <a href="/dango/community/${category}?page=${pagination.page + 3}&keyword=${keyword}">
 	                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
 	                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 	                </svg>
 	            </a>
             </c:if>
-            <a href="/dango/community/${category}?page=${pagination.endPage}">${pagination.endPage}</a>
+            <a href="/dango/community/${category}?page=${pagination.endPage}&keyword=${keyword}">${pagination.endPage}</a>
         </c:if>
 
         <c:if test="${pagination.page >= 5 && pagination.page <= (pagination.endPage - 4)}">
-            <a class="change-page" href="/dango/community/${category}">1</a>
-            <a href="/dango/community/${category}?page=${pagination.page - 3}">
+            <a class="change-page" href="/dango/community/${category}?keyword=${keyword}">1</a>
+            <a href="/dango/community/${category}?page=${pagination.page - 3}&keyword=${keyword}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                 </svg>
             </a>
-            <a class="change-page" href="/dango/community/${category}?page=${pagination.page - 1}">${pagination.page - 1}</a>
-            <a class="change-page" href="/dango/community/${category}?page=${pagination.page}">${pagination.page}</a>
-            <a class="change-page" href="/dango/community/${category}?page=${pagination.page + 1}">${pagination.page + 1}</a>
-            <a class="change-page" href="/dango/community/${category}?page=${pagination.page + 3}">
+            <a class="change-page" href="/dango/community/${category}?page=${pagination.page - 1}&keyword=${keyword}">${pagination.page - 1}</a>
+            <a class="change-page" href="/dango/community/${category}?page=${pagination.page}&keyword=${keyword}">${pagination.page}</a>
+            <a class="change-page" href="/dango/community/${category}?page=${pagination.page + 1}&keyword=${keyword}">${pagination.page + 1}</a>
+            <a class="change-page" href="/dango/community/${category}?page=${pagination.page + 3}&keyword=${keyword}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                 </svg>
             </a>
-            <a href="/dango/community/${category}?page=${pagination.endPage}">${pagination.endPage}</a>
+            <a href="/dango/community/${category}?page=${pagination.endPage}&keyword=${keyword}">${pagination.endPage}</a>
         </c:if>
 
         <c:if test="${pagination.page > (pagination.endPage - 4) && pagination.endPage > 5}">
-        	<a class="change-page" href="/dango/community/${category}">1</a>
-            <a href="/dango/community/${category}?page=${pagination.page - 3}">
+        	<a class="change-page" href="/dango/community/${category}?keyword=${keyword}">1</a>
+            <a href="/dango/community/${category}?page=${pagination.page - 3}&keyword=${keyword}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                 </svg>
             </a>
         	<c:forEach var="i" begin="${pagination.endPage - 4}" end="${pagination.endPage}">
-                <a class="change-page" href="/dango/community/${category}?page=${i}">${i}</a>
+                <a class="change-page" href="/dango/community/${category}?page=${i}&keyword=${keyword}">${i}</a>
         	</c:forEach>
         </c:if>
 
-        <a href="/dango/community/${category}?page=${pagination.nextNo}" class="next">
+        <a href="/dango/community/${category}?page=${pagination.nextNo}&keyword=${keyword}" class="next">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
             </svg>
         </a>
-        <a class="end-page" href="/dango/community/${category}?page=${pagination.endPage}">
+        <a class="end-page" href="/dango/community/${category}?page=${pagination.endPage}&keyword=${keyword}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
             </svg>

@@ -22,7 +22,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public Integer countBoardSearchResult(BoardDTO boardDTO) {
-		return boardDAO.countAllByBoardNotice(boardDTO);
+		return boardDAO.countBoardSearchResult(boardDTO);
 	}
 	
 	// 寃뚯떆湲� 異붽�

@@ -107,20 +107,23 @@ public class BoardController {
 			return "redirect:/community";
 		Integer pageTotal = 0;
 		if(boardVO.getKeyword() != null) {
-			List<BoardDTO> boardList = boardService.communitySearch(boardVO);
-	        model.addAttribute("boardList", boardList);
+			model.addAttribute("category", boardCategory);
+	        model.addAttribute("boardList", boardService.communitySearch(boardVO));
 	        model.addAttribute("keyword", boardVO.getKeyword());
 	        pageTotal = boardService.countBoardSearchResult(boardVO);
+	        model.addAttribute("pagination", new PageDTO().createPageDTO(boardVO.getPage(), pageTotal));
+			
+	        return "community/CommunitySearchResult";
 		} else {
 			model.addAttribute("category", boardCategory);
 			model.addAttribute("boardList", boardService.getBoardList(boardVO));
 			pageTotal = boardService.countAllByBoardNotice(boardVO);
+			model.addAttribute("pagination", new PageDTO().createPageDTO(boardVO.getPage(), pageTotal));
+			
+			return "community/CommunityList";
 		}
 		
 		
-		
-		model.addAttribute("pagination", new PageDTO().createPageDTO(boardVO.getPage(), pageTotal));
-		return "community/CommunityList";
 	}
 	
 	

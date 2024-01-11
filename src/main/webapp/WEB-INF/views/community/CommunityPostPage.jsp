@@ -41,7 +41,7 @@
 					<div class="Posttype">자유게시판</div>
 				</c:if>
 				<div class="PostHeaderButtonGroup">
-					<c:if test="${board.userId eq user.userId}">
+					<c:if test="${board.userId eq user.userId || user.userAdmin eq 'Y'}">
 						<form action="/dango/community/boardDelete" method="post">
 							<input type="hidden" name="boardId" value="${board.boardId}">
 							<button type="submit" class="PostHeaderButtonRemove">삭제</button>
