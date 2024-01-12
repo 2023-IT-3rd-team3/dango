@@ -49,7 +49,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public String findpw(UserVO user) {
+	public Integer findpw(UserVO user) {
 		return usermapper.selectpw(user);
 	}
 }

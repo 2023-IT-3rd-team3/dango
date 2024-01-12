@@ -16,5 +16,5 @@ public interface UserService {
 	public boolean update(UserVO user);
 	public boolean remove(String id);
 	public String findid(UserVO user);
-	public String findpw(UserVO user);
+	public Integer findpw(UserVO user);
 }

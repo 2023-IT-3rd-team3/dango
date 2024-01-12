@@ -22,7 +22,7 @@
                 <p>일본어를 향한 첫 걸음!</p>
                 <p>단고</p>
             </div>
-          <form action="/dango/user/login" method="post">
+          <form id="login-form" action="/dango/user/login" method="post">
             <div class="input">
                 <label for="id">아이디</label>
                 <input id="id" name="id" type="text" placeholder="아이디">
@@ -47,11 +47,12 @@
             </div>
         </article>
     </section>
+    <script src="${pageContext.request.contextPath}/resources/static/js/jquery.min.js"></script>
 <script>
 	var target = document.querySelectorAll('.pop_open');
 	
-	var findID = "/dango/userfindId" ;
-	var findPW = "/dango/userfindPw" ;
+	var findID = "/dango/user/userfindId" ;
+	var findPW = "/dango/user/userfindPw" ;
 	var pop_option = "resizable=no, scrollbars=no, status=no, width=440px, height=640px, top=300px, left=240px, toolbar=no, menubar=no";
 	
 	for(var i = 0; i < target.length; i++){
@@ -65,6 +66,31 @@
 	      }
 	    });
 	  }
+	
+	let loginForm = document.getElementById("login-form");
+	loginForm.addEventListener("submit", function(e) {
+		e.preventDefault();
+		console.log($("#id").val())
+        $.ajax({
+            type: "post",
+            url: "/dango/user/restLogin",
+            data: JSON.stringify({   // data를 JSON 문자열로 변환
+                userId: $("#id").val(),
+                userPw: $("#password").val()
+            }),
+            contentType: "application/json; charset=utf-8",
+            success: (result) => {
+                if(result === "success") {
+                	location.href = "/dango";
+                } else {
+                    alert("아이디 혹은 비밀번호를 잘못 입력하였습니다.");
+                }
+            },
+            error: () => {
+                console.log("error");
+            }
+        })
+	})
 </script>
 </body>
 </html>

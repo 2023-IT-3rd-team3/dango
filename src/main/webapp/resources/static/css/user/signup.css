@@ -63,6 +63,9 @@ form {
     margin-top: 5px;
     display: none;
 }
+#id-yes {
+	color: blue;
+}
 #btn-group {
     margin-top: 20px;
     display: flex;

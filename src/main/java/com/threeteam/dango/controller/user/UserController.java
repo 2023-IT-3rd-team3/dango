@@ -1,5 +1,7 @@
 package com.threeteam.dango.controller.user;
 
+import java.util.Properties;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -164,39 +166,35 @@ public class UserController {
 		if(userVO != null)
 			return "redirect:/";
 		
-		return "/user/findPW" ;
+		return "/user/findPW";
 	}
 	
-	@GetMapping("/findID")
-	public String findid(String email,String phone,RedirectAttributes rttr) {
+	@PostMapping("/findID")
+	public String findid(String email,String phone,RedirectAttributes rttr, Model model) {
 		UserVO userinfo = new UserVO();
 		userinfo.setUserEmail(email);
 		userinfo.setUserPhone(phone);
 		if(userservice.findid(userinfo) != null) {
-			System.out.println(userservice.findid(userinfo));
 			rttr.addFlashAttribute("id",userservice.findid(userinfo));
 		}
 		else {
 			rttr.addFlashAttribute("namecheck","아이디 찾기 실패");
 		}
+		model.addAttribute("userId", userservice.findid(userinfo));
 		
-		
-		return "redirect:/dango/userfindId";
+		return "/user/findIdResult";
 	}
 	@GetMapping("/findPW")
-	public String findpw(String id,String phone,RedirectAttributes rttr) {
-		UserVO userinfo = new UserVO();
-		userinfo.setUserId(id);
-		userinfo.setUserPhone(phone);
-		if(userservice.findpw(userinfo) != null) {
-			System.out.println(userservice.findpw(userinfo));
-			rttr.addFlashAttribute("pw",userservice.findpw(userinfo));
+	public String findpw(UserVO userVO, RedirectAttributes rttr, Model model) {
+		Integer isUser = userservice.findpw(userVO);
+		int checkNum = -1;
+		if(isUser != 0) {
+			checkNum = (int)(Math.random() * 10000);
+			String email = userVO.getUserEmail();
+			
 		}
-		else {
-			rttr.addFlashAttribute("idcheck","비밀번호 찾기 실패");
-		}
-		
-		return "redirect:/user/userfindPw";
+		model.addAttribute("checkNum", checkNum);
+		return "/user/findPW";
 	}
 	
 //	@GetMapping()

@@ -13,7 +13,7 @@ public class CommentDTO {
 	private String commentMain;
 	private String userId;
 	private Long boardId;
-	private Date commentRegisterDate;
-	private Date commentUpdateDate;
+	private String commentRegisterDate;
+	private String commentUpdateDate;
 	private String userProfile;
 }

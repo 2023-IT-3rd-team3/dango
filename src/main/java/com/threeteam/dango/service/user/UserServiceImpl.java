@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public String findpw(UserVO user) {
+	public Integer findpw(UserVO user) {
 		return userDAO.findpw(user);
 	}
 

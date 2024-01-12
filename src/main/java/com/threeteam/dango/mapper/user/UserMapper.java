@@ -16,5 +16,5 @@ public interface UserMapper {
 	public int delete(String id);
 	public int update(UserVO user);
 	public String selectid(UserVO user);
-	public String selectpw(UserVO user);
+	public Integer selectpw(UserVO user);
 }

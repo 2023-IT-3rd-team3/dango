@@ -24,9 +24,10 @@
 	SELECT USERID
 	FROM T_USER WHERE USEREMAIL = #{userEmail} AND USERPHONE = #{userPhone}
 	</select>
-	<select id="selectpw" resultType="string">
-	SELECT USERPW
-	FROM T_USER WHERE USERID = #{userId} AND USERPHONE = #{userPhone}
+	<select id="selectpw" resultType="integer">
+	SELECT COUNT(USERID)
+	FROM T_USER
+	WHERE USERID = #{userId} AND USEREMAIL = #{userEmail}
 	</select>
 	<delete id="delete">
 	DELETE FROM T_USER

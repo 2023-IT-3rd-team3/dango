@@ -180,10 +180,11 @@
 			dataType:'json',
 			contentType: "application/json; charset=utf-8",
 			success: (result) => {
-				let userProfile = "${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg";
-				if(result.userProfile !== "")
-					userProfile = "/dango/user/display?userProfile=${board.userProfile}";
+				
 				for(let i = 0; i < result.length; i++) {
+					let userProfile = "${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg";
+					if(result[i].userProfile !== null)
+						userProfile = "/dango/user/display?userProfile=" + result[i].userProfile;
 					let text1 = `
 								<div class="comment-normal-div">
 									<div class="comment-info">
@@ -244,11 +245,11 @@
 				dataType:'json',
 				contentType: "application/json; charset=utf-8",
 				success: (result) => {
-					console.log(result);
 					if(result !== null) {
+						console.log(result);
 						let userProfile = "${pageContext.request.contextPath}/resources/static/image/profileDefault.jpg";
-						if(result.userProfile !== "")
-							userProfile = "/dango/user/display?userProfile=${board.userProfile}";
+						if(result.userProfile !== null)
+							userProfile = "/dango/user/display?userProfile=" + result.userProfile;
 						let text1 = `
 									<div class="comment-normal-div">
 										<div class="comment-info">

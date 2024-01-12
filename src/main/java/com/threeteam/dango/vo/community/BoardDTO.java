@@ -17,8 +17,8 @@ public class BoardDTO {
 	private String boardMain;
 	private int boardNotice;
 	private int boardViews;
-	private Date boardRegisterDate;
-	private Date boardUpdateDate;
+	private String boardRegisterDate;
+	private String boardUpdateDate;
 	private String searchCondition;
 	private String searchKeyword;
 	private int recommends;

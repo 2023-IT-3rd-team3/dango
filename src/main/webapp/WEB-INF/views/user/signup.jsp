@@ -54,7 +54,7 @@
             </div>
             <div id="btn-group">
                 <button id="signup-btn" type="submit">가입하기</button>
-                <a id="login-link" href="/user/loginPage">단고회원이신가요? <span class="red-font">로그인하러 가기</span></a>
+                <a id="login-link" href="/dango/user/login">단고회원이신가요? <span class="red-font">로그인하러 가기</span></a>
             </div>
         </form>
     </section>

@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.FileCopyUtils;
@@ -41,11 +44,18 @@ public class UserRestController {
     }
     @GetMapping(value="/idCheck")
     public String duplicateCheck(@RequestParam("userId") String userId) {
-    	System.out.println("==================================");
-    	System.out.println(userService.countUserId(userId));
-    	System.out.println("==================================");
     	if(userService.countUserId(userId) == 0)
     		return "success";
+    	return "fail";
+    }
+    @PostMapping(value="/restLogin", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+    public String loginCheck(@RequestBody UserVO userVO, HttpServletRequest request) {
+    	userVO = userService.login(userVO.getUserId(), userVO.getUserPw());
+    	if(userVO != null) {
+    		HttpSession session = request.getSession();
+    		session.setAttribute("user", userVO);
+    		return "success";
+    	}
     	return "fail";
     }
 }

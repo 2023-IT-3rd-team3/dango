@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인페이지</title>
+    <title>だんご🍡</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/common/reset.css">
@@ -44,7 +44,7 @@
                 </a>
             </div>
             <c:forEach var="board" items="${boardList}">            
-            <a class="textbox" href="/dango/community/${board.boardId}">
+            <a class="textbox" href="/dango/community/boardView/${board.boardId}">
                 <div class="textbox_title">${board.boardTitle}</div>
                 <div class="textbox_info">
                     <div style="margin-left: 10px;">${board.boardRegisterDate}</div>
